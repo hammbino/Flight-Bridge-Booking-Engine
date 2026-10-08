@@ -1,0 +1,67 @@
+---
+title: "Booking Engine: Project State"
+project: Flight Bridge Booking Engine
+status: Active
+owner: Jeffrey Hammond / Mauricio Melendez
+last_updated: 2026-10-07
+source_transcripts: [SV, PP, R1205, M0610, M0924, PARENT]
+tags: [project-state, booking-engine]
+---
+
+# Booking Engine Project State
+
+## Current Goal
+
+Ship **Phase 1 Book Now**: a lead form on the deal landing page that captures a subscriber's interest in a newsletter deal and routes it to an agent (DEC-BE-006, BE-FB-010). Then build **Phase 2**: real booking on our landing page over Sabre, with agent follow-up (DEC-BE-009).
+
+## Current Phase
+
+Phase 0: Foundation (pre-development). No booking engine code exists yet. See `roadmap.md` for phase definitions (disputed, CONF-BE-004).
+
+## Overall Health
+
+**Not started, direction mostly clear.** The product direction is consistent across sources: newsletter first, booking tool next, B2B later. The blockers are concrete decisions, not unknown direction. Several older decisions were corrected on 2026-10-07 (see `migration-notes.md`).
+
+## Completion Estimate
+
+Unknown. Partners targeted "everything up and running within two years" (R1205 00:02:17). No dates are set for Phase 1 or 2 (Q-BE-009).
+
+## Current Blockers
+
+1. **Where Phase 1 leads go:** Denise's inbox, Mauricio via Victor, or info@ (Q-BE-010, CONF-BE-007). Blocks Phase 1.
+2. **Token schema** for deal links (Q-BE-007). Blocks form prefill.
+3. **Database choice** (Q-BE-003). Blocks Phase 2.
+4. **Sabre integration method** (Q-BE-004). Blocks Phase 2.
+5. **Payment path** for self-bookings (MI-BE-006, CONF-BE-005). Blocks Phase 2.
+
+## Critical Decisions Pending
+
+- Q-BE-018: official phase numbering and order
+- Q-BE-010: Phase 1 lead destination
+- Q-BE-003 / Q-BE-004: database and Sabre method
+- Q-BE-008: does the booking engine or the CRM own PNR import?
+- DEC-BE-002, DEC-BE-003, DEC-BE-012: marked Needs Review
+
+## Next Milestone
+
+Phase 1 Book Now live on newsletter deals. Relevant timing: the newsletter Basic (flights) tier goes live the first week of November 2026 (PARENT DEC-NL-017). Whether Phase 1 must be live by then has not been stated.
+
+## Immediate Next Actions
+
+1. Jeff and Mauricio settle where Book Now leads go (Q-BE-010).
+2. Jeff confirms the phase numbering (Q-BE-018).
+3. Jeff defines the deal-link token schema, working with Kit emails (Q-BE-007).
+4. Build and test the Phase 1 lead form (BE-FB-010).
+5. Jeff researches the Sabre integration options, including Sabre's AI MCP (Q-BE-004, BE-FB-013).
+6. Jeff decides SQL vs NoSQL and records it (Q-BE-003).
+7. Get Mauricio's wireframes into this repo (MI-BE-008).
+
+## Recent Changes
+
+- **2026-10-07:** repo split from the parent Flight-Bridge repo. All transcripts re-read for booking content. The 06-10 and 09-24 meetings' booking content was captured for the first time (DEC-BE-006 to 009, REQ-BE-008 to 012). DEC-BE-002, 003 and 005 were corrected against their transcript. See `migration-notes.md`.
+- **2026-09-30:** newsletter free tier launched (PARENT)
+- **2026-09-24:** Book Now Phase 1 / Phase 2 defined; build order and agency model agreed (M0924)
+
+## Last Review Date
+
+2026-10-07

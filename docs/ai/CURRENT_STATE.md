@@ -1,0 +1,24 @@
+# Current State
+
+## Current Status
+
+Repo created 2026-10-07 by splitting the Booking Engine out of the parent Flight-Bridge repo. Documentation only. No code yet.
+
+The newsletter (parent repo) launched its free tier 2026-09-30. Basic (flight deals) goes live about the first week of November 2026, and VIP (packages) about early December 2026 (PARENT DEC-NL-017). Those deals are the main traffic source for this engine.
+
+## In Progress
+
+Nothing. Waiting on Jeffrey's review of the split (`docs/booking-engine/migration-notes.md`).
+
+## Important Files
+
+- `docs/booking-engine/project-state.md`: full status and blockers
+- `docs/booking-engine/migration-notes.md`: what changed in the split, including corrections to review
+- `docs/booking-engine/roadmap.md`: phases (numbering disputed, CONF-BE-004)
+- `docs/booking-engine/open-questions.md`: what blocks what
+
+## Blockers
+
+- Q-BE-010: where Phase 1 Book Now leads go (blocks Phase 1)
+- Q-BE-007: deal-link token schema
+- Q-BE-003 / Q-BE-004: database and Sabre method (block Phase 2)
