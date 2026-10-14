@@ -3,7 +3,7 @@ title: "Book Now Launch: Design"
 project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Jeffrey Hammond
-last_updated: 2026-10-13
+last_updated: 2026-10-14
 source_transcripts: [M0610, M0924, M1008P, EM, PARENT]
 tags: [spec, phase-1, book-now, deal-links, kit, launch]
 ---
@@ -29,9 +29,9 @@ A subscriber opens this week's free deal email, clicks **Book Now**, and lands o
 - This week's first free deal email in Kit, with a working Book Now button
 - An end-to-end test
 
-**Out:** the bookable engine (on hold until the ARC transfer, DEC-BE-015), Black Friday setup in Kit, list growth, the Viktor-to-Claude move. Also out for tomorrow:
+**Out:** the bookable engine (on hold until the ARC transfer, DEC-BE-015), Black Friday setup in Kit, list growth, the Viktor-to-Claude move. Also out for today:
 - **Social post of the free deal** with Book Now and Join Email List buttons (PARENT REQ-NL-005). The same Book Now link works there, so Mauricio can post it any time.
-- **Tagging these leads to Flight Bridge in JourneyFuse** (DEC-BE-016), unless Mauricio can set it up tomorrow. Every request email has the subject prefix "Book Now request", so these leads can be found and tagged later.
+- **Tagging these leads to Flight Bridge in JourneyFuse** (DEC-BE-016), unless Mauricio can set it up today. Every request email has the subject prefix "Book Now request", so these leads can be found and tagged later.
 
 ## 3. Choices made, and why
 
@@ -40,7 +40,7 @@ Each was compared against at least two others. The rule: the cheapest option tha
 | Choice | Picked | Compared against | Why |
 |--------|--------|------------------|-----|
 | Lead inbox | info@flytraverse.com | info@traversetours.com | It is the address on Traverse's website. traversetours.com belongs to an unrelated company (CONF-BE-011). |
-| Link domain | `deals.flight-bridge.com/traverse-tours/` | `deals.traversetours.flight-bridge.com`; `book.flytraverse.com`; a page inside the Duda site | Jeff controls flight-bridge.com. One setup serves every future agency (new agency = new folder). `traversetours.flight-bridge.com` is excluded because it carries the newsletter's email records. |
+| Link domain | `deals.flight-bridge.com/traverse-tours/` | `deals.traversetours.flight-bridge.com`; `book.flytraverse.com`; a page inside the Duda site | Jeff controls flight-bridge.com. One setup serves every future agency (new agency = new folder). `traversetours.flight-bridge.com` is excluded because it carries the newsletter's email records. Note: `ui-notes.md` says there is no public Flight Bridge consumer site. The page itself is fully Traverse-branded; the address bar is the only place "flight-bridge" shows, which Jeff accepted for repeatability (2026-10-13). |
 | Form and page | Our own page + Web3Forms | Tally free; Tally Pro ($29/mo); Formspree; Fillout; Google Forms; Kit; Beehiiv | The only $0 option that keeps Traverse branding, keeps the customer on our domain, and emails each request to any inbox. Web3Forms Pro (~$12/mo, 10,000 a month) is the upgrade if needed. Formspree's free tier (50 a month) is too small for Black Friday. |
 | Hosting | GitHub Pages | Cloudflare Pages; Netlify | $0, Jeff is already signed in to GitHub here, and publishing is a `git push`. It needs a public repo, which is fine: the page holds no secrets (the Web3Forms key is designed to be public). |
 | Making a weekly link | A small link-builder page next to the Book Now page | Hand-editing a template link; a Google Sheet formula | Mauricio or Jeff types the deal into boxes and copies the link. No URL editing, no accounts, hard to get wrong. |
@@ -59,20 +59,22 @@ If the link is missing details or broken, the page still works. The deal box is 
 
 ## 5. The pieces
 
-**5.1 Book Now page.** First step, before any page code: get the full-resolution Traverse logo (the file PARENT DEC-NL-028 cropped from) and check the colors against flytraverse.com. Then one HTML file with its style and a little script, in folder `traverse-tours/`. Colors, fonts and logo come from Traverse's live brand (the Kit page set in PARENT DEC-NL-028: `#4E6A6A`, `#F2EEE6`, `#66857B`, Fraunces and Instrument Sans), checked against flytraverse.com during the build. It works on a phone first, since most people open email on a phone.
+**5.1 Book Now page.** First step, before any page code: pull the real brand assets from flytraverse.com (`ui-notes.md`): Traverse's logo file from the flytraverse.com image CDN (1920x476 transparent PNG, made for a dark band, never a cropped screenshot), and a small "powered by Flight Bridge" badge from the Flight Bridge brand guide. Then one HTML file with its style and a little script, in folder `traverse-tours/`. Colors and fonts match the live Traverse pages: slate teal `#4E6A6A`, sage `#66857B`, cream `#F2EEE6`, Fraunces headings, Instrument Sans body (`ui-notes.md`, PARENT DEC-NL-028). No stock photos or made-up stats. It works on a phone first, since most people open email on a phone.
 
-**5.2 Link builder.** `traverse-tours/build.html`. Boxes for: deal ID, flight or package, from, to, depart date, return date, price. It shows the finished link with a Copy button and a "Test this link" button.
+Copy says exactly what happens (`ui-notes.md`): the button reads **Send my request**, and the page says a Traverse agent will email them to confirm the trip and the price. When "My dates are different" is ticked, the page says the agent will confirm the price for the new dates (RISK-BE-006).
 
-**5.3 Hosting and domain.** A new public GitHub repo (`flight-bridge-deals`) published with GitHub Pages. One DNS record in GoDaddy: `deals` CNAME to `hammbino.github.io`. HTTPS is turned on in GitHub Pages.
+**5.2 Link builder.** `traverse-tours/build.html`. Boxes for: flight or package, from, to, depart date, return date, price per person, and a short title (for package deals, `deal-links.md`). The deal ID is filled in automatically from the month and route (for example `2026-10-slc-cun`). It shows the finished link with a Copy button and a "Test this link" button.
 
-**5.4 Form service.** Web3Forms free plan. The access key is created for info@flytraverse.com, so the key arrives in that inbox once. Spam protection: Web3Forms' hidden honeypot field.
+**5.3 Hosting and domain.** A new public GitHub repo (`flight-bridge-deals`) published with GitHub Pages. One DNS record in GoDaddy: `deals` CNAME to `hammbino.github.io`. HTTPS is turned on in GitHub Pages once the certificate is issued. The domain is also verified in Jeff's GitHub settings, so nobody else can claim `deals.flight-bridge.com` on GitHub Pages.
 
-**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). Reply-to is set to the customer's email, so an agent can just hit Reply (confirm during the build that Web3Forms does this). Whether Viktor recognizes it as a lead is unknown until the test (section 8).
+**5.4 Form service.** Web3Forms free plan. Jeff enters info@flytraverse.com at web3forms.com to create the access key. The key is emailed to that inbox, and Jeff asks Mauricio to send it over (Jeff, 2026-10-14). Spam protection: Web3Forms' hidden honeypot field.
 
-**5.6 This week's deal email.** A Kit broadcast to the `landing-page-confirmed` tag only (Jeff, 2026-10-13), in the existing "Text only" template: the featured destination content (REQ-NL-002 format), this week's deal, and the Book Now button. Mauricio approves before it sends (DEC-NL-013). Two newsletter rules apply: no mention of paid tiers or upgrades before November (PARENT DEC-NL-017), and the deal is re-checked on send day against its verification block (source link, price seen, time checked; PARENT RISK-NL-007).
+**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). Reply-to is set to the customer's email, so an agent can just hit Reply. Confirm during the build that Web3Forms supports the custom subject and reply-to on the free plan. Whether Viktor recognizes it as a lead is unknown until the test (section 8).
+
+**5.6 This week's deal email.** A Kit broadcast to the `landing-page-confirmed` tag only (Jeff, 2026-10-13), in the existing "Text only" template: the featured destination content (PARENT REQ-NL-002 format: destination, info, tip), this week's deal, and the Book Now button (a clear link if the template has no button block). Claude drafts it from Mauricio's deal; Mauricio edits and approves before it sends (PARENT DEC-NL-013). Two newsletter rules apply: no mention of paid tiers or upgrades before November (PARENT DEC-NL-017), and the deal is re-checked on send day against its verification block (source link, price seen, time checked; PARENT RISK-NL-007).
 
 **5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com, and replies to it land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. A subscriber who hits Reply instead of Book Now would be a missed lead. Options:
-- **Forwarding rule in owner@'s Gmail** (picked): mail sent to deals@ is forwarded to info@flytraverse.com. $0, one rule, nothing changes in Kit. Gmail needs info@ to confirm the forwarding once, so Mauricio clicks one link.
+- **Forwarding rule in owner@'s Gmail** (picked): a filter for mail sent to deals@traversetours.flight-bridge.com forwards it to info@flytraverse.com. $0, one rule, nothing changes in Kit. Gmail sends a confirmation to info@ once, so Mauricio sends Jeff the code or clicks the link. If the Google Workspace admin settings block automatic forwarding, Jeff (as admin) allows it or adds the same rule as an admin routing rule.
 - Change Kit's reply-to to info@flytraverse.com. Not confirmed that Kit allows a reply-to different from the sender.
 - Do nothing and tell readers to use the button. Replies would still be missed.
 
@@ -86,21 +88,22 @@ This follows `deal-links.md` with one change: the deal ID moves from the path in
 
 ## 7. Weekly checklist (repeatable)
 
-1. Mauricio approves this week's deal.
-2. On send day, re-check the deal against its verification block. Pull it if the price is gone.
-3. Open the link builder, fill in the deal, copy the link.
-4. Paste it as the Book Now button link in the Kit email. No paid-tier mention before November.
-5. Send a Kit test to yourself, click the button on a phone, check the deal shows correctly.
-6. Mauricio approves, then the email is scheduled.
+1. Mauricio sends this week's deal: route, dates, price per person, and where he found it.
+2. Claude drafts the email (destination, info, tip, the deal). Mauricio edits.
+3. On send day (Wednesday), re-check the deal against its verification block. Pull it if the price is gone.
+4. Open the link builder, fill in the deal, copy the link.
+5. Paste it as the Book Now link in the Kit email. No paid-tier mention before November.
+6. Send a Kit test to yourself, click the link on a phone, check the deal shows correctly.
+7. Mauricio approves, then the email is sent to the `landing-page-confirmed` tag.
 
 New agency later: copy the `traverse-tours/` folder, change logo, colors and inbox key.
 
-## 8. Tomorrow (Wed 2026-10-14)
+## 8. Today (Wed 2026-10-14)
 
 | When | Who | Step |
 |------|-----|------|
 | Morning | Mauricio | Sends this week's deal: route, dates, price, and where he found it. Claude drafts the destination content from it |
-| Morning | Mauricio | Creates the Web3Forms key for info@flytraverse.com (or forwards the key email) |
+| Morning | Jeff, then Mauricio | Jeff creates the Web3Forms key for info@flytraverse.com; Mauricio sends Jeff the key from that inbox |
 | Morning | Claude | Builds the page and link builder, creates the repo, publishes to GitHub Pages |
 | Morning | Jeff | Adds the `deals` CNAME in GoDaddy (Claude gives the exact values) |
 | Morning | Jeff + Mauricio | Gmail forwarding rule: mail to deals@ forwards to info@flytraverse.com. Mauricio confirms the forwarding link (5.7) |
@@ -109,7 +112,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Afternoon | Mauricio | Approves the email. It sends. |
 | After | Claude | Records the decisions in both repos (form stack, link format change, BE-FB-010 status) |
 
-**Human-only steps:** the GoDaddy DNS record (browser login), the Web3Forms key (needs the info@ inbox), deal content and send approval (Mauricio), confirming the lead arrived (Mauricio). Everything else is done by Claude.
+**Human-only steps:** the GoDaddy DNS record and GitHub domain verification (Jeff, browser login); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the Gmail forwarding rule (Jeff) and its confirmation (Mauricio); the deal and send approval (Mauricio); confirming the lead arrived (Mauricio). Everything else is done by Claude.
 
 ## 9. Requirements check
 
@@ -121,7 +124,8 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Email only, no phone (M1008P L910-920) | No phone field or option |
 | Goes to info@flytraverse.com, watched by Mauricio and Viktor (Q-BE-010, CONF-BE-011) | Web3Forms emails that inbox |
 | Lands on our page, not the airline or Google Flights (REQ-BE-011) | Hosted on deals.flight-bridge.com |
-| "Traverse Tours powered by Flight Bridge", real brand assets (PARENT DEC-NL-009, ui-notes) | Traverse colors, fonts, logo |
+| "Traverse Tours powered by Flight Bridge", real brand assets (PARENT DEC-NL-009, ui-notes) | Traverse colors, fonts, real logo file, powered-by badge |
+| CTA says an agent follows up; agent confirms price on new dates (ui-notes, RISK-BE-006) | Section 5.1 copy |
 | Links on a domain we control, versioned (RISK-BE-007) | Our domain, `v=1` |
 | Works from social posts too (IMP-BE-010) | Nothing depends on Kit; any shared link works |
 | Package deals supported (Black Friday package 2026-11-30) | `type=package` in v1 |
@@ -144,6 +148,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 - **Requests pass 250 in a month.** Check the count mid-November and move to Web3Forms Pro (~$12/mo) before 2026-11-25 if needed.
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS takes time to update.** GitHub Pages usually works within an hour. If not ready by midday, the test uses the GitHub address and the email waits for the real one.
+- **Viktor is replaced by a Claude setup** (RISK-BE-017, planned around the week of 2026-10-19). The new setup must also watch info@flytraverse.com and recognize "Book Now request" emails. Re-run the test after the switch.
 - **Request emails land in Junk on Microsoft 365.** Caught by the test; Mauricio adds an allow rule.
 - **Deal content is not ready from Mauricio.** The page can launch without it. The email goes out when the deal is approved.
 
@@ -151,4 +156,6 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 
 1. ~~Who receives this week's deal email?~~ **Answered 2026-10-13:** only people who actually signed up (Kit tag `landing-page-confirmed`, about 8 people including Jeff's own test sign-up). Not the 1,338 imported contacts.
 2. ~~Who writes this week's destination content?~~ **Answered:** Claude drafts it, Mauricio edits and approves (Jeff, 2026-10-14). Mauricio sends the deal: route, dates, price, and where he found it.
-3. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
+3. **Pre-filling the subscriber's own name and email** from Kit (`deal-links.md` open item 2). Proposed: not in v1. It would put email addresses in links, and the list is about 8 people. Say if you want it.
+4. **Price is per person, in USD.** Assumed from the notes (`deal-links.md` open item 4). Mauricio confirms when he sends the deal.
+5. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
