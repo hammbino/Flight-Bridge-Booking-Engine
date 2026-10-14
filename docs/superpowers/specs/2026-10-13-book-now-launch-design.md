@@ -78,14 +78,14 @@ Order matters: the site is tested at its github.io address first. The custom dom
 
 **5.4 Form service.** Web3Forms free plan. Jeff enters info@flytraverse.com at web3forms.com to create the access key. The key is emailed to that inbox, and Mauricio sends it to Jeff (Jeff, 2026-10-14). On the free plan the page can set the email subject, and the customer's email becomes the reply-to automatically (Web3Forms docs). Spam protection: Web3Forms' hidden honeypot field.
 
-**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. It always starts with "Book Now request" (so these leads can be found later, DEC-BE-016). Viktor's lead words (Mauricio supplies them, section 8) are added to the subject, never in place of that prefix. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). The agent hits Reply to answer the customer.
+**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe, jane@example.com)`. The customer's email is in the subject as well as Reply-To and the body, because the From address is always Web3Forms'. It always starts with "Book Now request" (so these leads can be found later, DEC-BE-016). Viktor's lead words (Mauricio supplies them, section 8) are added to the subject, never in place of that prefix. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). The agent hits Reply to answer the customer.
 
 **5.6 This week's deal email.** Built by Claude through the Kit API (Kit's editor rejects browser automation, PARENT KNOWN_ISSUES 2026-09-29; PARENT DEC-NL-019). It starts from the 09-30 broadcast's HTML in the "Text only" template: the slate teal logo band and the sage HTML button (PARENT DEC-NL-021). Content: the featured destination (PARENT REQ-NL-002 format: destination, info, tip), this week's deal with "as found on [date], subject to change", and the Book Now button. Claude drafts from Mauricio's deal and updates the draft through the API. Kit's API has no test-send, so Jeff presses Send test in Kit. Mauricio reviews the test and replies with changes; Claude applies them through the API. Nothing sends without his written OK, and Jeff presses Send (PARENT DEC-NL-013, automation.md). No mention of paid tiers or upgrades before November (PARENT DEC-NL-017).
 
 Recipients: a Kit segment of everyone subscribed to either signup form (9964131, 9958519). Jeff creates it once in Kit. It stays current by itself. Fallback if the free plan has no segments: Claude adds the `landing-page-confirmed` tag to every form sign-up through the API before each send, and sends to the tag.
 
 **5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com. Replies land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. Options compared:
-- **This week (picked):** Jeff reads owner@ anyway and forwards any reply to info@ by hand. Nothing to set up; 9 recipients.
+- **This week (picked):** Jeff reads owner@ anyway and forwards any reply to info@ by hand, with the subject `Deal reply from <customer email>`. A forwarded reply comes from owner@, not the customer, so Viktor may not treat it as a lead; a person at info@ answers these. Nothing to set up; 9 recipients.
 - **After launch:** a Gmail filter on owner@ forwards mail sent to deals@ to info@flytraverse.com. $0, one rule. Gmail sends a confirmation to info@ once, which Mauricio passes on. If Google Workspace blocks automatic forwarding, Jeff (as admin) allows it. Auto-replies and out-of-office mail would also be forwarded; Viktor should ignore them.
 - Change Kit's reply-to: not confirmed Kit allows a reply-to different from the sender.
 
@@ -116,8 +116,8 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 **First thing, one message to Mauricio** (Jeff sends; Claude drafts it). It asks for:
 1. This week's deal: route, dates, price per person, where and when he found it.
 2. The Web3Forms key email, once Jeff creates it. Check Junk and Quarantine (info@ is on Microsoft 365).
-3. The words Viktor looks for in lead emails, and where Viktor takes the customer's email address from (the From line, Reply-To, or the email body). Web3Forms sends from its own address; the customer's email is only in Reply-To and the body.
-4. OK for replies to deal emails to be forwarded to info@ (PARENT CONF-NL-005).
+3. The words Viktor looks for in lead emails, and where Viktor takes the customer's email address from. Web3Forms always sends from its own address, which cannot be changed. The customer's email will be in Reply-To, the body, and the subject. If Viktor reads only the From line, that needs a change on Viktor's side (pointing it at Reply-To or the body).
+4. OK for replies to deal emails to be forwarded to info@ (PARENT CONF-NL-005). This week Jeff forwards them by hand with the subject "Deal reply from <customer email>"; they come from owner@, so a person answers them.
 5. Is he available today for the test and the approval?
 
 | When | Who | Step |
@@ -125,7 +125,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. At github.com/settings/pages, adds `deals.flight-bridge.com` and copies the TXT record GitHub shows. In one GoDaddy visit, adds that TXT record and the `deals` CNAME (Claude gives the CNAME value). Clicks Verify on the GitHub page once the TXT record is live. Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback).  |
 | Morning | Claude | Pulls brand assets. Builds the page and link builder. Creates the repo and publishes to GitHub Pages at the github.io address. |
 | Morning | Mauricio | Sends the deal, the key, Viktor's keywords, and his OK on replies. |
-| Midday | Claude | Puts in the Web3Forms key and Viktor's lead words (and places the customer's email where Viktor reads it, if Mauricio's answer requires it), before the end-to-end test. Switches on the custom domain once DNS resolves, then HTTPS. Drafts the Kit email through the API, with the real link. |
+| Midday | Claude | Puts in the Web3Forms key and Viktor's lead words, before the end-to-end test. The From address cannot be changed (Web3Forms sends from its own address); the customer's email goes in Reply-To, the body and the subject. Switches on the custom domain once DNS resolves, then HTTPS. Drafts the Kit email through the API, with the real link. |
 | Midday | Jeff + Claude | Jeff presses Send test in Kit, to Mauricio and himself. Claude applies Mauricio's changes through the API, and Jeff sends a fresh test, until he is happy. |
 | Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead with the test customer's email address, not the Web3Forms address. Also test a broken link. Reply to the test email and confirm the reply reaches owner@. |
 | Afternoon | Mauricio, then Jeff | Mauricio re-checks the deal against its source (send day). If the price or dates changed, Claude rebuilds the link and updates the draft, Jeff sends a new test and re-clicks the button. Then Mauricio gives his written OK on the final test. Jeff presses Send in Kit. Any change after the OK needs a new OK. |
@@ -167,7 +167,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 
 ## 10. Risks and fallbacks
 
-- **Viktor does not pick up the request email.** Caught by the test. Mauricio handles requests by hand while the email format is adjusted (subject words, or putting the customer's email where Viktor reads it). Re-test whenever lead handling changes, and again before 2026-11-25.
+- **Viktor does not pick up the request email.** Caught by the test. Mauricio handles requests by hand while it is fixed: subject words on our side, or, if Viktor reads only the From line, pointing Viktor at Reply-To or the body on Viktor's side (the From address cannot be changed). Re-test whenever lead handling changes, and again before 2026-11-25.
 - **Requests pass 250 in a month.** Check the count mid-November and move to Web3Forms Pro (~$12/mo) before 2026-11-25 if needed.
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS or HTTPS is slow.** The CNAME goes in first thing. If `https://deals.flight-bridge.com` is not working by mid-afternoon, the email waits; the links must use the real domain, because sent emails cannot be changed.
