@@ -31,11 +31,10 @@ A subscriber opens this week's free deal email, clicks **Book Now**, and lands o
 
 **Out today:**
 - The bookable engine (on hold until the ARC transfer, DEC-BE-015)
-- Black Friday setup in Kit, list growth (scope C, not chosen). A one-line Black Friday teaser is open item 1.
+- Black Friday setup in Kit, list growth (scope C, not chosen), and any Black Friday teaser this week (Jeff, 2026-10-14).
 - **Social post of the free deal** (PARENT REQ-NL-005). The same Book Now link works there, so Mauricio can post it any time.
 - **Tagging these leads to Flight Bridge in JourneyFuse** (DEC-BE-016). Every request email's subject starts with "Book Now request", so these leads can be found and tagged later.
 - **The "Deals you missed" footer** (PARENT REQ-NL-002, content strategy). It teases paid-tier deals, and there are none before November (PARENT DEC-NL-017). It returns when paid deals exist.
-- **The Gmail forwarding rule for replies** (section 5.7). With 9 recipients, Jeff forwards any reply by hand this week. The rule is set up after launch.
 
 ## 3. Choices made, and why
 
@@ -85,8 +84,9 @@ Order matters: the site is tested at its github.io address first. The custom dom
 Recipients: a Kit segment of everyone subscribed to either signup form (9964131, 9958519). Jeff creates it once in Kit. It stays current by itself. Fallback if the free plan has no segments: Claude adds the `landing-page-confirmed` tag to every form sign-up through the API before each send, and sends to the tag.
 
 **5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com. Replies land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. Options compared:
-- **This week (picked):** Jeff reads owner@ anyway and forwards any reply to info@ by hand, with the subject `Deal reply from <customer email>`. A forwarded reply comes from owner@, not the customer, so Viktor may not treat it as a lead; a person at info@ answers these. Nothing to set up; 9 recipients.
-- **After launch:** a Gmail filter on owner@ forwards mail sent to deals@ to info@flytraverse.com. $0, one rule. Gmail sends a confirmation to info@ once, which Mauricio passes on. If Google Workspace blocks automatic forwarding, Jeff (as admin) allows it. Auto-replies and out-of-office mail would also be forwarded; Viktor should ignore them.
+- **A Gmail filter on owner@ (picked, set up today, Jeff 2026-10-14):** mail sent to deals@traversetours.flight-bridge.com is forwarded automatically to info@flytraverse.com. Automatic forwarding keeps the customer as the sender, so Viktor sees a normal lead. $0, one rule, done once. Gmail sends a confirmation code to info@ once, which Mauricio passes on in the same check as the Web3Forms key. If Google Workspace blocks automatic forwarding, Jeff (as admin) allows it. Auto-replies and out-of-office mail would also be forwarded; Viktor should ignore them.
+- Jeff forwards replies by hand: no setup, but forwarded mail comes from owner@, so Viktor may not treat it as a lead.
+- A "do not reply" address: rejected. The notes chose replies on purpose (PARENT DEC-NL-018, CONF-NL-005), a reply is a warm lead, and replies help keep the newsletter out of spam.
 - Change Kit's reply-to: not confirmed Kit allows a reply-to different from the sender.
 
 This settles who handles replies to deals@ (PARENT CONF-NL-005, which said it was not settled). Mauricio agrees in his morning message (section 8).
@@ -117,21 +117,21 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 1. This week's deal: route, dates, price per person, where and when he found it.
 2. The Web3Forms key email, once Jeff creates it. Check Junk and Quarantine (info@ is on Microsoft 365).
 3. The words Viktor looks for in lead emails, and where Viktor takes the customer's email address from. Web3Forms always sends from its own address, which cannot be changed. The customer's email will be in Reply-To, the body, and the subject. If Viktor reads only the From line, that needs a change on Viktor's side (pointing it at Reply-To or the body).
-4. OK for replies to deal emails to be forwarded to info@ (PARENT CONF-NL-005). This week Jeff forwards them by hand with the subject "Deal reply from <customer email>"; they come from owner@, so a person answers them.
+4. OK for replies to deal emails to be forwarded automatically to info@ (PARENT CONF-NL-005), and the Gmail confirmation code that arrives at info@ when Jeff sets up the forwarding (check Junk too).
 5. Is he available today for the test and the approval?
 
 | When | Who | Step |
 |------|-----|------|
-| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. At github.com/settings/pages, adds `deals.flight-bridge.com` and copies the TXT value GitHub shows. In one GoDaddy visit, adds two records: TXT with Name `_github-pages-challenge-hammbino.deals` (not the full name GitHub shows, which GoDaddy would double) and GitHub's value; and CNAME with Name `deals`, Value `hammbino.github.io`. Clicks Verify on the GitHub page after Claude confirms the TXT record is live (`dig`). Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback).  |
+| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. At github.com/settings/pages, adds `deals.flight-bridge.com` and copies the TXT value GitHub shows. In one GoDaddy visit, adds two records: TXT with Name `_github-pages-challenge-hammbino.deals` (not the full name GitHub shows, which GoDaddy would double) and GitHub's value; and CNAME with Name `deals`, Value `hammbino.github.io`. Clicks Verify on the GitHub page after Claude confirms the TXT record is live (`dig`). Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback).  In owner@'s Gmail, adds info@flytraverse.com as a forwarding address and a filter: mail to deals@traversetours.flight-bridge.com → forward to info@flytraverse.com (finished once Mauricio sends the code). |
 | Morning | Claude | Pulls brand assets. Builds the page and link builder. Creates the repo and publishes to GitHub Pages at the github.io address. |
-| Morning | Mauricio | Sends the deal, the key, Viktor's keywords, and his OK on replies. |
+| Morning | Mauricio | Sends the deal, the Web3Forms key, the Gmail forwarding code, Viktor's keywords, and his OK on replies. |
 | Midday | Claude | Puts in the Web3Forms key and Viktor's lead words, before the end-to-end test. The From address cannot be changed (Web3Forms sends from its own address); the customer's email goes in Reply-To, the body and the subject. Switches on the custom domain once DNS resolves, then HTTPS. Drafts the Kit email through the API, with the real link. |
 | Midday | Jeff + Claude | Jeff presses Send test in Kit, to Mauricio and himself, for content review. This can happen before HTTPS is live; nobody clicks the button until the gate below passes. Claude applies Mauricio's changes through the API, and Jeff sends a fresh test, until he is happy. |
-| Midday | Jeff + Mauricio | **Gate:** Claude first confirms `https://deals.flight-bridge.com/traverse-tours/` loads with a valid certificate and tells Jeff; until then, page testing continues over plain http (once the custom domain is on, the github.io address redirects there). **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead with the test customer's email address, not the Web3Forms address. Also test a broken link. Reply to the test email and confirm the reply reaches owner@. |
+| Midday | Jeff + Mauricio | **Gate:** Claude first confirms `https://deals.flight-bridge.com/traverse-tours/` loads with a valid certificate and tells Jeff; until then, page testing continues over plain http (once the custom domain is on, the github.io address redirects there). **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead with the test customer's email address, not the Web3Forms address. Also test a broken link. Reply to the test email and confirm the reply arrives at info@flytraverse.com through the forwarding rule, from the replier's address. |
 | Afternoon | Mauricio, then Jeff | Mauricio re-checks the deal against its source (send day). If the price or dates changed, Claude rebuilds the link and updates the draft, Jeff sends a new test and re-clicks the button. Then Mauricio gives his written OK on the final test. Jeff presses Send in Kit. Any change after the OK needs a new OK. |
 | After | Claude | Records in both repos: the form stack and link format (`deal-links.md`, BE-FB-010), deal sourcing now from Mauricio rather than an AI run (PARENT DEC-NL-013, workflows), Mauricio reviewing by test email instead of editing in Kit (PARENT workflows approval rule 2), reply handling (PARENT CONF-NL-005), the footer dropped until paid deals exist, and USD in `assumptions.md`. Resolves Q-BE-007 and the `deal-links.md` section 5 open items with this design. |
 
-**Human-only steps:** the GitHub domain verification and the two GoDaddy DNS records, and the Kit segment (Jeff); pressing Send test and Send in Kit (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
+**Human-only steps:** the GitHub domain verification and the two GoDaddy DNS records, and the Kit segment (Jeff); pressing Send test and Send in Kit (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the Gmail forwarding rule on owner@ (Jeff) and its confirmation code (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
 
 ## 9. Requirements check
 
@@ -161,7 +161,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Nothing sends without Mauricio's approval (PARENT DEC-NL-013) | Sections 7 and 8 |
 | Send-day deal re-check (PARENT RISK-NL-007, workflows) | Section 7 step 3 |
 | No paid-tier mention before November (PARENT DEC-NL-017) | Sections 5.6 and 7 |
-| Replies to deal emails reach a watched inbox (RISK-BE-014) | Section 5.7: by hand this week, rule after launch |
+| Replies to deal emails reach a watched inbox (RISK-BE-014) | Section 5.7: Gmail forwarding rule, set up today |
 | Social post with Book Now (PARENT REQ-NL-005) | Out today; same link works |
 | Booking share tracked in JourneyFuse (DEC-BE-016) | Out today; leads findable by subject |
 
@@ -185,7 +185,8 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 - Price: per person (Jeff, 2026-10-14). USD is an assumption.
 - Forwarded deals work for friends: yes, for the free deal (Jeff, 2026-10-14). A friend's request is a new lead. Whether paid deals (from November) are limited to members is decided then.
 - The 10-08 message page never existed (Jeff, 2026-10-14).
+- Black Friday teaser: not this week (Jeff, 2026-10-14).
+- Replies to deal emails: forwarded automatically to info@ by a Gmail rule, set up today (Jeff, 2026-10-14).
 
 **Open:**
-1. **A one-line Black Friday teaser in today's email?** On 10-08 you and Mauricio agreed to "do a Black Friday teaser in the email right now" (M1008P L1276-1279, PARENT DEC-NL-029), in the same conversation that said no paid-tier teaser yet. A line like "Black Friday deals are coming. Watch your inbox." mentions no paid tier, so it fits both. You chose scope B, which left it out. Include it or not?
-2. **Jeff's Friday inbox spot-check** (PARENT workflows, RISK-NL-008). Jeff has no access to info@flytraverse.com. Not blocking today; decide after launch (for example, Mauricio reports the week's request count).
+1. **Jeff's Friday inbox spot-check** (PARENT workflows, RISK-NL-008). Jeff has no access to info@flytraverse.com. Not blocking today; decide after launch (for example, Mauricio reports the week's request count).
