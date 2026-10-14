@@ -29,7 +29,9 @@ A subscriber opens this week's free deal email, clicks **Book Now**, and lands o
 - This week's first free deal email in Kit, with a working Book Now button
 - An end-to-end test
 
-**Out:** the bookable engine (on hold until the ARC transfer, DEC-BE-015), Black Friday setup in Kit, list growth, the Viktor-to-Claude move.
+**Out:** the bookable engine (on hold until the ARC transfer, DEC-BE-015), Black Friday setup in Kit, list growth, the Viktor-to-Claude move. Also out for tomorrow:
+- **Social post of the free deal** with Book Now and Join Email List buttons (PARENT REQ-NL-005). The same Book Now link works there, so Mauricio can post it any time.
+- **Tagging these leads to Flight Bridge in JourneyFuse** (DEC-BE-016), unless Mauricio can set it up tomorrow. Every request email has the subject prefix "Book Now request", so these leads can be found and tagged later.
 
 ## 3. Choices made, and why
 
@@ -57,7 +59,7 @@ If the link is missing details or broken, the page still works. The deal box is 
 
 ## 5. The pieces
 
-**5.1 Book Now page.** One HTML file with its style and a little script, in folder `traverse-tours/`. Colors, fonts and logo come from Traverse's live brand (the Kit page set in PARENT DEC-NL-028: `#4E6A6A`, `#F2EEE6`, `#66857B`, Fraunces and Instrument Sans), checked against flytraverse.com during the build. It works on a phone first, since most people open email on a phone.
+**5.1 Book Now page.** First step, before any page code: get the full-resolution Traverse logo (the file PARENT DEC-NL-028 cropped from) and check the colors against flytraverse.com. Then one HTML file with its style and a little script, in folder `traverse-tours/`. Colors, fonts and logo come from Traverse's live brand (the Kit page set in PARENT DEC-NL-028: `#4E6A6A`, `#F2EEE6`, `#66857B`, Fraunces and Instrument Sans), checked against flytraverse.com during the build. It works on a phone first, since most people open email on a phone.
 
 **5.2 Link builder.** `traverse-tours/build.html`. Boxes for: deal ID, flight or package, from, to, depart date, return date, price. It shows the finished link with a Copy button and a "Test this link" button.
 
@@ -67,7 +69,12 @@ If the link is missing details or broken, the page still works. The deal box is 
 
 **5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). Reply-to is set to the customer's email, so an agent can just hit Reply (confirm during the build that Web3Forms does this). Whether Viktor recognizes it as a lead is unknown until the test (section 8).
 
-**5.6 This week's deal email.** A Kit broadcast in the existing "Text only" template: the featured destination content (REQ-NL-002 format), this week's deal, and the Book Now button. Mauricio approves before it sends (DEC-NL-013).
+**5.6 This week's deal email.** A Kit broadcast in the existing "Text only" template: the featured destination content (REQ-NL-002 format), this week's deal, and the Book Now button. Mauricio approves before it sends (DEC-NL-013). Two newsletter rules apply: no mention of paid tiers or upgrades before November (PARENT DEC-NL-017), and the deal is re-checked on send day against its verification block (source link, price seen, time checked; PARENT RISK-NL-007).
+
+**5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com, and replies to it land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. A subscriber who hits Reply instead of Book Now would be a missed lead. Options:
+- **Forwarding rule in owner@'s Gmail** (picked): mail sent to deals@ is forwarded to info@flytraverse.com. $0, one rule, nothing changes in Kit. Gmail needs info@ to confirm the forwarding once, so Mauricio clicks one link.
+- Change Kit's reply-to to info@flytraverse.com. Not confirmed that Kit allows a reply-to different from the sender.
+- Do nothing and tell readers to use the button. Replies would still be missed.
 
 ## 6. Link format (v1)
 
@@ -80,10 +87,11 @@ This follows `deal-links.md` with one change: the deal ID moves from the path in
 ## 7. Weekly checklist (repeatable)
 
 1. Mauricio approves this week's deal.
-2. Open the link builder, fill in the deal, copy the link.
-3. Paste it as the Book Now button link in the Kit email.
-4. Send a Kit test to yourself, click the button on a phone, check the deal shows correctly.
-5. Mauricio approves, then the email is scheduled.
+2. On send day, re-check the deal against its verification block. Pull it if the price is gone.
+3. Open the link builder, fill in the deal, copy the link.
+4. Paste it as the Book Now button link in the Kit email. No paid-tier mention before November.
+5. Send a Kit test to yourself, click the button on a phone, check the deal shows correctly.
+6. Mauricio approves, then the email is scheduled.
 
 New agency later: copy the `traverse-tours/` folder, change logo, colors and inbox key.
 
@@ -95,8 +103,9 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Morning | Mauricio | Creates the Web3Forms key for info@flytraverse.com (or forwards the key email) |
 | Morning | Claude | Builds the page and link builder, creates the repo, publishes to GitHub Pages |
 | Morning | Jeff | Adds the `deals` CNAME in GoDaddy (Claude gives the exact values) |
+| Morning | Jeff + Mauricio | Gmail forwarding rule: mail to deals@ forwards to info@flytraverse.com. Mauricio confirms the forwarding link (5.7) |
 | Midday | Claude | Builds the Kit email draft with the real link |
-| Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com and that Viktor created the JourneyFuse lead. Also test a broken link. |
+| Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com and that Viktor created the JourneyFuse lead. Also test a broken link. If the request is not in the inbox, Mauricio checks Junk and Quarantine (info@ is on Microsoft 365) and adds an allow rule for the Web3Forms sender. Then test the reply path: reply to the test email and confirm it reaches info@flytraverse.com. |
 | Afternoon | Mauricio | Approves the email. It sends. |
 | After | Claude | Records the decisions in both repos (form stack, link format change, BE-FB-010 status) |
 
@@ -123,6 +132,11 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | Live before the pre-Black Friday sends (IMP-BE-014) | Live 2026-10-14 |
 | Free deal emails start this week (PARENT DEC-NL-017 update) | Section 5.6 |
 | Nothing sends without Mauricio's approval (PARENT DEC-NL-013) | Section 7 and 8 |
+| Send-day deal re-check and verification block (PARENT RISK-NL-007, workflows) | Section 7 step 2 |
+| No paid-tier mention before November (PARENT DEC-NL-017) | Sections 5.6 and 7 |
+| Replies to deal emails reach a watched inbox (RISK-BE-014) | Section 5.7 forwarding rule |
+| Social post with Book Now (PARENT REQ-NL-005) | Out for tomorrow; same link works |
+| Booking share tracked in JourneyFuse (DEC-BE-016) | Out for tomorrow unless Mauricio sets it up; leads are findable by subject |
 
 ## 10. Risks and fallbacks
 
@@ -130,9 +144,11 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 - **Requests pass 250 in a month.** Check the count mid-November and move to Web3Forms Pro (~$12/mo) before 2026-11-25 if needed.
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS takes time to update.** GitHub Pages usually works within an hour. If not ready by midday, the test uses the GitHub address and the email waits for the real one.
+- **Request emails land in Junk on Microsoft 365.** Caught by the test; Mauricio adds an allow rule.
 - **Deal content is not ready from Mauricio.** The page can launch without it. The email goes out when the deal is approved.
 
 ## 11. Open items for Jeff
 
 1. **Who receives this week's deal email?** All 1,338 subscribers in Kit, or only the people who actually signed up (tag `landing-page-confirmed`)? The 09-30 announcement went to the whole imported list.
 2. **Who writes this week's destination content:** Mauricio, or Claude drafts it for Mauricio to approve?
+3. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
