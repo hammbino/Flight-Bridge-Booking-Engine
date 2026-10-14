@@ -99,7 +99,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 
 | When | Who | Step |
 |------|-----|------|
-| Morning | Mauricio | Sends this week's deal: route, dates, price, plus the destination content or approval for Claude to draft it |
+| Morning | Mauricio | Sends this week's deal: route, dates, price, and where he found it. Claude drafts the destination content from it |
 | Morning | Mauricio | Creates the Web3Forms key for info@flytraverse.com (or forwards the key email) |
 | Morning | Claude | Builds the page and link builder, creates the repo, publishes to GitHub Pages |
 | Morning | Jeff | Adds the `deals` CNAME in GoDaddy (Claude gives the exact values) |
@@ -150,5 +150,5 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 ## 11. Open items for Jeff
 
 1. ~~Who receives this week's deal email?~~ **Answered 2026-10-13:** only people who actually signed up (Kit tag `landing-page-confirmed`, about 8 people including Jeff's own test sign-up). Not the 1,338 imported contacts.
-2. **Who writes this week's destination content:** Mauricio, or Claude drafts it for Mauricio to approve?
+2. ~~Who writes this week's destination content?~~ **Answered:** Claude drafts it, Mauricio edits and approves (Jeff, 2026-10-14). Mauricio sends the deal: route, dates, price, and where he found it.
 3. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
