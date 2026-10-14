@@ -103,10 +103,10 @@ This follows `deal-links.md` with two changes: the deal ID moves from the path i
 
 1. Mauricio sends this week's deal: route, dates, price per person, and where and when he found it.
 2. Claude drafts the email (destination, info, tip, the deal) through the Kit API and sends a Kit test to Mauricio. He replies with changes; he does not edit in Kit's editor, which could break the hand-coded layout. Claude applies them and sends a fresh test.
-3. On send day (Wednesday), re-check the deal against its source. Pull it if the price is gone.
-4. Open the link builder, fill in the deal, copy the link.
-5. Put the link on the Book Now button. No paid-tier mention before November.
-6. Send a Kit test to yourself, click the button on a phone, check the deal shows correctly.
+3. **Mauricio**, on send day (Wednesday): re-checks the deal against its source. Pulls it if the price is gone.
+4. **Claude:** makes the link with the link builder (anyone else can use it the same way).
+5. **Claude:** puts the link on the Book Now button through the API. No paid-tier mention before November.
+6. **Claude** sends a Kit test to Jeff and Mauricio. **Jeff** clicks the button on a phone and checks the deal shows correctly.
 7. Mauricio gives his written OK on the final test email. Jeff presses Send in Kit, to the sign-ups segment. Any change after the OK needs a new OK (PARENT workflows, approval rule 1; automation.md: a human is always the send trigger).
 
 New agency later: copy the `traverse-tours/` folder, change logo, colors and inbox key.
@@ -116,21 +116,22 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 **First thing, one message to Mauricio** (Jeff sends; Claude drafts it). It asks for:
 1. This week's deal: route, dates, price per person, where and when he found it.
 2. The Web3Forms key email, once Jeff creates it. Check Junk and Quarantine (info@ is on Microsoft 365).
-3. The words Viktor looks for in lead emails, so the request subject matches first time.
+3. The words Viktor looks for in lead emails, and where Viktor takes the customer's email address from (the From line, Reply-To, or the email body). Web3Forms sends from its own address; the customer's email is only in Reply-To and the body.
 4. OK for replies to deal emails to be forwarded to info@ (PARENT CONF-NL-005).
 5. Is he available today for the test and the approval?
 
 | When | Who | Step |
 |------|-----|------|
-| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. Adds the `deals` CNAME in GoDaddy (Claude gives exact values). Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback). Adds the GitHub domain-verification TXT record in the same GoDaddy visit (Claude gives exact values). |
+| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. At github.com/settings/pages, adds `deals.flight-bridge.com` and copies the TXT record GitHub shows. In one GoDaddy visit, adds that TXT record and the `deals` CNAME (Claude gives the CNAME value). Clicks Verify on the GitHub page once the TXT record is live. Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback).  |
 | Morning | Claude | Pulls brand assets. Builds the page and link builder. Creates the repo and publishes to GitHub Pages at the github.io address. |
 | Morning | Mauricio | Sends the deal, the key, Viktor's keywords, and his OK on replies. |
 | Midday | Claude | Puts in the Web3Forms key. Switches on the custom domain once DNS resolves, then HTTPS. Drafts the Kit email through the API, with the real link. |
-| Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead. Also test a broken link. Reply to the test email and confirm the reply reaches owner@. |
-| Afternoon | Mauricio, then Jeff | Mauricio gives his written OK on the final test. Jeff presses Send in Kit. Any change after the OK needs a new OK. |
-| After | Claude | Records in both repos: the form stack and link format (`deal-links.md`, BE-FB-010), deal sourcing now from Mauricio rather than an AI run (PARENT DEC-NL-013, workflows), reply handling (PARENT CONF-NL-005), the footer dropped until paid deals exist, and USD in `assumptions.md`. Resolves Q-BE-007 and the `deal-links.md` section 5 open items with this design. |
+| Midday | Claude | Sends the Kit test to Mauricio and Jeff for review. Applies Mauricio's changes through the API and resends until he is happy. |
+| Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead with the test customer's email address, not the Web3Forms address. Also test a broken link. Reply to the test email and confirm the reply reaches owner@. |
+| Afternoon | Mauricio, then Jeff | Mauricio re-checks the deal against its source (send day). Then he gives his written OK on the final test. Jeff presses Send in Kit. Any change after the OK needs a new OK. |
+| After | Claude | Records in both repos: the form stack and link format (`deal-links.md`, BE-FB-010), deal sourcing now from Mauricio rather than an AI run (PARENT DEC-NL-013, workflows), Mauricio reviewing by test email instead of editing in Kit (PARENT workflows approval rule 2), reply handling (PARENT CONF-NL-005), the footer dropped until paid deals exist, and USD in `assumptions.md`. Resolves Q-BE-007 and the `deal-links.md` section 5 open items with this design. |
 
-**Human-only steps:** the two GoDaddy DNS records and the Kit segment (Jeff); pressing Send (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
+**Human-only steps:** the GitHub domain verification and the two GoDaddy DNS records, and the Kit segment (Jeff); pressing Send (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
 
 ## 9. Requirements check
 
@@ -166,7 +167,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 
 ## 10. Risks and fallbacks
 
-- **Viktor does not pick up the request email.** Caught by the test. Mauricio handles requests by hand while the subject wording is adjusted. Re-test whenever lead handling changes, and again before 2026-11-25.
+- **Viktor does not pick up the request email.** Caught by the test. Mauricio handles requests by hand while the email format is adjusted (subject words, or putting the customer's email where Viktor reads it). Re-test whenever lead handling changes, and again before 2026-11-25.
 - **Requests pass 250 in a month.** Check the count mid-November and move to Web3Forms Pro (~$12/mo) before 2026-11-25 if needed.
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS or HTTPS is slow.** The CNAME goes in first thing. If `https://deals.flight-bridge.com` is not working by mid-afternoon, the email waits; the links must use the real domain, because sent emails cannot be changed.
