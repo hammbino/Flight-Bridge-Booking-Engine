@@ -19,6 +19,5 @@ Nothing. Waiting on Jeffrey's review of the split (`docs/booking-engine/migratio
 
 ## Blockers
 
-- Q-BE-010: where Phase 1 Book Now leads go (blocks Phase 1)
 - Q-BE-007: deal-link token schema
 - Q-BE-003 / Q-BE-004: database and Sabre method (block Phase 2)

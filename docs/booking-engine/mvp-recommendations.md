@@ -3,7 +3,7 @@ title: "Booking Engine: MVP Recommendations"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-12
 source_transcripts: [SV, EM, M0610, M0924]
 tags: [mvp, booking-engine]
 ---
@@ -18,7 +18,7 @@ The MVP is the smallest thing that turns a newsletter deal into a booking under 
 
 ### Must have
 
-1. **Book Now lead form (Phase 1).** Prefilled deal, date change, traveler count, contact preference, routed to an agreed inbox. Ship this first; it needs no Sabre work. Related: REQ-BE-008, REQ-BE-011, DEC-BE-006, BE-FB-010.
+1. **Book Now lead form (Phase 1).** Prefilled deal, date change, traveler count, contact preference, routed to info@traversetours.com. Ship this first; it needs no Sabre work. Related: REQ-BE-008, REQ-BE-011, DEC-BE-006, BE-FB-010.
 2. **Stable deal-link tokens.** Design them once, versioned, so links already sent keep working. Related: REQ-BE-003, Q-BE-007, RISK-BE-007.
 3. **Bookable landing page (Phase 2).** Same page, now with live Sabre pricing, repricing on date change, and booking. Related: REQ-BE-001, REQ-BE-003, REQ-BE-009, DEC-BE-009.
 4. **Agent follow-up on every booking.** Related: REQ-BE-010, BE-FB-012.

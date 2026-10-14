@@ -3,7 +3,7 @@ title: "Booking Engine: Backlog"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, EM, PA, PP, R1205, M0610, M0924]
 tags: [backlog, booking-engine]
 ---
@@ -165,10 +165,10 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-010 |
 | Title | Phase 1 Book Now lead form |
-| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, call or email preference, name and email. Route each submission to the agreed inbox (Q-BE-010) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
+| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, call or email preference, name and email. Route each submission to info@traversetours.com (Jeff, 2026-10-12) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
 | Business Value | Lets newsletter subscribers act on a deal before the engine exists. |
 | Priority | High |
-| Dependencies | Q-BE-010 (destination); Q-BE-007 (prefill tokens) |
+| Dependencies | Q-BE-007 (prefill tokens) |
 | Status | Planned |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
 | Notes | Same flow as PARENT NL-FB-013. Check the parent repo for whether a version already exists before building. |

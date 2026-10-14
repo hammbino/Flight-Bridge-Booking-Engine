@@ -10,5 +10,4 @@
 
 ## Risks to watch
 
-- Phase 1 lead destination undecided. A dropped lead is lost revenue (RISK-BE-014).
 - Two Stripe accounts exist (Flight Bridge's and Kit's Express). Matters if bookings ever take payment (RISK-BE-012).

@@ -3,7 +3,7 @@ title: "Booking Engine: Open Questions"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, EM, FS, PA, PP, M0610, M0924]
 tags: [open-questions, booking-engine]
 ---
@@ -14,7 +14,6 @@ tags: [open-questions, booking-engine]
 
 | ID | Question (short) | Owner | Priority | Blocks |
 |----|------------------|-------|----------|--------|
-| Q-BE-010 | Where do Phase 1 leads go, and who watches them? | Mauricio | High | Shipping Phase 1 |
 | Q-BE-018 | What is the official phase numbering and order? | Jeff + Mauricio | High | Roadmap |
 | Q-BE-007 | What is the deal-link token schema? | Jeff | High | Deal landing page |
 | Q-BE-003 | SQL or NoSQL? | Jeff | High | All development |
@@ -138,14 +137,15 @@ tags: [open-questions, booking-engine]
 
 ## Q-BE-010
 
+**Resolved 2026-10-13.** Kept so the ID is not reused.
+
 | Field | Value |
 |-------|-------|
-| Question | Where does a Phase 1 Book Now submission go (Denise's generic inbox, Mauricio via Victor, or info@), and who watches it day to day? |
-| Why it matters | Sources disagree (CONF-BE-007). A dropped lead is lost revenue (PARENT RISK-NL-008). |
-| Owner | Mauricio Melendez |
-| Priority | High |
-| Blocking | Shipping BE-FB-010 |
-| Source Transcript(s) | M0610 00:50:14, M0924 00:21:33, M0924 00:22:33; PARENT Q-NL-010, CONF-NL-005 |
+| Question | Where does a Phase 1 Book Now submission go, and who watches it day to day? |
+| Answer | Submissions go to info@traversetours.com (Jeff, working session 2026-10-12). Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session 2026-10-13). |
+| Where recorded | REQ-BE-008, DEC-BE-006, CONF-BE-007, RISK-BE-014, `workflows.md` W1 |
+| History | Sources gave three destinations (CONF-BE-007). Jeff's earlier proposal of owner@flight-bridge.com (working session 2026-10-07) was replaced. |
+| Source Transcript(s) | M0610 00:50:14, M0924 00:21:33, M0924 00:22:33; PARENT Q-NL-010, CONF-NL-005; Jeff, working sessions 2026-10-12 and 2026-10-13 |
 
 ## Q-BE-011
 

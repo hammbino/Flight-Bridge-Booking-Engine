@@ -3,7 +3,7 @@ title: "Booking Engine: Conflicting Requirements"
 project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, FS, PP, R1205, M0610, M0924, PARENT]
 tags: [conflicts, booking-engine]
 ---
@@ -22,7 +22,7 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 | CONF-BE-004 | Phase numbering and build order | Unresolved. Blocks roadmap |
 | CONF-BE-005 | "Merchant billing" in Phase 2 vs no payment processing | Unresolved |
 | CONF-BE-006 | How booking revenue is framed | Unresolved |
-| CONF-BE-007 | Where Phase 1 leads go | Unresolved. Blocks Phase 1 |
+| CONF-BE-007 | Where Phase 1 leads go | Resolved 2026-10-12: info@traversetours.com |
 | CONF-BE-008 | Do Traverse agents use the booking engine? | Unresolved |
 | CONF-BE-009 | Competitor pricing figures (Brian / Dickerson) | Unresolved, low impact |
 | CONF-BE-010 | Flight Bridge brand colors | Unresolved, low impact |
@@ -101,8 +101,8 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 - **Source B (M0924 00:21:33):** the lead gets in contact with Mauricio "through Victor" (an AI tool Mauricio uses).
 - **Source C (M0924 00:22:33):** an email goes to info@ (Traverse domain) for "an agent" to follow up.
 - **Related (PARENT CONF-NL-005, 2026-09-30):** the newsletter's Deal Alerts product uses a reply-to-email flow handled by Mauricio's AI tool "Viktor". Jeff confirmed that flow is intentional.
-**Status:** Unresolved for the Book Now form. Blocks shipping Phase 1 (Q-BE-010). "Victor" and "Viktor" are probably the same tool, unconfirmed.
-**Source Transcript(s):** M0610, M0924, PARENT
+**Status:** Resolved 2026-10-12. Jeff set the destination as info@traversetours.com, which matches Source C. Mauricio and his AI tool Viktor monitor that inbox (Jeff, 2026-10-13; Q-BE-010 resolved). This also fits Source B: the 09-24 "through Victor" is the same AI tool, spelled Viktor.
+**Source Transcript(s):** M0610, M0924, PARENT; Jeff, working session 2026-10-12
 
 ## CONF-BE-008
 

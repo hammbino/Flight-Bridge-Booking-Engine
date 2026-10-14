@@ -3,7 +3,7 @@ title: "Booking Engine: Requirements"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, EM, PP, R1205, M0610, M0924]
 tags: [requirements, booking-engine]
 ---
@@ -141,7 +141,7 @@ Only explicitly stated requirements belong here. Requirements that only seem imp
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
 | Related Requirements | REQ-BE-003, REQ-BE-007, REQ-BE-011 |
 | Related Decisions | DEC-BE-006; PARENT DEC-NL-011 |
-| Notes | The destination is disputed: a generic inbox with Denise assigning, Mauricio through Victor, or info@. See CONF-BE-007 and Q-BE-010. |
+| Notes | Destination: info@traversetours.com (Jeff, working session 2026-10-12), resolving CONF-BE-007. Mauricio and his AI tool Viktor monitor it (Jeff, working session 2026-10-13). |
 
 ## REQ-BE-009
 

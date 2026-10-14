@@ -3,7 +3,7 @@ title: "Booking Engine: Roadmap"
 project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, EM, PP, R1205, M0610, M0924, PARENT]
 tags: [roadmap, booking-engine]
 ---
@@ -14,7 +14,7 @@ tags: [roadmap, booking-engine]
 
 ## Current Phase
 
-**Phase 0: Foundation (pre-development).** No booking engine code exists. The newsletter free tier launched 2026-09-30 (PARENT). Phase 1 (Book Now lead capture) can start once its routing is settled (Q-BE-010).
+**Phase 0: Foundation (pre-development).** No booking engine code exists. The newsletter free tier launched 2026-09-30 (PARENT). Phase 1 (Book Now lead capture) can start now that its routing is settled (Q-BE-010, resolved 2026-10-13).
 
 ## Completed Milestones
 
@@ -27,7 +27,8 @@ tags: [roadmap, booking-engine]
 ## Upcoming Milestones
 
 ### Phase 1: Book Now lead capture (09-24 definition)
-- [ ] Settle where leads go and who watches them (Q-BE-010, CONF-BE-007)
+- [x] Settle where leads go: info@traversetours.com (CONF-BE-007, 2026-10-12)
+- [x] Settle who watches that inbox: Mauricio and his AI tool Viktor (Q-BE-010, 2026-10-13)
 - [ ] Define the deal-link token schema (Q-BE-007)
 - [ ] Build the lead form on the deal landing page (BE-FB-010, BE-FB-001)
 - [ ] Verify submissions arrive end to end (IMP-BE-009)
@@ -89,7 +90,7 @@ BE-FB-002 sat in the old roadmap's Phase 1. R1205 puts Sabre record import in th
 
 ## Known Dependencies
 
-- Phase 1 needs the newsletter's deal emails (parent repo) and a decided lead destination
+- Phase 1 needs the newsletter's deal emails (parent repo) and the lead inbox, info@traversetours.com, which Mauricio and Viktor monitor
 - Phase 2 needs Sabre API access, a database decision and a payment path
 - The Sabre subscriber contract depends on 1,000+ segments in a month (RISK-BE-001)
 - Corporate self-booking needs corporate accounts in the CRM (parent repo)

@@ -3,7 +3,7 @@ title: "Booking Engine: Workflows"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, PP, M0610, M0924]
 tags: [workflows, booking-flow, booking-engine]
 ---
@@ -19,7 +19,7 @@ Step-by-step flows. IDs point to the requirement or decision behind each step.
 3. The form is prefilled with the deal (REQ-BE-008).
 4. Optional: "my dates are different" opens a calendar. No new price is shown (REQ-BE-008, RISK-BE-006).
 5. Enters traveler count, name and email, and picks call or email (REQ-BE-008).
-6. Submission goes to the lead destination. **Undecided:** Denise's inbox, Mauricio via Victor, or info@ (Q-BE-010).
+6. Submission goes to info@traversetours.com (Jeff, 2026-10-12). Mauricio and his AI tool Viktor monitor it (Jeff, 2026-10-13).
 7. An agent contacts the customer, sends options, and books by hand in Sabre (DEC-BE-006).
 
 **Status:** Agreed. Not built.

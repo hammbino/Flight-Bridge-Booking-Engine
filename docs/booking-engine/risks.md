@@ -3,7 +3,7 @@ title: "Booking Engine: Risks"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [SV, FS, PP, M0610, M0924, PARENT]
 tags: [risks, booking-engine]
 ---
@@ -118,6 +118,6 @@ Likelihood and impact ratings are judgments made when the doc was written, not v
 
 **Risk:** a lead from the Phase 1 form is dropped because nobody clearly owns the inbox.
 **Likelihood:** Medium. **Impact:** High (lost booking revenue).
-**Mitigation:** answer Q-BE-010 before shipping.
+**Mitigation:** the destination is set (info@traversetours.com, 2026-10-12). Mauricio and his AI tool Viktor monitor it (2026-10-13). Before shipping, send a test lead and confirm it is seen (BE-FB-010).
 **Related:** CONF-BE-007; PARENT RISK-NL-008
-**Source:** M0610, M0924; PARENT RISK-NL-008
+**Source:** M0610, M0924; PARENT RISK-NL-008; Jeff, working sessions 2026-10-12 and 2026-10-13
