@@ -173,7 +173,7 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 | Dependencies | Q-BE-007 (prefill tokens) |
 | Status | Planned |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
-| Notes | Same flow as PARENT NL-FB-013. Checked 2026-10-13: no form exists. The parent repo has no code, NL-FB-013 is still Planned, and its launch-plan task to stand up a form is unchecked. The only Kit broadcast so far (2026-09-30) links to a Kit signup page, so no deal links have been sent yet. Link format draft: `deal-links.md`. |
+| Notes | Same flow as PARENT NL-FB-013. Checked 2026-10-13: none found in the parent repo or in Kit. On 10-08 Jeff described an existing send-a-message page pointed at owner@ (M1008P L896-901); where it lives is not recorded. The parent repo has no code, NL-FB-013 is still Planned, and its launch-plan task to stand up a form is unchecked. The only Kit broadcast so far (2026-09-30) links to a Kit signup page, so no deal links have been sent yet. Link format draft: `deal-links.md`. |
 
 ## BE-FB-011
 

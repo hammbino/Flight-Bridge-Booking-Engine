@@ -3,7 +3,7 @@ title: "Booking Engine: Premium Adventure Experiences"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [PA, M0924, AV]
 tags: [premium, packages, experiences, booking-engine]
 ---
@@ -42,4 +42,4 @@ A team member does the experience first and creates content. The next departure 
 
 ## Link to the newsletter VIP tier
 
-VIP (tier three) is the package tier. It is targeted for early December 2026. Packages would be sourced by scraping Vax, Funjet, Europe Express and Gate One (M0924 00:56:27). Whether suppliers allow scraping is a risk Mauricio considers low, since the content is public (M0924 00:56:47). No booking path for packages was discussed (M0924 00:59:40), so see Q-BE-013.
+VIP (tier three) is the package tier. It is targeted for early December 2026. Packages would be sourced by scraping Vax, Funjet, Europe Express and Gate One (M0924 00:56:27). Whether suppliers allow scraping is a risk Mauricio considers low, since the content is public (M0924 00:56:47). No booking path for packages was discussed (M0924 00:59:40), so see Q-BE-013. The 10-08 Black Friday plan proposes selling VIP over Black Friday weekend, with a package deal on 2026-11-30 (PARENT DEC-NL-029, proposed).

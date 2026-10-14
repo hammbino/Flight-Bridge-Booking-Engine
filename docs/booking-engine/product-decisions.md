@@ -133,7 +133,7 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | Date | 2026-06-10 |
 | Source Transcript(s) | M0610 00:33:33, M0610 00:52:30 |
 | Related Requirements | REQ-BE-003, REQ-BE-008 |
-| Notes | How VIP packages get booked once they launch (planned early December 2026) was not discussed on 09-24 (M0924 00:59:40). See Q-BE-013. |
+| Notes | How VIP packages get booked once they launch (planned early December 2026) was not discussed on 09-24 (M0924 00:59:40). See Q-BE-013. The 10-08 Black Friday plan proposes selling VIP over Black Friday weekend, with a package deal on 2026-11-30 (PARENT DEC-NL-029, proposed). |
 
 ## DEC-BE-008
 

@@ -175,7 +175,7 @@ tags: [open-questions, booking-engine]
 
 | Field | Value |
 |-------|-------|
-| Question | How will VIP package deals be booked when the VIP tier launches (planned early December 2026)? |
+| Question | How will VIP package deals be booked when the VIP tier launches (planned early December 2026; possibly a Black Friday package deal on 2026-11-30, PARENT DEC-NL-029)? |
 | Why it matters | On 06-10, JourneyFuse was the plan for VIP packages (M0610 00:52:30). On 09-24, Mauricio said "everything is migrating to JourneyFuse" (M0924 00:42:55), but no booking path for packages was discussed (M0924 00:59:40). Packages are "huge ticket items" (M0924 00:56:27). |
 | Owner | Mauricio Melendez |
 | Priority | Medium |

@@ -36,7 +36,7 @@ The booking engine is not built yet. Until it is, newsletter bookings go through
 | Deal Alerts reply | Subscriber replies to the alert email → Traverse confirms the fare is live and books it. Handled by Mauricio's AI tool "Viktor" | Resolved as intentional 2026-09-30. Who monitors replies day to day is still open | CONF-NL-005 |
 | JourneyFuse packages | VIP package deals only: customer clicks Book on a JourneyFuse proposal page → JourneyFuse captures card and passenger info → agent books by hand | Idea / Phase 2 in the 06-10 sequence | NL-FB-014 |
 
-**Out of date in the parent (checked 2026-10-13):** the V1 contact form row still routes leads to a generic inbox where Denise assigns an agent. That is no longer the plan. Book Now leads now go to info@traversetours.com, which Mauricio and Viktor monitor (Q-BE-010, resolved 2026-10-13). The parent IDs still saying Denise are DEC-NL-011, NL-FB-013, Q-NL-010, RISK-NL-008 and the launch-plan tasks for the deal contact form. They have not been updated, and no form has been built.
+**Out of date in the parent (checked 2026-10-13):** the V1 contact form row still routes leads to a generic inbox where Denise assigns an agent. That is no longer the plan. Book Now leads now go to info@traversetours.com, which Mauricio and Viktor monitor (Q-BE-010, resolved 2026-10-13). The parent IDs still saying Denise are DEC-NL-011, NL-FB-013, Q-NL-010, RISK-NL-008 and the launch-plan tasks for the deal contact form. They were updated in the parent on 2026-10-13. No form was found in the parent repo or in Kit; Jeff mentioned an existing message page on 10-08 (M1008P L896-901).
 
 Booking engine relevance: the V1 form fields (deal prefill, date change, traveler count, contact preference) are the minimum the booking engine's deal landing page must also handle. Agents must use the booking engine internally for at least one to two weeks before it is wired into the newsletter (DEC-BE-008).
 
@@ -44,7 +44,7 @@ Booking engine relevance: the V1 form fields (deal prefill, date change, travele
 
 ### 1.3 Tier timing drives booking volume
 
-- Free tier launched 2026-09-30. Basic (flight deals) is planned to go live the first week of November 2026. VIP (packages) is planned for early December 2026. Parent ID: DEC-NL-017.
+- Free tier launched 2026-09-30. Basic (flight deals) is planned to go live the first week of November 2026. VIP (packages) is planned for early December 2026. Parent ID: DEC-NL-017. The 10-08 Black Friday plan proposes selling VIP over Black Friday weekend, with a package deal on 2026-11-30 (PARENT DEC-NL-029, proposed).
 - Flight-only deals (Basic) are expected to move to the booking engine most easily. Packages (VIP) still need agents. See DEC-BE-007.
 - **Source:** M0924 00:54:33, M0924 00:59:40, M0610 00:33:33
 

@@ -125,7 +125,7 @@ Likelihood and impact ratings are judgments made when the doc was written, not v
 ## RISK-BE-015
 
 **Risk:** the ARC holder is liable when a customer pays with a fraudulent card and the charge is reversed weeks after ticketing. Once the ARC is in Flight Bridge's name (DEC-BE-014), that liability sits with Flight Bridge and its named person. Self-booking (Phase 2) widens the exposure, because no agent screens the buyer first.
-**Likelihood:** Low (Mauricio reports it has happened once). **Impact:** High.
+**Likelihood:** Low. **Impact:** High.
 **Mitigation:** Mauricio's agents refuse urgent ticket requests from unknown callers (M1008P L516-520). Protection through legal structure is open (Q-BE-019). Phase 2 fraud checks are not discussed.
 **Related:** DEC-BE-014, DEC-BE-005, Q-BE-019
 **Source:** M1008P L512-543
