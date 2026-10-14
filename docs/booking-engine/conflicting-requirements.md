@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, FS, PP, R1205, M0610, M0924, PARENT]
+source_transcripts: [SV, FS, PP, R1205, M0610, M0924, PARENT, M1008P]
 tags: [conflicts, booking-engine]
 ---
 
@@ -26,6 +26,7 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 | CONF-BE-008 | Do Traverse agents use the booking engine? | Unresolved |
 | CONF-BE-009 | Competitor pricing figures (Brian / Dickerson) | Unresolved, low impact |
 | CONF-BE-010 | Flight Bridge brand colors | Unresolved, low impact |
+| CONF-BE-011 | Phase 1 inbox address: info@traversetours.com or info@flytraverse.com | Unresolved. Blocks building the form |
 
 ---
 
@@ -127,3 +128,13 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 **Conflict:** In M0610, Jeff described Flight Bridge colors as "navy, royal blue and green-blue" with whites, blacks and grays (M0610 01:08:21). The later Flight Bridge brand guide uses Jet Black `#0B0B0D`, Forest Green `#10A85B`, Dark Slate `#1A1F24`, Stone `#E5E7EB`, Sand `#CFC7B5`, with Montserrat / Inter fonts (PARENT docs/ai/KNOWN_ISSUES.md, landing page pass 3).
 **Status:** Unresolved, low impact. The brand guide is newer. Customer pages are Traverse-branded anyway, with Flight Bridge only in the "powered by" mark (see `ui-notes.md`).
 **Source Transcript(s):** M0610, PARENT
+
+## CONF-BE-011
+
+**Topic:** the exact address Phase 1 Book Now leads go to
+**Conflict:**
+- **Source A (Jeff, working session 2026-10-12):** info@traversetours.com.
+- **Source B (M1008P L904-909):** "info at FlightTraverse dot com", said twice, as the Traverse inbox Viktor already monitors. This is probably info@flytraverse.com. Traverse's website is flytraverse.com (`glossary.md`), and a Traverse staff address in the parent repo's contact export uses @flytraverse.com. "traversetours" appears elsewhere only as a subdomain of flight-bridge.com, in the newsletter sending address (PARENT DEC-NL-015).
+**What both agree on:** the inbox is a Traverse one, not owner@ (Flight Bridge), and Mauricio and Viktor monitor it (Q-BE-010).
+**Status:** Unresolved. Needs Jeff to confirm the address. Until then, docs say info@traversetours.com, as recorded on 2026-10-12. Follows on from CONF-BE-007.
+**Source Transcript(s):** M1008P L896-909; Jeff, working session 2026-10-12

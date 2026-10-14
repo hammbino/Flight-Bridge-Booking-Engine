@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, EM, PA, PP, R1205, M0610, M0924]
+source_transcripts: [SV, EM, PA, PP, R1205, M0610, M0924, M1008P, M1008S]
 tags: [backlog, booking-engine]
 ---
 
@@ -29,6 +29,8 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 | BE-FB-009 | BK Marketing (Ben Knell) as a target client | Medium | Idea | Later |
 | BE-FB-016 | Concur-style B2B product | Low | Idea | After booking tool |
 | BE-FB-013 | Explore Sabre's AI MCP | Medium | Idea | Research |
+| BE-FB-020 | AI booking agent built from Mauricio's Sabre workflow | Medium | Idea | After Sabre access |
+| BE-FB-021 | Split one-way fares in a single reservation | Low | Idea | Later |
 | BE-FB-014 | Push bookings into an agency's Sabre (TAAP-style) | Low | Idea | B2B |
 | BE-FB-015 | Hotel booking | Low | Idea | Later |
 | BE-FB-017 | Self-hosted AI fallback and on-prem add-on | Low | Idea | Later |
@@ -71,7 +73,7 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-003 |
 | Title | Consumer search and self-booking |
-| Description | Origin, destination and dates → Sabre availability and price → pick flight → passenger details → ticket under Traverse's ARC → agent follow-up (BE-FB-012). Target UX: Mauricio's Continental shell (SV 00:10:23) and "like a Google Flights" (PP 00:08:58). |
+| Description | Origin, destination and dates → Sabre availability and price → pick flight → passenger details → ticket under Traverse's ARC → agent follow-up (BE-FB-012). Target UX: Mauricio's Continental shell (SV 00:10:23) and "like a Google Flights" (PP 00:08:58). On 10-08 Mauricio also wanted a booking link for existing clients who would rather book themselves: a higher price than consumer sites, with white-glove support included (M1008P L994-1009). |
 | Business Value | The main transaction revenue stream. |
 | Priority | High |
 | Dependencies | Q-BE-003, Q-BE-004, MI-BE-006 (payment path) |
@@ -165,13 +167,13 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-010 |
 | Title | Phase 1 Book Now lead form |
-| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, call or email preference, name and email. Route each submission to info@traversetours.com (Jeff, 2026-10-12) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
+| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, email-only contact (no call option, M1008P L910-920), name and email. Route each submission to info@traversetours.com (Jeff, 2026-10-12) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
 | Business Value | Lets newsletter subscribers act on a deal before the engine exists. |
 | Priority | High |
 | Dependencies | Q-BE-007 (prefill tokens) |
 | Status | Planned |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
-| Notes | Same flow as PARENT NL-FB-013. Check the parent repo for whether a version already exists before building. |
+| Notes | Same flow as PARENT NL-FB-013. Checked 2026-10-13: no form exists. The parent repo has no code, NL-FB-013 is still Planned, and its launch-plan task to stand up a form is unchecked. The only Kit broadcast so far (2026-09-30) links to a Kit signup page, so no deal links have been sent yet. Link format draft: `deal-links.md`. |
 
 ## BE-FB-011
 
@@ -205,7 +207,7 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-013 |
 | Title | Explore Sabre's AI MCP |
-| Description | Jeff has looked at Sabre's AI MCP as a way to build features. Mauricio has not. Evaluate it as part of Q-BE-004. |
+| Description | Jeff has looked at Sabre's AI MCP as a way to build features. Mauricio has not. Evaluate it as part of Q-BE-004. On 10-08 Jeff confirmed Sabre has an MCP with "an entire area" for it (M1008P L952-954). |
 | Business Value | Could speed up the Sabre integration. |
 | Priority | Medium |
 | Dependencies | None |
@@ -231,7 +233,7 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-015 |
 | Title | Hotel booking |
-| Description | Book hotels (and possibly cars) alongside flights. Prompted by Missy's group hotel volume and the SAP Concur stopgap (IMP-BE-006). |
+| Description | Book hotels (and possibly cars) alongside flights. Prompted by Missy's group hotel volume and the SAP Concur stopgap (IMP-BE-006). On 10-08 Jeff described the engine booking flights, hotels and rental cars in one place through ARC and Sabre, without VAX (M1008P L862-867). |
 | Business Value | Keeps hotel commission in-house instead of splitting 70/30 with Dickerson (M0924 00:29:07). |
 | Priority | Low |
 | Dependencies | Q-BE-012 |
@@ -290,3 +292,31 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 | Status | Idea |
 | Source Transcript(s) | SV 00:22:15 to 00:25:29 |
 | Notes | Mostly a CRM feature in the parent repo. Listed here because rebooking runs through the booking engine. |
+
+## BE-FB-020
+
+| Field | Value |
+|-------|-------|
+| ID | BE-FB-020 |
+| Title | AI booking agent built from Mauricio's Sabre workflow |
+| Description | Record Mauricio's browser actions while he builds fares in Sabre (with a tool like Playwright), have AI analyze the recordings, and build an AI agent that searches and books the same way. Ideally the agent books newsletter deals instead of a human agent. |
+| Business Value | No agent commission on AI-booked deals (M1008P L945-947). Becomes Flight Bridge IP when the product goes to other agencies (M1008S L14-18). |
+| Priority | Medium |
+| Dependencies | ARC transfer (DEC-BE-014); Sabre method (Q-BE-004) |
+| Status | Idea |
+| Source Transcript(s) | M1008S L14-18, L39-41; M1008P L945-951 |
+| Notes | Related: BE-FB-013 (Sabre MCP), DEC-BE-013 (AI approach), REQ-BE-010 (an agent still follows up every self-booking). |
+
+## BE-FB-021
+
+| Field | Value |
+|-------|-------|
+| ID | BE-FB-021 |
+| Title | Split one-way fares in a single reservation |
+| Description | Offer "broken" itineraries: out on one airline and back on another, priced as two one-way fares but held in one Sabre reservation. Consumer sites send the customer to two airline sites and leave them with two reservations. |
+| Business Value | Lower fares than airline and consumer sites show, with one reservation to manage. Mauricio's example: $2,300 on the airline's site, $1,600 each through Sabre (M1008S L2-13). |
+| Priority | Low |
+| Dependencies | BE-FB-003; Sabre method (Q-BE-004) |
+| Status | Idea |
+| Source Transcript(s) | M1008S L2-38 |
+| Notes | Today Mauricio does this by hand. BE-FB-020 could automate it. |

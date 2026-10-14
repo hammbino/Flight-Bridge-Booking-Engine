@@ -3,8 +3,8 @@ title: "Booking Engine: Missing Information"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
-source_transcripts: [SV, FS, M0924]
+last_updated: 2026-10-13
+source_transcripts: [SV, FS, M0924, M1008P]
 tags: [missing-information, booking-engine]
 ---
 
@@ -66,3 +66,9 @@ Facts nobody has supplied yet. Questions that need a decision are in `open-quest
 **Missing:** Mauricio's wireframes for the booking tool.
 **Impact:** Mauricio has wireframes, some marked MVP, and planned to send them to Jeff (SV 00:02:38, R1205 00:01:07). They are not in this repo.
 **Needed from:** Mauricio Melendez
+
+## MI-BE-009
+
+**Missing:** Flight Bridge's percentage of bookings that come from newsletter leads.
+**Impact:** Needed to set up the JourneyFuse affiliate tagging (DEC-BE-016) and to check the revenue model (DEC-BE-003). On 10-08 the partners said the percentage is written down, but neither stated it, and it is not in this repo (M1008P L930-936). The same meeting asked "what's the split for the bookings?" without an answer (M1008P L1323).
+**Needed from:** Jeffrey Hammond / Mauricio Melendez

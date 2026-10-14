@@ -5,7 +5,10 @@ Short list for quick context. Full entries with reasoning and sources are in `do
 - **Sabre, never our own GDS.** Start with Sabre behind the scenes; a full wrapper is "eventually". DEC-BE-001
 - **ARC.** All bookings, including partner agencies', run under Traverse's ARC. DEC-BE-011
 - **No payment processing for now.** Card details captured by link, not charged. DEC-BE-005
-- **Phase 1 = lead capture.** Book Now opens a prefilled form that goes to a human agent. DEC-BE-006
+- **Phase 1 = lead capture.** Book Now opens a prefilled form that goes to a human agent. DEC-BE-006. Contact is email only (M1008P).
+- **ARC transfer.** The ARC moves from its prior holder to Flight Bridge, with Jeff as the named person. DEC-BE-014
+- **Engine on hold.** Sabre and ARC work waits for the transfer; not ready for November. DEC-BE-015
+- **Booking share tracking.** Flight Bridge is set up as an affiliate in JourneyFuse. DEC-BE-016
 - **Phase 2 = real booking on our page,** with repricing on date change and agent follow-up ("White Glove Service"). DEC-BE-009
 - **Flights first.** Flight-only deals move into the engine first; packages stay with agents. DEC-BE-007
 - **Internal pilot.** Agents use the engine 1 to 2 weeks before it is wired into the newsletter. DEC-BE-008

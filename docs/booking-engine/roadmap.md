@@ -14,7 +14,7 @@ tags: [roadmap, booking-engine]
 
 ## Current Phase
 
-**Phase 0: Foundation (pre-development).** No booking engine code exists. The newsletter free tier launched 2026-09-30 (PARENT). Phase 1 (Book Now lead capture) can start now that its routing is settled (Q-BE-010, resolved 2026-10-13).
+**Phase 0: Foundation (pre-development).** No booking engine code exists. The newsletter free tier launched 2026-09-30 (PARENT). Phase 1 (Book Now lead capture) can start now that its routing is settled (Q-BE-010, resolved 2026-10-13; exact address in CONF-BE-011). Work needing Sabre or the ARC is on hold until the ARC transfer (DEC-BE-014, DEC-BE-015).
 
 ## Completed Milestones
 
@@ -33,10 +33,12 @@ tags: [roadmap, booking-engine]
 - [ ] Build the lead form on the deal landing page (BE-FB-010, BE-FB-001)
 - [ ] Verify submissions arrive end to end (IMP-BE-009)
 - [ ] Track inquiries vs bookings (BE-FB-018), after the form works
+- [ ] Live and tested before the pre-Black Friday sends, 2026-11-25 (IMP-BE-014)
 
 Timing context: the newsletter Basic (flights) tier goes live the first week of November 2026 (PARENT DEC-NL-017). On 09-24 Jeff said a booking page should be up right after the newsletter launch (M0924 00:19:27). No date was set for Phase 1.
 
 ### Phase 2: Real booking on our landing page
+- [ ] ARC transferred to Flight Bridge (DEC-BE-014, Q-BE-019). Estimated 2 to 4 weeks from 2026-10-08 (ASM-BE-014)
 - [ ] Decide database (Q-BE-003) and Sabre method (Q-BE-004, BE-FB-013)
 - [ ] Decide the payment path (MI-BE-006, CONF-BE-005)
 - [ ] Consumer search and self-booking (BE-FB-003)
@@ -46,7 +48,7 @@ Timing context: the newsletter Basic (flights) tier goes live the first week of 
 - [ ] Internal agent pilot, 1 to 2 weeks, before wiring into the newsletter (BE-FB-011, DEC-BE-008)
 - [ ] Wire deal links to the bookable page
 
-No date set (Q-BE-009).
+No date set (Q-BE-009). On hold until the ARC transfer, and not ready for the November launch (DEC-BE-015). Mauricio hopes for January (ASM-BE-014).
 
 ### Phase 3: Corporate self-booking
 - [ ] Corporate self-booking with fee (BE-FB-004)

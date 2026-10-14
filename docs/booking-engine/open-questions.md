@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, EM, FS, PA, PP, M0610, M0924]
+source_transcripts: [SV, EM, FS, PA, PP, M0610, M0924, M1008P, M1008S]
 tags: [open-questions, booking-engine]
 ---
 
@@ -15,6 +15,7 @@ tags: [open-questions, booking-engine]
 | ID | Question (short) | Owner | Priority | Blocks |
 |----|------------------|-------|----------|--------|
 | Q-BE-018 | What is the official phase numbering and order? | Jeff + Mauricio | High | Roadmap |
+| Q-BE-019 | Which legal structure holds the ARC on Flight Bridge's side? | Jeff | High | ARC transfer (DEC-BE-014), Phase 2 |
 | Q-BE-007 | What is the deal-link token schema? | Jeff | High | Deal landing page |
 | Q-BE-003 | SQL or NoSQL? | Jeff | High | All development |
 | Q-BE-004 | Which Sabre API / integration method? | Jeff | High | All Sabre work |
@@ -50,11 +51,11 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | Whose ARC do bookings run under today, and what is the current segment-share split? Is the Winifred arrangement over? |
-| Why it matters | ARC was under Winifred's name, with money passed through her ($1 per transaction to her, $0.50 on to Flight Bridge), and she was to exit "in October" (FS 00:00:00, 00:00:29). On 09-24 Mauricio said Traverse "just barely got the ARC back about a year ago" with her help (M0924 00:41:37). Some Traverse bookings still run through Brian Dickerson's ARC (M0924 00:23:59). Mauricio receives 50 percent of segment shares (SV 00:27:28). DEC-BE-011 puts all booking-tool bookings under Traverse's ARC. |
+| Why it matters | ARC was under Winifred's name, with money passed through her ($1 per transaction to her, $0.50 on to Flight Bridge), and she was to exit "in October" (FS 00:00:00, 00:00:29). On 09-24 Mauricio said Traverse "just barely got the ARC back about a year ago" with her help (M0924 00:41:37). Some Traverse bookings still run through Brian Dickerson's ARC (M0924 00:23:59). Mauricio receives 50 percent of segment shares (SV 00:27:28). DEC-BE-011 puts all booking-tool bookings under Traverse's ARC. **Update 2026-10-08 (M1008P):** the ARC is still in the prior holder's name and is being transferred (DEC-BE-014). Three ARC numbers exist; only hers is used. Picasso's is unused for 6 to 7 months but holds year-end tickets, and 2 or 3 tickets a month go through Brian's to keep it current (L594-595, L955-966). Under her agreement she gets about $1 per reported transaction and, "I think", 25 percent of segment shares for 10 years from the first segment-share payment, expected in February. Mauricio can buy her out after 2 years, and plans to. He would need to check the contract (L597-631). Traverse does over 10,000 segments a year (L626). Still open: the exact current split. |
 | Owner | Mauricio Melendez |
 | Priority | High |
 | Blocking | Revenue model; DEC-BE-003, DEC-BE-011 |
-| Source Transcript(s) | SV 00:27:28, FS 00:00:00, FS 00:00:29, M0924 00:23:59, M0924 00:41:37 |
+| Source Transcript(s) | SV 00:27:28, FS 00:00:00, FS 00:00:29, M0924 00:23:59, M0924 00:41:37, M1008P L594-631, L955-966 |
 | Update 2026-10-07 | Added the 09-24 ARC statements. Still unanswered: is the pass-through finished, and what is the split now? |
 
 ## Q-BE-003
@@ -73,11 +74,11 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | Which Sabre API or integration method will the booking engine use? |
-| Why it matters | It sets what is technically possible, the effort, and the timeline. Options named so far: Sabre APIs (unspecified), Sabre's AI MCP (M0924 00:50:15), and a TAAP-style push of bookings into an agency's Sabre by PCC/PNR (M0924 00:48:42). |
+| Why it matters | It sets what is technically possible, the effort, and the timeline. Options named so far: Sabre APIs (unspecified), Sabre's AI MCP (M0924 00:50:15, M1008P L952-954), and a TAAP-style push of bookings into an agency's Sabre by PCC/PNR (M0924 00:48:42). Jeff registered his own email with Sabre on or before 2026-10-08, but Sabre's replies still reach a contact the prior ARC holder can read (M1008P L846-850, RISK-BE-016). |
 | Owner | Jeffrey Hammond |
 | Priority | High |
 | Blocking | REQ-BE-001; PNR import; all Sabre work |
-| Source Transcript(s) | SV 00:26:00, M0924 00:48:42, M0924 00:50:15 |
+| Source Transcript(s) | SV 00:26:00, M0924 00:48:42, M0924 00:50:15, M1008P L846-850, L952-954 |
 
 ## Q-BE-005
 
@@ -108,6 +109,7 @@ tags: [open-questions, booking-engine]
 |-------|-------|
 | Question | What goes in the deal-link token, and how is it versioned? |
 | Why it matters | Deal links must open the page preloaded (REQ-BE-003). Jeff: "how do we set up tokens in the email... we have explore" (EM 00:00:00). Links must keep working if the page changes (PARENT RISK-NL-005). The newsletter now runs on Kit, so tokens must work in Kit emails. The parent backlog says tokens encode route, dates and price (PARENT NL-FB-005). |
+| Draft proposal | `deal-links.md` (working session 2026-10-13). Not decided. First open item: which domain deal links use. |
 | Owner | Jeffrey Hammond |
 | Priority | High |
 | Blocking | BE-FB-001; Phase 1 form prefill |
@@ -129,11 +131,11 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | When does Phase 2 (customers booking on our landing page) ship? |
-| Why it matters | Jeff said only that a booking page should "quickly" follow the newsletter (M0924 00:19:27). The Basic flights tier goes live the first week of November 2026 (PARENT DEC-NL-017). Agents need 1 to 2 weeks on the engine first (DEC-BE-008). On 06-10 Mauricio said he did not know how feasible an early booking engine was (M0610 00:53:22). |
+| Why it matters | Jeff said only that a booking page should "quickly" follow the newsletter (M0924 00:19:27). The Basic flights tier goes live the first week of November 2026 (PARENT DEC-NL-017). Agents need 1 to 2 weeks on the engine first (DEC-BE-008). On 06-10 Mauricio said he did not know how feasible an early booking engine was (M0610 00:53:22). **Update 2026-10-08:** engine work is on hold until the ARC transfer, and will not be ready for the November launch (DEC-BE-015). Mauricio hopes for booking engines by January (M1008S L83-85). No date set. |
 | Owner | Jeffrey Hammond / Mauricio Melendez |
 | Priority | High |
 | Blocking | Planning |
-| Source Transcript(s) | M0924 00:19:27, M0610 00:53:22 |
+| Source Transcript(s) | M0924 00:19:27, M0610 00:53:22, M1008P L862-870, M1008S L83-85 |
 
 ## Q-BE-010
 
@@ -142,7 +144,7 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | Where does a Phase 1 Book Now submission go, and who watches it day to day? |
-| Answer | Submissions go to info@traversetours.com (Jeff, working session 2026-10-12). Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session 2026-10-13). |
+| Answer | Submissions go to info@traversetours.com (Jeff, working session 2026-10-12). Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session 2026-10-13; also M1008P L904-909). The 10-08 meeting names the address "info at FlightTraverse" (CONF-BE-011, open). |
 | Where recorded | REQ-BE-008, DEC-BE-006, CONF-BE-007, RISK-BE-014, `workflows.md` W1 |
 | History | Sources gave three destinations (CONF-BE-007). Jeff's earlier proposal of owner@flight-bridge.com (working session 2026-10-07) was replaced. |
 | Source Transcript(s) | M0610 00:50:14, M0924 00:21:33, M0924 00:22:33; PARENT Q-NL-010, CONF-NL-005; Jeff, working sessions 2026-10-12 and 2026-10-13 |
@@ -152,7 +154,7 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | What do agencies pay for access to the booking tool? |
-| Why it matters | Agreed only that it should at least cover hosting and AI overhead (M0924 00:51:32). For reference, the other agent CRM ("T") costs $100/month for 5 users plus $10 per extra user (SV 00:31:53). |
+| Why it matters | Agreed only that it should at least cover hosting and AI overhead (M0924 00:51:32). On 10-08 the partners framed it as an agent subscription that includes access to the Flight Bridge engine (M1008S L91-94). For reference, the other agent CRM ("T") costs $100/month for 5 users plus $10 per extra user (SV 00:31:53). |
 | Owner | Jeffrey Hammond / Mauricio Melendez |
 | Priority | Medium |
 | Blocking | DEC-BE-004, BE-FB-006 |
@@ -234,3 +236,14 @@ tags: [open-questions, booking-engine]
 | Priority | High |
 | Blocking | Roadmap; project-state |
 | Source Transcript(s) | See CONF-BE-004 |
+
+## Q-BE-019
+
+| Field | Value |
+|-------|-------|
+| Question | Which legal structure holds the ARC: the Flight Bridge LLC (with Mauricio removed during ARC's background check, then added back) or a separate LLC or trust on Jeff's side? |
+| Why it matters | The ARC transfer (DEC-BE-014) cannot be filed until this is settled. The ARC holder carries fraud chargeback risk (RISK-BE-015), and Jeff wants to limit personal exposure. The stated preference is to keep it under Flight Bridge (M1008P L582). |
+| Owner | Jeffrey Hammond |
+| Priority | High |
+| Blocking | DEC-BE-014; all Sabre and ARC work (DEC-BE-015) |
+| Source Transcript(s) | M1008P L548-569, L580-587, L835-838 |

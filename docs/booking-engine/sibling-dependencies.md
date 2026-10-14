@@ -3,7 +3,7 @@ title: "Booking Engine: Sibling Product Dependencies"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Jeffrey Hammond / Mauricio Melendez
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: [EM, SV, M0610, M0924, PARENT]
 tags: [dependencies, newsletter, crm, interfaces, parent-repo]
 ---
@@ -23,7 +23,7 @@ Snapshot taken 2026-10-07. If a parent-repo ID below looks stale, re-read the pa
 - **What the newsletter expects:** every deal email links to a booking engine landing page, pre-populated with the deal and editable by the subscriber. Token-based URL parameters carry the deal context.
 - **Parent IDs:** REQ-NL-004, DEC-NL-002, NL-FB-005 (token system: route, dates, price), RISK-NL-005 (links break if the URL structure changes; mitigation is a stable, versioned token schema).
 - **Booking engine IDs:** REQ-BE-003, REQ-BE-007, BE-FB-001.
-- **Open:** the token schema has not been defined. See Q-BE-007.
+- **Open:** the token schema has not been defined. See Q-BE-007. Draft proposal in `deal-links.md` (2026-10-13).
 - **Source:** EM 00:00:00
 
 ### 1.2 Interim booking flow until the engine exists
@@ -32,9 +32,11 @@ The booking engine is not built yet. Until it is, newsletter bookings go through
 
 | Flow | How it works | Status | Parent IDs |
 |------|--------------|--------|-----------|
-| V1 contact form | Deal email → landing page form prefilled with the deal → "my dates are different" calendar and traveler count (no repricing) → customer picks call or email → generic inbox → Denise assigns an agent → agent books by hand in Sabre | Agreed 2026-06-10 | DEC-NL-011, NL-FB-013, Q-NL-010, RISK-NL-008 |
+| V1 contact form | Deal email → landing page form prefilled with the deal → "my dates are different" calendar and traveler count (no repricing) → customer picks call or email → generic inbox → Denise assigns an agent (superseded: now email only, to an inbox Mauricio and Viktor monitor) → agent books by hand in Sabre | Agreed 2026-06-10 | DEC-NL-011, NL-FB-013, Q-NL-010, RISK-NL-008 |
 | Deal Alerts reply | Subscriber replies to the alert email → Traverse confirms the fare is live and books it. Handled by Mauricio's AI tool "Viktor" | Resolved as intentional 2026-09-30. Who monitors replies day to day is still open | CONF-NL-005 |
 | JourneyFuse packages | VIP package deals only: customer clicks Book on a JourneyFuse proposal page → JourneyFuse captures card and passenger info → agent books by hand | Idea / Phase 2 in the 06-10 sequence | NL-FB-014 |
+
+**Out of date in the parent (checked 2026-10-13):** the V1 contact form row still routes leads to a generic inbox where Denise assigns an agent. That is no longer the plan. Book Now leads now go to info@traversetours.com, which Mauricio and Viktor monitor (Q-BE-010, resolved 2026-10-13). The parent IDs still saying Denise are DEC-NL-011, NL-FB-013, Q-NL-010, RISK-NL-008 and the launch-plan tasks for the deal contact form. They have not been updated, and no form has been built.
 
 Booking engine relevance: the V1 form fields (deal prefill, date change, traveler count, contact preference) are the minimum the booking engine's deal landing page must also handle. Agents must use the booking engine internally for at least one to two weeks before it is wired into the newsletter (DEC-BE-008).
 

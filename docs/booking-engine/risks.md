@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, FS, PP, M0610, M0924, PARENT]
+source_transcripts: [SV, FS, PP, M0610, M0924, PARENT, M1008P]
 tags: [risks, booking-engine]
 ---
 
@@ -118,6 +118,30 @@ Likelihood and impact ratings are judgments made when the doc was written, not v
 
 **Risk:** a lead from the Phase 1 form is dropped because nobody clearly owns the inbox.
 **Likelihood:** Medium. **Impact:** High (lost booking revenue).
-**Mitigation:** the destination is set (info@traversetours.com, 2026-10-12). Mauricio and his AI tool Viktor monitor it (2026-10-13). Before shipping, send a test lead and confirm it is seen (BE-FB-010).
+**Mitigation:** the destination is set (info@traversetours.com, 2026-10-12). Mauricio and his AI tool Viktor monitor it (2026-10-13). Before shipping, send a test lead and confirm it is seen (BE-FB-010). The exact address is disputed (CONF-BE-011), and Viktor is due to be replaced (RISK-BE-017).
 **Related:** CONF-BE-007; PARENT RISK-NL-008
 **Source:** M0610, M0924; PARENT RISK-NL-008; Jeff, working sessions 2026-10-12 and 2026-10-13
+
+## RISK-BE-015
+
+**Risk:** the ARC holder is liable when a customer pays with a fraudulent card and the charge is reversed weeks after ticketing. Once the ARC is in Flight Bridge's name (DEC-BE-014), that liability sits with Flight Bridge and its named person. Self-booking (Phase 2) widens the exposure, because no agent screens the buyer first.
+**Likelihood:** Low (Mauricio reports it has happened once). **Impact:** High.
+**Mitigation:** Mauricio's agents refuse urgent ticket requests from unknown callers (M1008P L516-520). Protection through legal structure is open (Q-BE-019). Phase 2 fraud checks are not discussed.
+**Related:** DEC-BE-014, DEC-BE-005, Q-BE-019
+**Source:** M1008P L512-543
+
+## RISK-BE-016
+
+**Risk:** the prior ARC holder cancels the agency before the transfer completes, because she opposes online booking and sees Flight Bridge working toward it. Sabre's replies go to an agency contact she can read.
+**Likelihood:** Medium. **Impact:** High (no ARC means no ticketing and no booking engine).
+**Mitigation:** engine work that needs Sabre is on hold until the transfer (DEC-BE-015). Jeff registered his own email with Sabre (M1008P L848). No other mitigation stated.
+**Related:** DEC-BE-014, DEC-BE-015, Q-BE-004
+**Source:** M1008P L846-861
+
+## RISK-BE-017
+
+**Risk:** Phase 1 leads depend on Viktor, which turns lead emails into JourneyFuse leads and assigns them. Viktor is due to be replaced by a Claude-based setup, with a working day planned for about the week of 2026-10-19. A lead could be missed during the switch, possibly during the Black Friday rush (IMP-BE-014).
+**Likelihood:** Medium. **Impact:** High (lost booking revenue).
+**Mitigation:** none stated. Send a test lead after the switch, and again before Black Friday.
+**Related:** RISK-BE-014, Q-BE-010, `workflows.md` W1
+**Source:** M1008P L404-419, L920-926, L1274-1322

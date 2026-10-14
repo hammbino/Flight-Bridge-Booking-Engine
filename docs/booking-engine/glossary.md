@@ -3,8 +3,8 @@ title: "Booking Engine: Glossary"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Jeffrey Hammond
-last_updated: 2026-10-07
-source_transcripts: [SV, EM, FS, PP, R1205, M0610, M0924]
+last_updated: 2026-10-13
+source_transcripts: [SV, EM, FS, PP, R1205, M0610, M0924, M1008P]
 tags: [glossary, terms, people, booking-engine]
 ---
 
@@ -41,7 +41,7 @@ Jeff often says "agent" for an **AI agent**. Mauricio says "agent" for a **human
 | JourneyFuse | Agent CRM / proposal tool Traverse is moving to. Transcripts also say "Journey Fuse" |
 | VCRM / VacationCRM | Older client CRM. Also "BCRM", "BC RM", "BCMM" in transcripts |
 | Trace / Travify | Older itinerary and billing tool, being dropped |
-| Victor / Viktor | AI tool Mauricio uses for flight tracking, fare watching and handling replies. Probably one tool (unconfirmed) |
+| Viktor | Mauricio's AI agent for finance and operations, built on Claude (M1008P L374-379). Monitors the Traverse info inbox and turns lead emails into JourneyFuse leads. Due to be replaced by a Claude-based setup. Transcripts spell it "Victor" |
 | Grit | Corporate client. Traverse runs its group trips but not its individual travel. Transcripts also say "grip" |
 | BK Marketing | Ben Knell's door-to-door company in Orem. Target client (BE-FB-009) |
 

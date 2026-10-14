@@ -3,7 +3,7 @@ title: Transcript Index
 project: Flight Bridge Booking Engine
 status: Active
 owner: Jeffrey Hammond / Mauricio Melendez
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: all
 tags: [index, transcripts]
 ---
@@ -31,3 +31,6 @@ Rows with the same digest are identical files saved under different names (verif
 | 12-05 Strategic Roadmap for Traverse Tech Launch and Growth-transcript.txt | Processed | 2026-06-30 | 2026-10-07 | All | Build sequence, wireframes, partnership steps, BK Marketing prospect. | Digest: `sources/12-05-traverse-tech-roadmap.md`. Raw file in parent repo. |
 | 06-10 Weekly Meeting_ Newsletter Content Strategy, Subscription Tiers, and Booking Flow-transcript.txt | Processed | 2026-06-30 | 2026-10-07 | Booking Engine, Newsletter | Interim booking flow, JourneyFuse phase, booking engine as Phase 3. | Booking content first captured 2026-10-07. Digest: `sources/06-10-newsletter-tiers-booking-flow.md`. Raw file in parent repo. |
 | 09-24 Meeting_ Tiered Travel Subscription Launch, Email Campaign, and Booking Engine Roadmap-transcript.txt | Processed | 2026-09-24 | 2026-10-07 | Booking Engine, Newsletter | Book Now Phase 1 (lead form) and Phase 2 (real booking), build order, "Picasso but better" agency model. | Booking content first captured 2026-10-07. Digest: `sources/09-24-tier-launch-booking-roadmap.md`. Raw file in parent repo. |
+
+| 10-08 Planning: FlightBridge ARC Transfer and Paid-deals Launch | Processed | 2026-10-13 | 2026-10-13 | Booking Engine, Newsletter | ARC transfer to Flight Bridge, engine on hold until then, Phase 1 inbox and email-only contact, Black Friday plan. | Key M1008P. Digest: `sources/10-08-arc-transfer-paid-launch.md`. Raw file in parent repo. Newsletter content goes to the parent. |
+| 10-08 Meeting: FlightBridge Strategy on AI Agent Development, ARC Approval, and Monetization | Processed | 2026-10-13 | 2026-10-13 | Booking Engine | AI agent built from Mauricio's Sabre workflow, broken fares in one PNR, ARC timing. | Key M1008S. Digest: `sources/10-08-ai-agent-arc-strategy.md`. Raw file in parent repo. |

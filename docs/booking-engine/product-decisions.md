@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, EM, FS, PP, R1205, M0610, M0924]
+source_transcripts: [SV, EM, FS, PP, R1205, M0610, M0924, M1008P, M1008S]
 tags: [decisions, booking-engine]
 ---
 
@@ -31,6 +31,9 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | DEC-BE-011 | Bookings run under Traverse's ARC, including bookings by licensee agencies | Agreed |
 | DEC-BE-012 | Traverse's own agents do not book through the fee-bearing portal | Needs Review |
 | DEC-BE-013 | AI: start on a hosted API, build a self-hosted fallback soon | Agreed |
+| DEC-BE-014 | Transfer the ARC to Flight Bridge, with Jeff as the named person | Agreed |
+| DEC-BE-015 | Pause booking engine (Sabre) work until the ARC transfer; not ready for the November launch | Agreed |
+| DEC-BE-016 | Set up Flight Bridge as an affiliate in JourneyFuse so its share of newsletter bookings is tracked | Agreed |
 
 ---
 
@@ -116,7 +119,7 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | Date | 2026-06-10, restated 2026-09-24 |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33, M0924 00:25:51 |
 | Related Requirements | REQ-BE-008, REQ-BE-011 |
-| Notes | Same flow as PARENT DEC-NL-011. Where the lead goes was stated three ways: a generic inbox with Denise assigning (M0610 00:50:14), Mauricio through Victor (M0924 00:21:33), and an info@ address for "an agent" (M0924 00:22:33). Update 2026-10-12: Jeff set the destination as info@traversetours.com (working session), resolving CONF-BE-007. Update 2026-10-13: Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session; Q-BE-010 resolved). |
+| Notes | Same flow as PARENT DEC-NL-011. Where the lead goes was stated three ways: a generic inbox with Denise assigning (M0610 00:50:14), Mauricio through Victor (M0924 00:21:33), and an info@ address for "an agent" (M0924 00:22:33). Update 2026-10-12: Jeff set the destination as info@traversetours.com (working session), resolving CONF-BE-007. Update 2026-10-13: Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session; Q-BE-010 resolved). The 10-08 meeting names the inbox "info at FlightTraverse" (M1008P L904-909); see CONF-BE-011. Update 2026-10-08: contact is email only, no phone option, because email leaves a trail and phone requests are rare (M1008P L910-920). |
 
 ## DEC-BE-007
 
@@ -186,7 +189,7 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | Date | PP (date unknown), R1205, M0924 |
 | Source Transcript(s) | PP 00:08:58, PP 00:10:48, R1205 00:00:00, M0924 00:20:57 |
 | Related Requirements | REQ-BE-005, REQ-BE-006 |
-| Notes | ARC history: ARC was held under Winifred's name with a revenue pass-through, and she was due to exit "in October" (FS 00:00:29). On 09-24 Mauricio said Traverse "just barely got the ARC back about a year ago" (M0924 00:41:37). Some Traverse bookings still run through Brian Dickerson's ARC because of his contracts (M0924 00:23:59). See Q-BE-002. |
+| Notes | ARC history: ARC was held under Winifred's name with a revenue pass-through, and she was due to exit "in October" (FS 00:00:29). On 09-24 Mauricio said Traverse "just barely got the ARC back about a year ago" (M0924 00:41:37). Some Traverse bookings still run through Brian Dickerson's ARC because of his contracts (M0924 00:23:59). See Q-BE-002. Update 2026-10-08: the ARC is still in the prior holder's name and is being transferred to Flight Bridge (DEC-BE-014, M1008P). |
 
 ## DEC-BE-012
 
@@ -215,3 +218,45 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | Source Transcript(s) | PP 00:18:27, PP 00:22:08, PP 00:24:24 |
 | Related Requirements | None yet |
 | Notes | Platform-wide decision, recorded here because it shapes booking engine architecture. Jeff has outside developers who offered to help if this needs to scale fast (PP 00:23:44). |
+
+## DEC-BE-014
+
+| Field | Value |
+|-------|-------|
+| Decision ID | DEC-BE-014 |
+| Decision | Transfer the ARC from its prior holder to Flight Bridge, with Jeff as the named person on the ARC documents. The prior holder gives up all access and control, and keeps her agreed share of revenue. No money changes hands for the transfer. |
+| Reasoning | The ARC is still in the prior holder's name. Access codes go to her, she has pulled the access Flight Bridge was using, and she has threatened to cancel the ARC (M1008P L471-504, L652-667). Control of the ARC is needed to build the flight engine and the agency portal (M1008P L652-656). Jeff sees it as a risk he accepted when the partnership started (M1008P L840-843). |
+| Alternatives Considered | Bring in another person (Mauricio's other business partner offered, M1008P L792-796); hold it in a separate LLC rather than Flight Bridge (M1008P L550-563) |
+| Status | Agreed. Legal structure still open (Q-BE-019). |
+| Date | 2026-10-08 |
+| Source Transcript(s) | M1008P L471-511, L550-587, L652-667, L788-845; M1008S L66-72 |
+| Related Requirements | REQ-BE-005, REQ-BE-006 |
+| Notes | Proposed mechanics: Mauricio is removed from the Flight Bridge LLC while ARC runs its background check, then added back. The removal takes about 72 hours (M1008P L550-560, L584-587). Costs: about $2,000 transfer fee and about $1,100 for E&O insurance, all covered by Mauricio (M1008P L570-578). Estimated time: 2 to 3 weeks (M1008P L868) or 3 to 4 weeks (M1008S L71). The holder is liable for fraud chargebacks (RISK-BE-015). Updates the history in DEC-BE-011 and Q-BE-002. |
+
+## DEC-BE-015
+
+| Field | Value |
+|-------|-------|
+| Decision ID | DEC-BE-015 |
+| Decision | Booking engine work that needs Sabre or the ARC is on hold until the ARC transfer (DEC-BE-014), about 2 to 3 weeks from 2026-10-08. Jeff keeps working on what he can. The engine will not be ready for the November newsletter launch. |
+| Reasoning | Access runs through the prior ARC holder, who has pulled it (M1008P L652-667). She may cancel the agency if she sees work toward an online booking engine (RISK-BE-016). |
+| Alternatives Considered | Not discussed |
+| Status | Agreed |
+| Date | 2026-10-08 |
+| Source Transcript(s) | M1008P L862-870; M1008S L66-68 |
+| Related Requirements | REQ-BE-001, REQ-BE-009 |
+| Notes | Phase 1 Book Now (a message form to an inbox) needs no Sabre and is not on hold (M1008P L896-909). Mauricio hopes booking engines are working by January (M1008S L83-85, ASM-BE-014). |
+
+## DEC-BE-016
+
+| Field | Value |
+|-------|-------|
+| Decision ID | DEC-BE-016 |
+| Decision | Set up Flight Bridge as an affiliate (agent) in JourneyFuse. Leads that come from the newsletter are tagged to Flight Bridge, so Flight Bridge's agreed share of each booking is tracked automatically. |
+| Reasoning | The newsletter earns two ways: subscriptions and a share of bookings. The booking share must be tracked (M1008P L930-944). |
+| Alternatives Considered | Not discussed |
+| Status | Agreed (not yet set up) |
+| Date | 2026-10-08 |
+| Source Transcript(s) | M1008P L927-944 |
+| Related Requirements | REQ-BE-008 |
+| Notes | The percentage is "written down" but not in this repo (MI-BE-009). Related revenue questions: DEC-BE-003, Q-BE-002. Today Viktor creates JourneyFuse leads from lead emails (`workflows.md` W1). |

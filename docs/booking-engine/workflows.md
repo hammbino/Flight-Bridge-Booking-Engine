@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, PP, M0610, M0924]
+source_transcripts: [SV, PP, M0610, M0924, M1008P]
 tags: [workflows, booking-flow, booking-engine]
 ---
 
@@ -18,8 +18,8 @@ Step-by-step flows. IDs point to the requirement or decision behind each step.
 2. Clicks **Book Now** and lands on our deal page, not Google Flights or the airline (REQ-BE-011).
 3. The form is prefilled with the deal (REQ-BE-008).
 4. Optional: "my dates are different" opens a calendar. No new price is shown (REQ-BE-008, RISK-BE-006).
-5. Enters traveler count, name and email, and picks call or email (REQ-BE-008).
-6. Submission goes to info@traversetours.com (Jeff, 2026-10-12). Mauricio and his AI tool Viktor monitor it (Jeff, 2026-10-13).
+5. Enters traveler count, name and email. Contact is by email only (REQ-BE-008, M1008P L910-920).
+6. Submission goes to info@traversetours.com (Jeff, 2026-10-12; address disputed, CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, 2026-10-13). For now Viktor turns lead emails into JourneyFuse leads and assigns them to an agent (M1008P L920-926). Viktor is due to move to a Claude-based setup (RISK-BE-017). Leads are tagged to Flight Bridge in JourneyFuse (DEC-BE-016).
 7. An agent contacts the customer, sends options, and books by hand in Sabre (DEC-BE-006).
 
 **Status:** Agreed. Not built.

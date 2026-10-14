@@ -3,8 +3,8 @@ title: "Booking Engine: Assumptions"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
-source_transcripts: [SV, PA, PP, M0610, M0924]
+last_updated: 2026-10-13
+source_transcripts: [SV, PA, PP, M0610, M0924, M1008P, M1008S]
 tags: [assumptions, booking-engine]
 ---
 
@@ -92,3 +92,9 @@ Keeping AI in mind while building will not add much build time.
 Traverse can match fares found publicly (for example on Google Flights), so where a deal is sourced does not matter much. Jeff: "we don't care. Because we can match it." Not explained further.
 **Source:** M0610 00:15:08
 **Related:** REQ-BE-003, RISK-BE-006
+
+## ASM-BE-014
+
+The ARC transfer takes about 2 to 3 weeks (M1008P L868) or 3 to 4 weeks (M1008S L71) from 2026-10-08, because most of the paperwork was done earlier. If things stay on track, booking engines are working by January 2027 (M1008S L83-85). Both are Mauricio's estimates.
+**Source:** M1008P L868, M1008S L66-72, L83-85
+**Related:** DEC-BE-014, DEC-BE-015, Q-BE-009

@@ -4,7 +4,7 @@ project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
 last_updated: 2026-10-13
-source_transcripts: [SV, EM, PP, R1205, M0610, M0924]
+source_transcripts: [SV, EM, PP, R1205, M0610, M0924, M1008P]
 tags: [requirements, booking-engine]
 ---
 
@@ -135,13 +135,13 @@ Only explicitly stated requirements belong here. Requirements that only seem imp
 |-------|-------|
 | ID | REQ-BE-008 |
 | Requirement | Phase 1 Book Now lead form |
-| Description | Clicking Book Now on a deal opens a form on our landing page. The form: (1) is prefilled with the deal details (M0610 00:47:33); (2) has a "my dates are different" option that opens a calendar (M0610 00:47:37); (3) asks how many people are traveling (M0610 00:47:58); (4) lets the customer choose to be contacted by call or email (M0610 00:50:14); (5) captures name, email and the flight (M0924 00:22:33); (6) sends the submission to Traverse for an agent to follow up (M0610 00:50:14, M0924 00:22:33). It does not show a new price when dates change (M0610 00:47:53). |
+| Description | Clicking Book Now on a deal opens a form on our landing page. The form: (1) is prefilled with the deal details (M0610 00:47:33); (2) has a "my dates are different" option that opens a calendar (M0610 00:47:37); (3) asks how many people are traveling (M0610 00:47:58); (4) contact is by email only (M1008P L910-920; the 06-10 version let the customer pick call or email, M0610 00:50:14); (5) captures name, email and the flight (M0924 00:22:33); (6) sends the submission to Traverse for an agent to follow up (M0610 00:50:14, M0924 00:22:33). It does not show a new price when dates change (M0610 00:47:53). |
 | Priority | High |
 | Status | Confirmed |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
 | Related Requirements | REQ-BE-003, REQ-BE-007, REQ-BE-011 |
 | Related Decisions | DEC-BE-006; PARENT DEC-NL-011 |
-| Notes | Destination: info@traversetours.com (Jeff, working session 2026-10-12), resolving CONF-BE-007. Mauricio and his AI tool Viktor monitor it (Jeff, working session 2026-10-13). |
+| Notes | Change 2026-10-08: email only, no call option (M1008P L910-920). Destination: info@traversetours.com (Jeff, working session 2026-10-12), resolving CONF-BE-007. The 10-08 meeting says "info at FlightTraverse" instead (CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, working session 2026-10-13). |
 
 ## REQ-BE-009
 

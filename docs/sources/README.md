@@ -3,7 +3,7 @@ title: "Source Digests: Index"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Jeffrey Hammond / Mauricio Melendez
-last_updated: 2026-10-07
+last_updated: 2026-10-13
 source_transcripts: all
 tags: [sources, index, traceability]
 ---
@@ -34,14 +34,20 @@ Docs in `docs/booking-engine/` cite sources with a short key plus a timestamp, f
 | R1205 | 12-05-traverse-tech-roadmap.md | 12-05 Strategic Roadmap for Traverse Tech Launch and Growth-transcript.txt |
 | M0610 | 06-10-newsletter-tiers-booking-flow.md | 06-10 Weekly Meeting_ Newsletter Content Strategy, Subscription Tiers, and Booking Flow-transcript.txt |
 | M0924 | 09-24-tier-launch-booking-roadmap.md | 09-24 Meeting_ Tiered Travel Subscription Launch, Email Campaign, and Booking Engine Roadmap-transcript.txt |
+| M1008P | 10-08-arc-transfer-paid-launch.md | 10-08 Planning: FlightBridge ARC Transfer and Paid-deals Launch |
+| M1008S | 10-08-ai-agent-arc-strategy.md | 10-08 Meeting: FlightBridge Strategy on AI Agent Development, ARC Approval, and Monetization |
 | PARENT | n/a | Parent repo docs or working-session decisions, cited by file and ID (for example `PARENT docs/ai/KNOWN_ISSUES.md`) |
 
 New transcripts get a new key here when their digest is written.
+
+M1008P and M1008S have no per-line timestamps. They are cited by line number in the raw file, for example `M1008P L905`.
 
 ## Digests (newest first)
 
 | Digest | Date | Booking relevance | Aliases (original filenames) |
 |--------|------|-------------------|------------------------------|
+| [10-08-arc-transfer-paid-launch.md](10-08-arc-transfer-paid-launch.md) | 2026-10-08 | High. ARC transfer unblocks the engine; engine on hold, not ready for November; Phase 1 inbox and email-only contact; Black Friday deals bookable | 10-08 Planning: FlightBridge ARC Transfer and Paid-deals Launch |
+| [10-08-ai-agent-arc-strategy.md](10-08-ai-agent-arc-strategy.md) | 2026-10-08 | Medium. AI agent trained on Mauricio's Sabre skill; ARC in 3 to 4 weeks; engines by January | 10-08 Meeting: FlightBridge Strategy on AI Agent Development, ARC Approval, and Monetization |
 | [09-24-tier-launch-booking-roadmap.md](09-24-tier-launch-booking-roadmap.md) | 09-24 (2026) | High. Most recent booking direction: Book Now Phase 1 and 2, build order, agency model | 09-24 Meeting_ Tiered Travel Subscription Launch, Email Campaign, and Booking Engine Roadmap-transcript.txt |
 | [06-10-newsletter-tiers-booking-flow.md](06-10-newsletter-tiers-booking-flow.md) | 06-10 | High. Interim V1 booking form, JourneyFuse phase, booking engine phase | 06-10 Weekly Meeting_ Newsletter Content Strategy, Subscription Tiers, and Booking Flow-transcript.txt |
 | [05-22-email-marketing-tool-selection.md](05-22-email-marketing-tool-selection.md) | 05-22 | High. Deal link opens an editable, ready-to-pay booking page | 05-22 Weekly Meeting Flight-Bridge_ Email Marketing Strategy, Tool Selection, and Monetization-transcript.txt; JeffandMauricio.md.md; email_marketing_strategy_tool_selection_and_monotization |

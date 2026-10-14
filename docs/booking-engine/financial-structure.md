@@ -3,8 +3,8 @@ title: "Booking Engine: Financial Structure"
 project: Flight Bridge Booking Engine
 status: Active
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
-source_transcripts: [SV, FS, M0610, M0924, PARENT]
+last_updated: 2026-10-13
+source_transcripts: [SV, FS, M0610, M0924, PARENT, M1008P]
 tags: [finance, revenue, arc, payments, booking-engine]
 ---
 
@@ -40,6 +40,8 @@ This covers how bookings make money and how money moves. Company-wide finance (c
 - Bookings run under Traverse's ARC, including licensee agencies' bookings (DEC-BE-011).
 - History: ARC was under Winifred's name. Mauricio sent her $1 per transaction, and she sent $0.50 to Flight Bridge (FS 00:00:00). She was to exit "in October" (year unstated) (FS 00:00:29). Mauricio gets 50 percent of segment shares (SV 00:27:28). On 09-24: Traverse "just barely got the ARC back about a year ago" (M0924 00:41:37).
 - Some Traverse bookings still run through Brian Dickerson's ARC because of contracts he holds (M0924 00:23:59).
+- Update 2026-10-08: the ARC is still in the prior holder's name and is being transferred to Flight Bridge (DEC-BE-014). She keeps about $1 per reported transaction and a share of segment shares (about 25 percent, unconfirmed) for 10 years from the first payment, expected February, with a buyout option after 2 years (M1008P L597-631). The holder carries fraud chargeback risk (RISK-BE-015).
+- Newsletter booking share: Flight Bridge gets an agreed percentage of bookings from newsletter leads, tracked through JourneyFuse (DEC-BE-016). The percentage is not in this repo (MI-BE-009).
 - Current status: open (Q-BE-002).
 
 ## Payments for bookings

@@ -3,8 +3,8 @@ title: "Booking Engine: Implicit Requirements"
 project: Flight Bridge Booking Engine
 status: Needs Review
 owner: Mauricio Melendez / Jeffrey Hammond
-last_updated: 2026-10-07
-source_transcripts: [SV, EM, FS, AV, PA, M0610, M0924]
+last_updated: 2026-10-13
+source_transcripts: [SV, EM, FS, AV, PA, M0610, M0924, M1008P]
 tags: [implicit-requirements, booking-engine, needs-human-review]
 ---
 
@@ -100,3 +100,10 @@ These seem implied by the conversations but were never stated as requirements. *
 **What was said:** "we would need this capability" when the CRM is built (M0610 00:46:28).
 **Source:** M0610
 **Related:** Q-BE-013
+
+## IMP-BE-014
+
+**Implied requirement:** the Phase 1 Book Now form is live and tested before the pre-Black Friday sends (the sign-up deadline is the Wednesday before Thanksgiving, 2026-11-25).
+**What was said:** Black Friday deals in the emails should be clickable to book, and those deals carry through the following week (M1008P L1316-1322). The booking engine will not be ready by then (DEC-BE-015), so "book" can only mean the Phase 1 form.
+**Source:** M1008P
+**Related:** REQ-BE-008, BE-FB-010, DEC-BE-015, RISK-BE-017
