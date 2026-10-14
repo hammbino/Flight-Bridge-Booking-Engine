@@ -127,7 +127,7 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 | "Traverse Tours powered by Flight Bridge", real brand assets (PARENT DEC-NL-009, ui-notes) | Traverse colors, fonts, real logo file, powered-by badge |
 | CTA says an agent follows up; agent confirms price on new dates (ui-notes, RISK-BE-006) | Section 5.1 copy |
 | Links on a domain we control, versioned (RISK-BE-007) | Our domain, `v=1` |
-| Works from social posts too (IMP-BE-010) | Nothing depends on Kit; any shared link works |
+| Works from social posts and forwarded emails (IMP-BE-010) | Nothing depends on Kit or on who clicks; any shared link works |
 | Package deals supported (Black Friday package 2026-11-30) | `type=package` in v1 |
 | Record the link the customer came from (`deal-links.md` rule 4) | Full link in every request email |
 | A broken link still produces a lead (`deal-links.md` rule 2) | Page works without deal details |
@@ -148,14 +148,14 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 - **Requests pass 250 in a month.** Check the count mid-November and move to Web3Forms Pro (~$12/mo) before 2026-11-25 if needed.
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS takes time to update.** GitHub Pages usually works within an hour. If not ready by midday, the test uses the GitHub address and the email waits for the real one.
-- **Viktor is replaced by a Claude setup** (RISK-BE-017, planned around the week of 2026-10-19). The new setup must also watch info@flytraverse.com and recognize "Book Now request" emails. Re-run the test after the switch.
 - **Request emails land in Junk on Microsoft 365.** Caught by the test; Mauricio adds an allow rule.
 - **Deal content is not ready from Mauricio.** The page can launch without it. The email goes out when the deal is approved.
 
 ## 11. Open items for Jeff
 
-1. ~~Who receives this week's deal email?~~ **Answered 2026-10-13:** only people who actually signed up (Kit tag `landing-page-confirmed`, about 8 people including Jeff's own test sign-up). Not the 1,338 imported contacts.
+1. ~~Who receives this week's deal email?~~ **Answered 2026-10-13:** only people who actually signed up (Kit tag `landing-page-confirmed`, 9 people on 2026-10-14 including Jeff's own test sign-up). Not the 1,338 imported contacts.
 2. ~~Who writes this week's destination content?~~ **Answered:** Claude drafts it, Mauricio edits and approves (Jeff, 2026-10-14). Mauricio sends the deal: route, dates, price, and where he found it.
-3. **Pre-filling the subscriber's own name and email** from Kit (`deal-links.md` open item 2). Proposed: not in v1. It would put email addresses in links, and the list is about 8 people. Say if you want it.
-4. **Price is per person, in USD.** Assumed from the notes (`deal-links.md` open item 4). Mauricio confirms when he sends the deal.
+3. ~~Pre-fill the subscriber's own name and email from Kit?~~ **Answered: no** (Jeff, 2026-10-14). The 9 confirmed sign-ups have no names stored, and forwarding is welcome (item 6), so a friend should get a clean form.
+4. ~~Price per person?~~ **Answered: yes, per person** (Jeff, 2026-10-14). Currency assumed USD.
+6. ~~Should forwarded deals work for friends?~~ **Answered: yes, for the free deal** (Jeff, 2026-10-14). The free deal is posted publicly on social anyway (PARENT REQ-NL-005), and a friend's request is a new lead. Whether paid deals (from November) should be limited to members is decided then, not now.
 5. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
