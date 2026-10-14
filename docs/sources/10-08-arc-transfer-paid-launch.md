@@ -3,7 +3,7 @@ title: Source Digest - ARC Transfer and Paid-Deals Launch (10-08 planning)
 project: Flight Bridge Booking Engine
 status: Active
 owner: Jeffrey Hammond / Mauricio Melendez
-last_updated: 2026-10-13
+last_updated: 2026-10-14
 source_transcripts: ["10-08 Planning: FlightBridge ARC Transfer and Paid-deals Launch"]
 tags: [source-digest, arc, phase-1, lead-routing, viktor, journeyfuse, sabre, black-friday]
 ---
@@ -42,7 +42,7 @@ The booking engine and CRM work are blocked because the ARC is still in the prio
 | 14 | FACT | Jeff registered his own email with Sabre, so he can talk to Sabre directly. Sabre's replies still go to the agency contact, which the prior holder can also read. | Jeff, Mauricio | L846-850 | |
 | 15 | RISK | If the prior holder sees work toward an online booking engine before the transfer, she may cancel the agency. She opposes online booking. | Mauricio | L851-861 | |
 | 16 | DECISION | The flight engine is on hold for about 2 to 3 weeks, until the ARC is under control. Jeff keeps working on it. It will not be ready for the November launch. | Jeff, Mauricio | L862-870 | "I understand that it's not going to be ready for November launch. That's fine," |
-| 17 | DECISION / CONFLICT | Phase 1: "I want to book it" goes to a send-a-message page that emails an inbox. owner@ (Flight Bridge) was the wrong choice. It should be a Traverse inbox: "info at FlightTraverse dot com", which Viktor monitors. The 2026-10-12 working session said info@traversetours.com; resolved 2026-10-13 as info@flytraverse.com (CONF-BE-011). | Jeff, Mauricio | L896-909 | "So I'll just point it to info at flighttraverse dot com," |
+| 17 | DECISION / CONFLICT | Phase 1: "I want to book it" goes to a send-a-message page that emails an inbox. owner@ (Flight Bridge), the address recorded in the notes at the time, was the wrong choice. No page existed yet (Jeff, 2026-10-14). It should be a Traverse inbox: "info at FlightTraverse dot com", which Viktor monitors. The 2026-10-12 working session said info@traversetours.com; resolved 2026-10-13 as info@flytraverse.com (CONF-BE-011). | Jeff, Mauricio | L896-909 | "So I'll just point it to info at flighttraverse dot com," |
 | 18 | DECISION | Phase 1 contact is email only. No phone option. Phone requests are rare, and email leaves a trail and is easier to monitor. | Mauricio, Jeff | L910-920 | "I would say email, only email." |
 | 19 | FACT | For now, until it moves to Claude, Viktor reads emails to info@ (and Mauricio's own inbox) that look like leads (keywords such as "referral" or interest in a trip). It creates each one as a lead in JourneyFuse and assigns it to someone. | Mauricio | L920-926 | |
 | 20 | DECISION | Set up Flight Bridge as an affiliate (agent) in JourneyFuse. Leads from the newsletter get tagged to Flight Bridge, so Flight Bridge's agreed percentage of the booking is tracked. The percentage is written down elsewhere. | Mauricio, Jeff | L927-944 | "we would actually set up FlightBridge as an agent in JourneyFuse" |

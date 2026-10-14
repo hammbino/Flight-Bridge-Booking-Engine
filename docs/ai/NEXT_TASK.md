@@ -10,7 +10,7 @@ Phase 1 Book Now lead form (BE-FB-010, REQ-BE-008). It needs no Sabre work. Lead
 1. CONF-BE-011: confirm the inbox address (info@flytraverse.com or info@flytraverse.com).
 2. Q-BE-007: what goes in the deal link? Draft: `docs/booking-engine/deal-links.md`. Jeff picks the open items in its section 5, starting with the domain.
 
-Checked 2026-10-13: no contact form was found in the parent repo or in Kit. But on 10-08 Jeff described a send-a-message page that already exists, pointed at owner@ (M1008P L896-901). Find out where it lives before building anything.
+Confirmed 2026-10-14: no form or message page exists yet. On 10-08, "set to owner@" referred to the owner@ address recorded in the notes (working session 2026-10-07), not a built page (Jeff). The form is built new (see `docs/superpowers/specs/2026-10-13-book-now-launch-design.md`).
 
 ## Success criteria
 

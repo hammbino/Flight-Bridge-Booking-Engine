@@ -158,4 +158,4 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 3. ~~Pre-fill the subscriber's own name and email from Kit?~~ **Answered: no** (Jeff, 2026-10-14). The 9 confirmed sign-ups have no names stored, and forwarding is welcome (item 6), so a friend should get a clean form.
 4. ~~Price per person?~~ **Answered: yes, per person** (Jeff, 2026-10-14). Currency assumed USD.
 6. ~~Should forwarded deals work for friends?~~ **Answered: yes, for the free deal** (Jeff, 2026-10-14). The free deal is posted publicly on social anyway (PARENT REQ-NL-005), and a friend's request is a new lead. Whether paid deals (from November) should be limited to members is decided then, not now.
-5. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
+5. ~~The message page from 10-08?~~ **Answered: it never existed** (Jeff, 2026-10-14). "Set to owner@" meant the address recorded in the notes. Nothing to retire.
