@@ -69,7 +69,7 @@ If the link is missing details or broken, the page still works. The deal box is 
 
 **5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). Reply-to is set to the customer's email, so an agent can just hit Reply (confirm during the build that Web3Forms does this). Whether Viktor recognizes it as a lead is unknown until the test (section 8).
 
-**5.6 This week's deal email.** A Kit broadcast in the existing "Text only" template: the featured destination content (REQ-NL-002 format), this week's deal, and the Book Now button. Mauricio approves before it sends (DEC-NL-013). Two newsletter rules apply: no mention of paid tiers or upgrades before November (PARENT DEC-NL-017), and the deal is re-checked on send day against its verification block (source link, price seen, time checked; PARENT RISK-NL-007).
+**5.6 This week's deal email.** A Kit broadcast to the `landing-page-confirmed` tag only (Jeff, 2026-10-13), in the existing "Text only" template: the featured destination content (REQ-NL-002 format), this week's deal, and the Book Now button. Mauricio approves before it sends (DEC-NL-013). Two newsletter rules apply: no mention of paid tiers or upgrades before November (PARENT DEC-NL-017), and the deal is re-checked on send day against its verification block (source link, price seen, time checked; PARENT RISK-NL-007).
 
 **5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com, and replies to it land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. A subscriber who hits Reply instead of Book Now would be a missed lead. Options:
 - **Forwarding rule in owner@'s Gmail** (picked): mail sent to deals@ is forwarded to info@flytraverse.com. $0, one rule, nothing changes in Kit. Gmail needs info@ to confirm the forwarding once, so Mauricio clicks one link.
@@ -149,6 +149,6 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 
 ## 11. Open items for Jeff
 
-1. **Who receives this week's deal email?** All 1,338 subscribers in Kit, or only the people who actually signed up (tag `landing-page-confirmed`)? The 09-30 announcement went to the whole imported list.
+1. ~~Who receives this week's deal email?~~ **Answered 2026-10-13:** only people who actually signed up (Kit tag `landing-page-confirmed`, about 8 people including Jeff's own test sign-up). Not the 1,338 imported contacts.
 2. **Who writes this week's destination content:** Mauricio, or Claude drafts it for Mauricio to approve?
 3. **The message page from 10-08.** On 10-08 Jeff said he had a send-a-message page "set to owner at FlightBridge". Where is it? If it exists, it should be retired or pointed at the new page, so no lead lands in owner@.
