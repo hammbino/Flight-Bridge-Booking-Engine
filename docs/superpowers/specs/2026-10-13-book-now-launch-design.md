@@ -36,7 +36,6 @@ A subscriber opens this week's free deal email, clicks **Book Now**, and lands o
 - **Tagging these leads to Flight Bridge in JourneyFuse** (DEC-BE-016). Every request email's subject starts with "Book Now request", so these leads can be found and tagged later.
 - **The "Deals you missed" footer** (PARENT REQ-NL-002, content strategy). It teases paid-tier deals, and there are none before November (PARENT DEC-NL-017). It returns when paid deals exist.
 - **The Gmail forwarding rule for replies** (section 5.7). With 9 recipients, Jeff forwards any reply by hand this week. The rule is set up after launch.
-- **GitHub domain verification** (section 5.3). Worth doing; done after launch.
 
 ## 3. Choices made, and why
 
@@ -49,7 +48,7 @@ Each was compared against at least two others. The rule: the cheapest option tha
 | Form and page | Our own page + Web3Forms | Tally free; Tally Pro ($29/mo); Formspree; Fillout; Google Forms; Kit; Beehiiv | The only $0 option that keeps Traverse branding, keeps the customer on our domain, and emails each request to the inbox we choose. Web3Forms Pro (~$12/mo, 10,000 a month) is the upgrade if needed. Formspree's free tier (50 a month) is too small for Black Friday. |
 | Hosting | GitHub Pages | Cloudflare Pages; Netlify | $0, Jeff is already signed in to GitHub here, and publishing is a `git push`. It needs a public repo, which is fine: the page holds no secrets (the Web3Forms key is designed to be public). |
 | Making a weekly link | A small link-builder page next to the Book Now page | Hand-editing a template link; a Google Sheet formula; Claude adding it to each draft | Anyone can make a correct link without Claude or URL editing. Small to build. |
-| Who gets the email | The `landing-page-confirmed` tag, kept complete by a one-time Kit rule | Sending by form (not shown in Kit's API docs, which list segments and tags); a Kit segment; all 1,338 imported contacts | Jeff chose sign-ups only (2026-10-13). The tag was applied by hand and already misses one person who signed up on 10-12. A Kit rule ("subscribes to either signup form → add tag") keeps it complete with no weekly work. |
+| Who gets the email | A Kit segment: "subscribed to form 9964131 or 9958519" | The hand-applied `landing-page-confirmed` tag (already misses one person who signed up on 10-12); the tag plus a Kit rule (rules may need a paid Kit plan; the account is on the free plan); Claude re-tagging through the API before each send; all 1,338 imported contacts | Jeff chose sign-ups only (2026-10-13). A segment updates itself, needs no weekly work, and the Kit API sends to segments. Fallback if segments are not available on the free plan: Claude re-tags every form sign-up through the API before each send. |
 
 ## 4. How it works for the customer
 
@@ -65,7 +64,7 @@ If the link is missing details or broken, the page still works. The deal box is 
 
 ## 5. The pieces
 
-**5.1 Book Now page.** First step, before any page code: pull the real brand assets from flytraverse.com (`ui-notes.md`): Traverse's logo file from the flytraverse.com image CDN (1920x476 transparent PNG, white text, made for a dark band; never a cropped screenshot), and a small "powered by Flight Bridge" badge from the Flight Bridge brand guide. Then one HTML file with its style and a little script, in folder `traverse-tours/`. Colors and fonts match the live Traverse pages: slate teal `#4E6A6A` band, sage `#66857B` buttons, cream `#F2EEE6`, Fraunces headings, Instrument Sans body (`ui-notes.md`, PARENT DEC-NL-028). No stock photos or made-up stats. Phone first, since most people open email on a phone.
+**5.1 Book Now page.** First step, before any page code: pull the real brand assets from flytraverse.com (`ui-notes.md`): Traverse's logo file from the flytraverse.com image CDN (1920x476 transparent PNG, white text, made for a dark band; never a cropped screenshot), and the small Flight Bridge mark already used in the 09-30 email footer (PARENT DEC-NL-021) for "powered by Flight Bridge". Then one HTML file with its style and a little script, in folder `traverse-tours/`. Colors and fonts match the live Traverse pages: slate teal `#4E6A6A` band, sage `#66857B` buttons, cream `#F2EEE6`, Fraunces headings, Instrument Sans body (`ui-notes.md`, PARENT DEC-NL-028). No stock photos or made-up stats. Phone first, since most people open email on a phone.
 
 Copy says exactly what happens (`ui-notes.md`): the button reads **Send my request**, and the page says a Traverse agent will email them to confirm the trip and the price. When "My dates are different" is ticked, the page says the agent will confirm the price for the new dates (RISK-BE-006). The price line reads "as found on [date], subject to change" (PARENT automation.md language guard, RISK-NL-007).
 
@@ -73,17 +72,17 @@ Copy says exactly what happens (`ui-notes.md`): the button reads **Send my reque
 
 **5.3 Hosting and domain.** A new public GitHub repo (`flight-bridge-deals`) published with GitHub Pages. Two DNS records in GoDaddy:
 - `deals` CNAME to `hammbino.github.io` (added first thing, so it has time to spread)
-- after launch: a TXT record GitHub gives for domain verification, so nobody else can claim `deals.flight-bridge.com` on GitHub Pages
+- a TXT record GitHub gives for domain verification, added in the same visit. GitHub recommends verifying before adding the domain, so nobody else can claim `deals.flight-bridge.com` on GitHub Pages
 
-Order matters: the site is tested at its github.io address first. The custom domain is switched on in GitHub only once `deals.flight-bridge.com` resolves, then HTTPS is turned on when the certificate is issued. If the domain is switched on too early, the github.io address redirects to a domain that does not work yet.
+Order matters: the site is tested at its github.io address first. The custom domain is switched on in GitHub only once `deals.flight-bridge.com` resolves, then HTTPS is turned on when the certificate is issued. GitHub says this usually takes up to an hour, and in rare cases up to 24 hours. flight-bridge.com has no CAA record, so nothing blocks the certificate (checked 2026-10-14). If the domain is switched on too early, the github.io address redirects to a domain that does not work yet.
 
 **5.4 Form service.** Web3Forms free plan. Jeff enters info@flytraverse.com at web3forms.com to create the access key. The key is emailed to that inbox, and Mauricio sends it to Jeff (Jeff, 2026-10-14). On the free plan the page can set the email subject, and the customer's email becomes the reply-to automatically (Web3Forms docs). Spam protection: Web3Forms' hidden honeypot field.
 
-**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`, adjusted to the words Viktor looks for (Mauricio supplies them, section 8). The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). The agent hits Reply to answer the customer.
+**5.5 The request email.** Subject: `Book Now request: SLC to CUN, Nov 14 to 21 (Jane Doe)`. It always starts with "Book Now request" (so these leads can be found later, DEC-BE-016). Viktor's lead words (Mauricio supplies them, section 8) are added to the subject, never in place of that prefix. The body lists every field, plus the full link the customer came from (REQ-BE-008, `deal-links.md` rule 4). The agent hits Reply to answer the customer.
 
-**5.6 This week's deal email.** Built by Claude through the Kit API (Kit's editor rejects browser automation, PARENT KNOWN_ISSUES 2026-09-29; DEC-NL-019). It starts from the 09-30 broadcast's HTML in the "Text only" template: the slate teal logo band and the sage HTML button (PARENT DEC-NL-021). Content: the featured destination (PARENT REQ-NL-002 format: destination, info, tip), this week's deal with "as found on [date], subject to change", and the Book Now button. Claude drafts from Mauricio's deal; Mauricio edits and approves before it sends (PARENT DEC-NL-013). No mention of paid tiers or upgrades before November (PARENT DEC-NL-017).
+**5.6 This week's deal email.** Built by Claude through the Kit API (Kit's editor rejects browser automation, PARENT KNOWN_ISSUES 2026-09-29; PARENT DEC-NL-019). It starts from the 09-30 broadcast's HTML in the "Text only" template: the slate teal logo band and the sage HTML button (PARENT DEC-NL-021). Content: the featured destination (PARENT REQ-NL-002 format: destination, info, tip), this week's deal with "as found on [date], subject to change", and the Book Now button. Claude drafts from Mauricio's deal. Mauricio reviews a Kit test and replies with changes; Claude applies them through the API. Nothing sends without his written OK, and Jeff presses Send (PARENT DEC-NL-013, automation.md). No mention of paid tiers or upgrades before November (PARENT DEC-NL-017).
 
-Recipients: the `landing-page-confirmed` tag. Today Claude adds the tag to the one sign-up missing it (via the API), and Jeff adds a one-time Kit rule: subscribes to form 9964131 or 9958519 → add the tag. Before each send, Claude checks the tag count matches the forms' subscriber count.
+Recipients: a Kit segment of everyone subscribed to either signup form (9964131, 9958519). Jeff creates it once in Kit. It stays current by itself. Fallback if the free plan has no segments: Claude adds the `landing-page-confirmed` tag to every form sign-up through the API before each send, and sends to the tag.
 
 **5.7 Replies to the deal email.** Kit sends from deals@traversetours.flight-bridge.com. Replies land in owner@flight-bridge.com (PARENT DEC-NL-018), not in info@flytraverse.com. Options compared:
 - **This week (picked):** Jeff reads owner@ anyway and forwards any reply to info@ by hand. Nothing to set up; 9 recipients.
@@ -103,12 +102,12 @@ This follows `deal-links.md` with two changes: the deal ID moves from the path i
 ## 7. Weekly checklist (repeatable)
 
 1. Mauricio sends this week's deal: route, dates, price per person, and where and when he found it.
-2. Claude drafts the email (destination, info, tip, the deal). Mauricio edits.
+2. Claude drafts the email (destination, info, tip, the deal) through the Kit API and sends a Kit test to Mauricio. He replies with changes; he does not edit in Kit's editor, which could break the hand-coded layout. Claude applies them and sends a fresh test.
 3. On send day (Wednesday), re-check the deal against its source. Pull it if the price is gone.
 4. Open the link builder, fill in the deal, copy the link.
 5. Put the link on the Book Now button. No paid-tier mention before November.
 6. Send a Kit test to yourself, click the button on a phone, check the deal shows correctly.
-7. Mauricio approves, then the email goes to the `landing-page-confirmed` tag (Claude checks it matches the signup forms first).
+7. Mauricio gives his written OK on the final test email. Jeff presses Send in Kit, to the sign-ups segment. Any change after the OK needs a new OK (PARENT workflows, approval rule 1; automation.md: a human is always the send trigger).
 
 New agency later: copy the `traverse-tours/` folder, change logo, colors and inbox key.
 
@@ -118,20 +117,20 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 1. This week's deal: route, dates, price per person, where and when he found it.
 2. The Web3Forms key email, once Jeff creates it. Check Junk and Quarantine (info@ is on Microsoft 365).
 3. The words Viktor looks for in lead emails, so the request subject matches first time.
-4. OK for replies to deal emails to be forwarded to info@ (CONF-NL-005).
+4. OK for replies to deal emails to be forwarded to info@ (PARENT CONF-NL-005).
 5. Is he available today for the test and the approval?
 
 | When | Who | Step |
 |------|-----|------|
-| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. Adds the `deals` CNAME in GoDaddy (Claude gives exact values). Adds the Kit rule: subscribes to either signup form → add tag `landing-page-confirmed`. |
-| Morning | Claude | Tags the one untagged sign-up in Kit. Pulls brand assets. Builds the page and link builder. Creates the repo and publishes to GitHub Pages at the github.io address. |
+| Morning | Jeff | Sends the message to Mauricio. Creates the Web3Forms key with info@flytraverse.com. Adds the `deals` CNAME in GoDaddy (Claude gives exact values). Creates the Kit segment "subscribed to form 9964131 or 9958519" (if segments are not on the free plan, tells Claude to use the tag fallback). Adds the GitHub domain-verification TXT record in the same GoDaddy visit (Claude gives exact values). |
+| Morning | Claude | Pulls brand assets. Builds the page and link builder. Creates the repo and publishes to GitHub Pages at the github.io address. |
 | Morning | Mauricio | Sends the deal, the key, Viktor's keywords, and his OK on replies. |
 | Midday | Claude | Puts in the Web3Forms key. Switches on the custom domain once DNS resolves, then HTTPS. Drafts the Kit email through the API, with the real link. |
 | Midday | Jeff + Mauricio | **End-to-end test:** Kit test email to Jeff → click on phone → submit → Mauricio confirms the request arrived at info@flytraverse.com (checking Junk and Quarantine if not) and whether Viktor created the JourneyFuse lead. Also test a broken link. Reply to the test email and confirm the reply reaches owner@. |
-| Afternoon | Mauricio | Approves the email. It sends. |
-| After | Claude | Records in both repos: the form stack and link format (`deal-links.md`, BE-FB-010), deal sourcing now from Mauricio rather than an AI run (PARENT DEC-NL-013, workflows), reply handling (PARENT CONF-NL-005), the footer dropped until paid deals exist, and USD in `assumptions.md`. |
+| Afternoon | Mauricio, then Jeff | Mauricio gives his written OK on the final test. Jeff presses Send in Kit. Any change after the OK needs a new OK. |
+| After | Claude | Records in both repos: the form stack and link format (`deal-links.md`, BE-FB-010), deal sourcing now from Mauricio rather than an AI run (PARENT DEC-NL-013, workflows), reply handling (PARENT CONF-NL-005), the footer dropped until paid deals exist, and USD in `assumptions.md`. Resolves Q-BE-007 and the `deal-links.md` section 5 open items with this design. |
 
-**Human-only steps:** the GoDaddy DNS record and the Kit rule (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
+**Human-only steps:** the two GoDaddy DNS records and the Kit segment (Jeff); pressing Send (Jeff); creating the Web3Forms key (Jeff) and passing it on (Mauricio); the deal, the keywords and send approval (Mauricio); confirming the request arrived (Mauricio). Everything else is done by Claude.
 
 ## 9. Requirements check
 
@@ -172,15 +171,15 @@ New agency later: copy the `traverse-tours/` folder, change logo, colors and inb
 - **Web3Forms becomes a problem.** The form service is one setting in the page. Sent links keep working, because they point at our domain.
 - **DNS or HTTPS is slow.** The CNAME goes in first thing. If `https://deals.flight-bridge.com` is not working by mid-afternoon, the email waits; the links must use the real domain, because sent emails cannot be changed.
 - **Request or setup emails land in Junk on Microsoft 365.** Mauricio checks Junk and Quarantine and adds an allow rule.
-- **New sign-ups miss the email.** Fixed by the Kit rule plus a count check before each send (5.6).
-- **Deal content is not ready from Mauricio.** The page can launch without it. The email goes out when the deal is approved.
+- **New sign-ups miss the email.** Fixed by sending to a self-updating segment (5.6).
+- **Deal content is not ready from Mauricio.** The page can launch without it. The email waits until the deal is approved, even into Thursday; a deal-less email is not sent, since the deal and Book Now are its point.
 - **Mauricio is not available today.** Most steps wait on him. Asked first thing (section 8).
 
 ## 11. Decisions and open items
 
 **Answered:**
 - Recipients: sign-ups only, not the imported contacts (Jeff, 2026-10-13).
-- Destination content: Claude drafts, Mauricio approves (Jeff, 2026-10-14). This changes the parent workflow, where an AI run sources deals; recorded after launch.
+- Destination content: Claude drafts, Mauricio approves (Jeff, 2026-10-14). Mauricio now supplies the deal, where the parent workflow had an AI run source it; recorded after launch.
 - Pre-fill the subscriber's name and email: no (Jeff, 2026-10-14). The 9 sign-ups have no names stored, and forwarding is welcome.
 - Price: per person (Jeff, 2026-10-14). USD is an assumption.
 - Forwarded deals work for friends: yes, for the free deal (Jeff, 2026-10-14). A friend's request is a new lead. Whether paid deals (from November) are limited to members is decided then.
