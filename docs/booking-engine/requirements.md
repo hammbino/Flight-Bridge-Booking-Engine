@@ -141,7 +141,7 @@ Only explicitly stated requirements belong here. Requirements that only seem imp
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33 |
 | Related Requirements | REQ-BE-003, REQ-BE-007, REQ-BE-011 |
 | Related Decisions | DEC-BE-006; PARENT DEC-NL-011 |
-| Notes | Change 2026-10-08: email only, no call option (M1008P L910-920). Destination: info@traversetours.com (Jeff, working session 2026-10-12), resolving CONF-BE-007. The 10-08 meeting says "info at FlightTraverse" instead (CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, working session 2026-10-13). |
+| Notes | Change 2026-10-08: email only, no call option (M1008P L910-920). Destination: info@flytraverse.com (Jeff, working session 2026-10-12), resolving CONF-BE-007. The 10-08 meeting says "info at FlightTraverse" instead (CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, working session 2026-10-13). |
 
 ## REQ-BE-009
 

@@ -33,7 +33,7 @@ Fields and rules marked **sourced** come from a transcript or the parent repo. F
 
 **Why:** the parent launch plan suggests a hosted form (Google Forms or Tally) for the interim flow. That is labeled a proposal, not a decision (PARENT launch-plan, deal contact form task). Each form tool uses its own prefill parameter names. If emails link straight to one, switching tools breaks every link already sent. A link on our own domain can forward to whatever form or page exists at the time. The tool can then change without breaking old emails.
 
-**Not known:** which domain hosts deal pages. The docs name flytraverse.com as Traverse's website (glossary) and info@traversetours.com as the lead inbox (Q-BE-010). Neither is recorded as the home for deal pages. See section 5, item 1.
+**Not known:** which domain hosts deal pages. The docs name flytraverse.com as Traverse's website (glossary) and info@flytraverse.com as the lead inbox (Q-BE-010). Neither is recorded as the home for deal pages. See section 5, item 1.
 
 ## 3. Proposed link format (v1)
 

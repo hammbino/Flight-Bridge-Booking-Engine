@@ -119,7 +119,7 @@ Source keys (`SV`, `M0924`, and so on) are defined in `docs/sources/README.md`. 
 | Date | 2026-06-10, restated 2026-09-24 |
 | Source Transcript(s) | M0610 00:47:33 to 00:51:14, M0924 00:21:33, M0924 00:22:33, M0924 00:25:51 |
 | Related Requirements | REQ-BE-008, REQ-BE-011 |
-| Notes | Same flow as PARENT DEC-NL-011. Where the lead goes was stated three ways: a generic inbox with Denise assigning (M0610 00:50:14), Mauricio through Victor (M0924 00:21:33), and an info@ address for "an agent" (M0924 00:22:33). Update 2026-10-12: Jeff set the destination as info@traversetours.com (working session), resolving CONF-BE-007. Update 2026-10-13: Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session; Q-BE-010 resolved). The 10-08 meeting names the inbox "info at FlightTraverse" (M1008P L904-909); see CONF-BE-011. Update 2026-10-08: contact is email only, no phone option, because email leaves a trail and phone requests are rare (M1008P L910-920). |
+| Notes | Same flow as PARENT DEC-NL-011. Where the lead goes was stated three ways: a generic inbox with Denise assigning (M0610 00:50:14), Mauricio through Victor (M0924 00:21:33), and an info@ address for "an agent" (M0924 00:22:33). Update 2026-10-12: Jeff set the destination as info@flytraverse.com (working session), resolving CONF-BE-007. Update 2026-10-13: Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session; Q-BE-010 resolved). The 10-08 meeting names the inbox "info at FlightTraverse" (M1008P L904-909); see CONF-BE-011. Update 2026-10-08: contact is email only, no phone option, because email leaves a trail and phone requests are rare (M1008P L910-920). |
 
 ## DEC-BE-007
 

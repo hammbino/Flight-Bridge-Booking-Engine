@@ -28,7 +28,7 @@ Unknown. Partners targeted "everything up and running within two years" (R1205 0
 
 ## Current Blockers
 
-1. **Phase 1 inbox address** (CONF-BE-011): info@traversetours.com or info@flytraverse.com. Blocks building the form.
+1. **Phase 1 inbox address** (CONF-BE-011): info@flytraverse.com or info@flytraverse.com. Blocks building the form.
 2. **Token schema** for deal links (Q-BE-007). Blocks form prefill.
 3. **ARC transfer** (DEC-BE-014, Q-BE-019). All Sabre and ARC work is on hold until it is done (DEC-BE-015).
 4. **Database choice** (Q-BE-003). Blocks Phase 2.
@@ -62,8 +62,8 @@ Phase 1 Book Now live on newsletter deals. Relevant timing: the newsletter Basic
 ## Recent Changes
 
 - **2026-10-13:** processed the two 10-08 transcripts (M1008P, M1008S). ARC transfer agreed (DEC-BE-014); engine work on hold until then (DEC-BE-015); Phase 1 contact is email only; JourneyFuse affiliate tracking (DEC-BE-016); inbox address disputed (CONF-BE-011); new risks RISK-BE-015 to 017.
-- **2026-10-13:** Mauricio and his AI tool Viktor monitor info@traversetours.com. Q-BE-010 resolved; Phase 1 routing is settled.
-- **2026-10-12:** Phase 1 lead destination set to info@traversetours.com (Jeff). CONF-BE-007 resolved; Q-BE-010 narrowed to who watches the inbox.
+- **2026-10-13:** Mauricio and his AI tool Viktor monitor info@flytraverse.com. Q-BE-010 resolved; Phase 1 routing is settled.
+- **2026-10-12:** Phase 1 lead destination set to info@flytraverse.com (Jeff). CONF-BE-007 resolved; Q-BE-010 narrowed to who watches the inbox.
 - **2026-10-07:** repo split from the parent Flight-Bridge repo. All transcripts re-read for booking content. The 06-10 and 09-24 meetings' booking content was captured for the first time (DEC-BE-006 to 009, REQ-BE-008 to 012). DEC-BE-002, 003 and 005 were corrected against their transcript. See `migration-notes.md`.
 - **2026-09-30:** newsletter free tier launched (PARENT)
 - **2026-09-24:** Book Now Phase 1 / Phase 2 defined; build order and agency model agreed (M0924)

@@ -21,7 +21,7 @@ Nothing. Waiting on Jeffrey's review of the split (`docs/booking-engine/migratio
 
 ## Blockers
 
-- CONF-BE-011: Phase 1 inbox address (info@traversetours.com or info@flytraverse.com)
+- CONF-BE-011: Phase 1 inbox address (info@flytraverse.com or info@flytraverse.com)
 - Q-BE-007: deal-link token schema
 - ARC transfer (DEC-BE-014, Q-BE-019): all Sabre work is on hold until it is done (DEC-BE-015)
 - Q-BE-003 / Q-BE-004: database and Sabre method (block Phase 2)

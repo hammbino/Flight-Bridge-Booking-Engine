@@ -167,7 +167,7 @@ IDs use the `BE-FB-` prefix (kept from the parent repo). Phase uses the 09-24 me
 |-------|-------|
 | ID | BE-FB-010 |
 | Title | Phase 1 Book Now lead form |
-| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, email-only contact (no call option, M1008P L910-920), name and email. Route each submission to info@traversetours.com (Jeff, 2026-10-12) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
+| Description | Build the REQ-BE-008 form on the deal landing page: prefilled deal, "my dates are different" calendar, traveler count, email-only contact (no call option, M1008P L910-920), name and email. Route each submission to info@flytraverse.com (Jeff, 2026-10-12) and verify it arrives (IMP-BE-009). Jeff said it could ship now (M0924 00:22:33). |
 | Business Value | Lets newsletter subscribers act on a deal before the engine exists. |
 | Priority | High |
 | Dependencies | Q-BE-007 (prefill tokens) |

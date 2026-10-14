@@ -118,7 +118,7 @@ Likelihood and impact ratings are judgments made when the doc was written, not v
 
 **Risk:** a lead from the Phase 1 form is dropped because nobody clearly owns the inbox.
 **Likelihood:** Medium. **Impact:** High (lost booking revenue).
-**Mitigation:** the destination is set (info@traversetours.com, 2026-10-12). Mauricio and his AI tool Viktor monitor it (2026-10-13). Before shipping, send a test lead and confirm it is seen (BE-FB-010). The exact address is disputed (CONF-BE-011), and Viktor is due to be replaced (RISK-BE-017).
+**Mitigation:** the destination is set (info@flytraverse.com, 2026-10-12). Mauricio and his AI tool Viktor monitor it (2026-10-13). Before shipping, send a test lead and confirm it is seen (BE-FB-010). The exact address is disputed (CONF-BE-011), and Viktor is due to be replaced (RISK-BE-017).
 **Related:** CONF-BE-007; PARENT RISK-NL-008
 **Source:** M0610, M0924; PARENT RISK-NL-008; Jeff, working sessions 2026-10-12 and 2026-10-13
 

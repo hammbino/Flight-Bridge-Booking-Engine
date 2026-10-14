@@ -27,7 +27,7 @@ tags: [roadmap, booking-engine]
 ## Upcoming Milestones
 
 ### Phase 1: Book Now lead capture (09-24 definition)
-- [x] Settle where leads go: info@traversetours.com (CONF-BE-007, 2026-10-12)
+- [x] Settle where leads go: info@flytraverse.com (CONF-BE-007, 2026-10-12)
 - [x] Settle who watches that inbox: Mauricio and his AI tool Viktor (Q-BE-010, 2026-10-13)
 - [ ] Define the deal-link token schema (Q-BE-007)
 - [ ] Build the lead form on the deal landing page (BE-FB-010, BE-FB-001)
@@ -92,7 +92,7 @@ BE-FB-002 sat in the old roadmap's Phase 1. R1205 puts Sabre record import in th
 
 ## Known Dependencies
 
-- Phase 1 needs the newsletter's deal emails (parent repo) and the lead inbox, info@traversetours.com, which Mauricio and Viktor monitor
+- Phase 1 needs the newsletter's deal emails (parent repo) and the lead inbox, info@flytraverse.com, which Mauricio and Viktor monitor
 - Phase 2 needs Sabre API access, a database decision and a payment path
 - The Sabre subscriber contract depends on 1,000+ segments in a month (RISK-BE-001)
 - Corporate self-booking needs corporate accounts in the CRM (parent repo)

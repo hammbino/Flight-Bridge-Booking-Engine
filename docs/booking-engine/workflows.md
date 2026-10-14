@@ -19,7 +19,7 @@ Step-by-step flows. IDs point to the requirement or decision behind each step.
 3. The form is prefilled with the deal (REQ-BE-008).
 4. Optional: "my dates are different" opens a calendar. No new price is shown (REQ-BE-008, RISK-BE-006).
 5. Enters traveler count, name and email. Contact is by email only (REQ-BE-008, M1008P L910-920).
-6. Submission goes to info@traversetours.com (Jeff, 2026-10-12; address disputed, CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, 2026-10-13). For now Viktor turns lead emails into JourneyFuse leads and assigns them to an agent (M1008P L920-926). Viktor is due to move to a Claude-based setup (RISK-BE-017). Leads are tagged to Flight Bridge in JourneyFuse (DEC-BE-016).
+6. Submission goes to info@flytraverse.com (Jeff, 2026-10-12; address disputed, CONF-BE-011). Mauricio and his AI tool Viktor monitor it (Jeff, 2026-10-13). For now Viktor turns lead emails into JourneyFuse leads and assigns them to an agent (M1008P L920-926). Viktor is due to move to a Claude-based setup (RISK-BE-017). Leads are tagged to Flight Bridge in JourneyFuse (DEC-BE-016).
 7. An agent contacts the customer, sends options, and books by hand in Sabre (DEC-BE-006).
 
 **Status:** Agreed. Not built.

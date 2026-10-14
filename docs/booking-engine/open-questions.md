@@ -144,7 +144,7 @@ tags: [open-questions, booking-engine]
 | Field | Value |
 |-------|-------|
 | Question | Where does a Phase 1 Book Now submission go, and who watches it day to day? |
-| Answer | Submissions go to info@traversetours.com (Jeff, working session 2026-10-12). Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session 2026-10-13; also M1008P L904-909). The 10-08 meeting names the address "info at FlightTraverse" (CONF-BE-011, open). |
+| Answer | Submissions go to info@flytraverse.com (Jeff, working session 2026-10-12). Mauricio and his AI tool Viktor monitor that inbox (Jeff, working session 2026-10-13; also M1008P L904-909). The 10-08 meeting names the address "info at FlightTraverse" (CONF-BE-011, open). Correction 2026-10-13: the address is info@flytraverse.com, the one on Traverse's website. traversetours.com belongs to an unrelated company (Traverse Tours Sdn. Bhd.); the earlier info@traversetours.com was wrong. |
 | Where recorded | REQ-BE-008, DEC-BE-006, CONF-BE-007, RISK-BE-014, `workflows.md` W1 |
 | History | Sources gave three destinations (CONF-BE-007). Jeff's earlier proposal of owner@flight-bridge.com (working session 2026-10-07) was replaced. |
 | Source Transcript(s) | M0610 00:50:14, M0924 00:21:33, M0924 00:22:33; PARENT Q-NL-010, CONF-NL-005; Jeff, working sessions 2026-10-12 and 2026-10-13 |

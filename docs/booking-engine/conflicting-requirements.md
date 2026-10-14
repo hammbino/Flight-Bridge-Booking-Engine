@@ -22,11 +22,11 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 | CONF-BE-004 | Phase numbering and build order | Unresolved. Blocks roadmap |
 | CONF-BE-005 | "Merchant billing" in Phase 2 vs no payment processing | Unresolved |
 | CONF-BE-006 | How booking revenue is framed | Unresolved |
-| CONF-BE-007 | Where Phase 1 leads go | Resolved 2026-10-12: info@traversetours.com |
+| CONF-BE-007 | Where Phase 1 leads go | Resolved: info@flytraverse.com (see CONF-BE-011) |
 | CONF-BE-008 | Do Traverse agents use the booking engine? | Unresolved |
 | CONF-BE-009 | Competitor pricing figures (Brian / Dickerson) | Unresolved, low impact |
 | CONF-BE-010 | Flight Bridge brand colors | Unresolved, low impact |
-| CONF-BE-011 | Phase 1 inbox address: info@traversetours.com or info@flytraverse.com | Unresolved. Blocks building the form |
+| CONF-BE-011 | Phase 1 inbox address | Resolved 2026-10-13: info@flytraverse.com |
 
 ---
 
@@ -102,7 +102,7 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 - **Source B (M0924 00:21:33):** the lead gets in contact with Mauricio "through Victor" (an AI tool Mauricio uses).
 - **Source C (M0924 00:22:33):** an email goes to info@ (Traverse domain) for "an agent" to follow up.
 - **Related (PARENT CONF-NL-005, 2026-09-30):** the newsletter's Deal Alerts product uses a reply-to-email flow handled by Mauricio's AI tool "Viktor". Jeff confirmed that flow is intentional.
-**Status:** Resolved 2026-10-12. Jeff set the destination as info@traversetours.com, which matches Source C. Mauricio and his AI tool Viktor monitor that inbox (Jeff, 2026-10-13; Q-BE-010 resolved). This also fits Source B: the 09-24 "through Victor" is the same AI tool, spelled Viktor.
+**Status:** Resolved 2026-10-12, address corrected 2026-10-13 to info@flytraverse.com (CONF-BE-011). Jeff first gave info@traversetours.com, which matches Source C. Mauricio and his AI tool Viktor monitor that inbox (Jeff, 2026-10-13; Q-BE-010 resolved). This also fits Source B: the 09-24 "through Victor" is the same AI tool, spelled Viktor.
 **Source Transcript(s):** M0610, M0924, PARENT; Jeff, working session 2026-10-12
 
 ## CONF-BE-008
@@ -136,5 +136,5 @@ Sources that disagree are recorded here. No winner is picked. A human resolves e
 - **Source A (Jeff, working session 2026-10-12):** info@traversetours.com.
 - **Source B (M1008P L904-909):** "info at FlightTraverse dot com", said twice, as the Traverse inbox Viktor already monitors. This is probably info@flytraverse.com. Traverse's website is flytraverse.com (`glossary.md`), and a Traverse staff address in the parent repo's contact export uses @flytraverse.com. "traversetours" appears elsewhere only as a subdomain of flight-bridge.com, in the newsletter sending address (PARENT DEC-NL-015).
 **What both agree on:** the inbox is a Traverse one, not owner@ (Flight Bridge), and Mauricio and Viktor monitor it (Q-BE-010).
-**Status:** Unresolved. Needs Jeff to confirm the address. Until then, docs say info@traversetours.com, as recorded on 2026-10-12. Follows on from CONF-BE-007.
-**Source Transcript(s):** M1008P L896-909; Jeff, working session 2026-10-12
+**Status:** Resolved 2026-10-13 in favor of Source B: info@flytraverse.com. It is the address on Traverse's website (flytraverse.com home and contact pages, checked 2026-10-13). traversetours.com belongs to an unrelated company ("Traverse Tours Sdn. Bhd."), so Source A was a slip. Jeff asked for the website to settle it. Follows on from CONF-BE-007.
+**Source Transcript(s):** M1008P L896-909; Jeff, working sessions 2026-10-12 and 2026-10-13; flytraverse.com/contact (checked 2026-10-13)
