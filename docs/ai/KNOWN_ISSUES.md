@@ -11,3 +11,13 @@
 ## Risks to watch
 
 - Two Stripe accounts exist (Flight Bridge's and Kit's Express). Matters if bookings ever take payment (RISK-BE-012).
+
+## Book Now launch (see ledger for full list)
+
+- **Edits made directly in Kit's editor bypass Mauricio's OK check.** Process forbids them, and Jeff's last look before Send is the only catch (parked M4).
+- **Minor items deferred by the final review**, none needed before go-live:
+  - Kit script: no urlopen timeout, no 429 retry, unencoded cursor
+  - footer contrast is about 3:1
+  - builder: errors show on first load
+- **Jeff has no access to info@.** The Friday inbox spot-check depends on Mauricio (RISK-NL-008).
+- **Parent repo:** Kit script commits are not pushed. The two 10-08 raw transcripts are deliberately uncommitted (private content).

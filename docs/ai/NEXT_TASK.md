@@ -2,22 +2,36 @@
 
 ## Objective
 
-Jeffrey reviews the repo split, especially the corrections in `docs/booking-engine/migration-notes.md` section 3. Then pick the first build task.
+Finish the Book Now launch: plan Tasks 7 (rest) to 10 in `docs/superpowers/plans/2026-10-14-book-now-launch.md`. Read the ledger's last lines first: `.superpowers/sdd/2026-10-14-book-now-launch/progress.md`.
 
-## Proposed first build task (after review)
+## Steps, each waiting on its input
 
-Phase 1 Book Now lead form (BE-FB-010, REQ-BE-008). It needs no Sabre work. Lead routing is settled: info@flytraverse.com, monitored by Mauricio and Viktor (Q-BE-010, resolved 2026-10-13). Before building, answer:
-1. CONF-BE-011: confirm the inbox address (info@flytraverse.com or info@flytraverse.com).
-2. Q-BE-007: what goes in the deal link? Draft: `docs/booking-engine/deal-links.md`. Jeff picks the open items in its section 5, starting with the domain.
-
-Confirmed 2026-10-14: no form or message page exists yet. On 10-08, "set to owner@" referred to the owner@ address recorded in the notes (working session 2026-10-07), not a built page (Jeff). The form is built new (see `docs/superpowers/specs/2026-10-13-book-now-launch-design.md`).
+1. **Task 7, rest** (needs the Web3Forms key and Viktor's words):
+   - Put both in `traverse-tours/config.js` in flight-bridge-deals. Commit and push.
+   - Send one test request from Chrome, named "TEST Claude (ignore)".
+   - Mauricio confirms it arrived at info@.
+2. **Task 8** (needs Mauricio's deal, plus the segment or "use the tag"):
+   - Make the link with build.html.
+   - Set the `SIGNUP_SEGMENT` constant, or run `tag-signups` and use tag 24350319.
+   - Write `scripts/deals/<deal-id>.json`.
+   - Run preview, then push, then status. Expect draft, with send_at null.
+3. **Task 9** (needs Gmail forwarding and Mauricio free):
+   - Run the end-to-end test and the broken-link test.
+   - Record Mauricio's OK. No pushes after that.
+   - Jeff checks recipients are about 9, not 1,338, then presses Send.
+   - Confirm with status.
+4. **Task 10:**
+   - Record the outcome in both repos.
+   - Delete the workspace.
+   - Present the result to Jeff for review.
 
 ## Success criteria
 
-A test deal link opens the form prefilled. A test submission reaches info@flytraverse.com and is confirmed received.
+The deal email goes to the sign-ups only. A test Book Now request reaches info@flytraverse.com and becomes a JourneyFuse lead. Mauricio gave his OK before Send.
 
-## Relevant Files
+## Rules
 
-- `docs/booking-engine/requirements.md` (REQ-BE-008)
-- `docs/booking-engine/workflows.md` (W1)
-- `docs/booking-engine/ui-notes.md`
+- Never print the Kit key.
+- Jeff is the only one who presses Send.
+- Do not push the parent or booking repo without asking.
+- Never put a github.io link in an email.

@@ -16,5 +16,11 @@ Short list for quick context. Full entries with reasoning and sources are in `do
 - **Agencies.** "The Picasso, but better": paid Centrav-style access, no buy-outs. DEC-BE-004
 - **AI.** Hosted API first, self-hosted fallback soon. DEC-BE-013
 - **Branding.** "Traverse Tours powered by Flight Bridge". PARENT DEC-NL-009
+- **Book Now launch design (2026-10-13 spec, approved 2026-10-14).**
+  - Static page on GitHub Pages at deals.flight-bridge.com.
+  - Web3Forms sends requests to info@flytraverse.com.
+  - The deal email is a Kit draft built by a script that cannot send.
+  - Recipients are the sign-ups only.
+  - Mauricio OKs it, and Jeff alone presses Send.
 
 Needs review: DEC-BE-002 (corporate fee), DEC-BE-003 (revenue framing), DEC-BE-012 (agents and the fee portal).

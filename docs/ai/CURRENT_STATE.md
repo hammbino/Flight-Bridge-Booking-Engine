@@ -2,26 +2,42 @@
 
 ## Current Status
 
-Repo created 2026-10-07 by splitting the Booking Engine out of the parent Flight-Bridge repo. Documentation only. No code yet.
+This repo holds the Booking Engine docs. It was split from the parent Flight-Bridge repo on 2026-10-07.
 
-The newsletter (parent repo) launched its free tier 2026-09-30. Basic (flight deals) goes live about the first week of November 2026, and VIP (packages) about early December 2026 (PARENT DEC-NL-017). On 10-08 the timeline moved up: free deal emails from the week of 2026-10-12 and the paid upgrade offered from 2026-11-01. The 10-08 Black Friday plan proposes selling VIP over Black Friday weekend, with a package deal on 2026-11-30 (PARENT DEC-NL-029, proposed). Those deals are the main traffic source for this engine.
+The newsletter (parent repo) launched its free tier 2026-09-30. Free deal emails start the week of 2026-10-12. The paid upgrade is offered from 2026-11-01 (PARENT DEC-NL-017, M1008P). Those deal emails are the main traffic source for Book Now.
 
-On 10-08 the partners agreed to transfer the ARC to Flight Bridge (DEC-BE-014). Booking engine work that needs Sabre is on hold until then and will not be ready for November (DEC-BE-015). Phase 1 Book Now is not on hold.
+Sabre and ARC work is on hold until the ARC moves to Flight Bridge (DEC-BE-014, DEC-BE-015). Phase 1 Book Now is not on hold and is being launched now.
 
-## In Progress
+## In Progress: Phase 1 Book Now launch
 
-Nothing. Waiting on Jeffrey's review of the split (`docs/booking-engine/migration-notes.md`).
+Spec: `docs/superpowers/specs/2026-10-13-book-now-launch-design.md`. Plan: `docs/superpowers/plans/2026-10-14-book-now-launch.md` (10 tasks, subagent-driven). Ledger: `.superpowers/sdd/2026-10-14-book-now-launch/progress.md` (git-ignored, keep until Task 10).
 
-## Important Files
+- Tasks 1 to 6 done and reviewed. Final whole-branch review clean.
+- Task 7 partly done (2026-10-15):
+  - DNS added, and the domain is verified in GitHub.
+  - Custom domain set, certificate approved (expires 2027-01-12), HTTPS forced.
+  - HTTPS gate passed. The old github.io links redirect to the new domain.
+  - Not done: Web3Forms key and Viktor's lead words in `config.js`, then one test submission.
+- Tasks 8 to 10 not started.
 
-- `docs/booking-engine/project-state.md`: full status and blockers
-- `docs/booking-engine/migration-notes.md`: what changed in the split, including corrections to review
-- `docs/booking-engine/roadmap.md`: phases (numbering disputed, CONF-BE-004)
-- `docs/booking-engine/open-questions.md`: what blocks what
+## Where the code lives
 
-## Blockers
+- Public repo `hammbino/flight-bridge-deals`, at `/Users/jeffrey/Sandbox/flight-bridge-deals`. Live at https://deals.flight-bridge.com/traverse-tours/ and `.../build.html`. 20 tests (`npm test`). Pushed. GitHub added commit d4a8c2c "Create CNAME".
+- Kit draft script, in the parent repo: `scripts/kit_deal_email.py`, with 34 tests. Committed locally, not pushed.
 
-- CONF-BE-011: Phase 1 inbox address (info@flytraverse.com or info@flytraverse.com)
-- Q-BE-007: deal-link token schema
-- ARC transfer (DEC-BE-014, Q-BE-019): all Sabre work is on hold until it is done (DEC-BE-015)
-- Q-BE-003 / Q-BE-004: database and Sabre method (block Phase 2)
+## Waiting on people
+
+- **Jeff:**
+  - Kit segment size, or say "use the tag".
+  - Gmail forwarding, once Mauricio sends the code.
+- **Mauricio:**
+  - Web3Forms key
+  - Gmail code
+  - Viktor's lead words
+  - this week's deal
+  - when he is free to test and approve
+
+## Other blockers
+
+- Q-BE-003 / Q-BE-004: database and Sabre method (Phase 2).
+- ARC transfer (DEC-BE-014, Q-BE-019).
