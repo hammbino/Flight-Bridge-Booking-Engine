@@ -17,7 +17,8 @@ Spec: `docs/superpowers/specs/2026-10-13-book-now-launch-design.md`. Plan: `docs
   - DNS added, and the domain is verified in GitHub.
   - Custom domain set, certificate approved (expires 2027-01-12), HTTPS forced.
   - HTTPS gate passed. The old github.io links redirect to the new domain.
-  - Not done: Web3Forms key and Viktor's lead words in `config.js`, then one test submission.
+  - Web3Forms key is in `config.js` (commit 1458ac3). Viktor's lead words are still empty.
+  - 2026-10-21: Jeff submitted a Book Now test request from the Kauai test email. Not yet confirmed: that it reached info@flytraverse.com, and whether Viktor captured the customer email.
 - Tasks 8 to 10 not started.
 
 ## Where the code lives
@@ -31,10 +32,9 @@ Spec: `docs/superpowers/specs/2026-10-13-book-now-launch-design.md`. Plan: `docs
   - Kit segment size, or say "use the tag".
   - Gmail forwarding, once Mauricio sends the code.
 - **Mauricio:**
-  - Web3Forms key
   - Gmail code
   - Viktor's lead words
-  - this week's deal
+  - confirm the 2026-10-21 Book Now test arrived, and his OK on the Kauai deal email (PARENT Kit draft 26523663)
   - when he is free to test and approve
 
 ## Other blockers
