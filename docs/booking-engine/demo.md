@@ -35,6 +35,7 @@ tags: [demo, ui, booking-engine]
 - The demo shows Phase 2 style browsing (search, pick a flight) that ends in a Phase 1 style request. That hybrid is not in any decision. It is a picture of where the two phases meet, not a plan.
 - The "Flight Bridge" badge is the newsletter footer logo. The brand guide badge in `ui-notes.md` was not compared (CONF-BE-010).
 - Each traveler's name as on their ID and date of birth are collected. This was a direct instruction from Jeffrey on 2026-11-15. It is not yet in `requirements.md`, and where DOB is stored and who may see it is not decided.
+- Email: required on every request. If the deal link carries `&email=` the field is prefilled and editable, and the request records whether the address came from the link or was typed. On 2026-10-14 Jeffrey decided not to prefill name and email (Book Now launch design, section 11). His 2026-11-15 instruction (email can be filled from the link, but one is always needed) reverses that for email. Kit's merge tag for the subscriber email in the link is not verified.
 - Hosting is not decided. It needs GitHub Pages on this repo, or another host.
 
 ## Preview locally
