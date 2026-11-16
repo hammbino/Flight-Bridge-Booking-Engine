@@ -9,71 +9,113 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --teal:#4E6A6A; --sage:#66857B; --sage-dark:#55726a; --cream:#F3EEE6; --cream-text:#F2EEE6;
-    --line:#E5DFD3; --ink:#1A1A1A; --body:#4A4A4A; --muted:#8A8A8A; --white:#FFFFFF;
+    --teal:#4E6A6A; --teal-dark:#2f4344; --sage:#66857B; --sage-dark:#55726a; --sage-soft:#EAF0ED; --cream:#F3EEE6; --cream-text:#F2EEE6;
+    --line:#E5DFD3; --ink:#1A1A1A; --body:#4A4A4A; --muted:#7c7c7c; --white:#FFFFFF;
     --serif:'Fraunces',Georgia,'Times New Roman',serif;
     --sans:'Instrument Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--cream);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.6}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.25;margin:0 0 12px}
-  h1{font-size:30px} h2{font-size:24px} h3{font-size:19px}
+  body{margin:0;background:var(--cream);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.55}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.2;margin:0 0 10px}
+  h1{font-size:clamp(28px,5vw,40px)} h2{font-size:24px} h3{font-size:19px}
   p{margin:0 0 14px}
   a{color:var(--teal)}
-  .band{background:var(--teal);text-align:center;padding:18px 20px}
-  .band img{width:200px;max-width:60%;height:auto;display:inline-block}
-  .demo{background:#2f4344;color:var(--cream-text);font-size:13px;text-align:center;padding:8px 16px}
-  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 8px}
-  .steps{display:flex;gap:6px;margin:0 0 26px;padding:0;list-style:none}
-  .steps li{flex:1;font-size:12px;text-align:center;color:var(--muted);border-top:3px solid var(--line);padding-top:8px}
+  .band{background:var(--teal);text-align:center;padding:16px 20px}
+  .band img{width:190px;max-width:55%;height:auto;display:inline-block}
+  .demo{background:var(--teal-dark);color:var(--cream-text);font-size:13px;text-align:center;padding:8px 16px}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 20px 8px}
+  .steps{display:flex;gap:6px;margin:0 0 24px;padding:0;list-style:none;max-width:560px}
+  .steps li{flex:1;font-size:12px;color:var(--muted);border-top:3px solid var(--line);padding-top:7px}
   .steps li.on{color:var(--teal);border-color:var(--sage);font-weight:600}
   .steps li.done{color:var(--sage);border-color:var(--sage)}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:22px;margin:0 0 18px}
-  .dealbox{background:#EAF0ED;border:1px solid #CBD9D2;border-radius:10px;padding:16px 18px;margin:0 0 18px;font-size:15px}
-  .dealbox b{color:var(--ink)}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px;margin:0 0 18px}
   label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:0 0 4px}
-  input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #D4CCBC;border-radius:6px;padding:11px 12px}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--sage);outline-offset:0;border-color:var(--sage)}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #D4CCBC;border-radius:8px;padding:11px 12px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--sage);border-color:var(--sage)}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-  @media(max-width:560px){.grid,.grid3{grid-template-columns:1fr}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
   .field{margin:0 0 14px}
-  .seg{display:inline-flex;border:1px solid #D4CCBC;border-radius:6px;overflow:hidden;margin:0 0 16px}
+  .seg{display:inline-flex;border:1px solid #D4CCBC;border-radius:8px;overflow:hidden;margin:0 0 16px}
   .seg button{font:inherit;font-size:14px;border:0;background:#fff;color:var(--body);padding:8px 16px;cursor:pointer}
   .seg button.on{background:var(--sage);color:#fff;font-weight:600}
-  .stepper{display:flex;align-items:center;gap:12px}
+  .stepper{display:inline-flex;align-items:center;gap:12px}
   .stepper button{width:40px;height:40px;border-radius:50%;border:1px solid #D4CCBC;background:#fff;font-size:20px;cursor:pointer;color:var(--teal)}
-  .stepper span{min-width:24px;text-align:center;font-weight:600;color:var(--ink)}
-  .btn{display:inline-block;background:var(--sage);color:#fff;font:600 16px var(--sans);padding:14px 28px;border-radius:6px;border:0;cursor:pointer;text-decoration:none}
+  .stepper span{min-width:22px;text-align:center;font-weight:600;color:var(--ink)}
+  .btn{display:inline-block;background:var(--sage);color:#fff;font:600 16px var(--sans);padding:14px 28px;border-radius:8px;border:0;cursor:pointer;text-decoration:none}
   .btn:hover{background:var(--sage-dark)}
   .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--sage)}
-  .btn.small{padding:10px 18px;font-size:14px}
+  .btn.ghost:hover{background:var(--sage-soft)}
+  .btn.small{padding:11px 20px;font-size:15px}
+  .btn.block{display:block;width:100%;text-align:center}
   .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .note{font-size:13px;color:var(--muted)}
+  /* hero */
+  .hero{background:var(--teal);color:var(--cream-text);border-radius:16px;padding:30px 28px;margin:0 0 18px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+  @media(max-width:760px){.hero{grid-template-columns:1fr;padding:24px 20px}}
+  .hero h1{color:#fff;margin:6px 0 4px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cfe0da;font-weight:600}
+  .hero .sub{color:#e3ece8;margin:0 0 18px}
+  .route{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:30px;color:#fff;margin:6px 0 4px}
+  .route .ln{flex:1;position:relative;height:2px;background:#a9c1b9;min-width:60px}
+  .route .ln:after{content:"";position:absolute;right:-1px;top:-4px;width:10px;height:10px;border-top:2px solid #a9c1b9;border-right:2px solid #a9c1b9;transform:rotate(45deg)}
+  .buy{background:var(--white);border-radius:12px;padding:20px;color:var(--body)}
+  .buy .big{font-family:var(--serif);font-size:44px;color:var(--ink);line-height:1}
+  .buy .per{font-size:14px;color:var(--muted);margin:2px 0 12px}
+  .buy .asof{font-size:12px;color:var(--muted);margin:10px 0 0}
+  .buy .trv{display:flex;align-items:center;justify-content:space-between;margin:0 0 14px;font-size:14px;color:var(--ink);font-weight:600}
+  .buy .btn{margin:0 0 8px}
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 22px}
+  @media(max-width:760px){.trust{grid-template-columns:1fr}}
+  .trust div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px}
+  .trust b{display:block;color:var(--ink);margin-bottom:2px;font-family:var(--serif);font-weight:500;font-size:16px}
+  /* date spread */
   .spread{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;margin:0 0 6px}
-  .spread button{flex:0 0 auto;min-width:92px;font:inherit;background:#fff;border:1px solid #D4CCBC;border-radius:8px;padding:8px 10px;text-align:center;cursor:pointer;color:var(--body)}
-  .spread button .d{font-size:12px;color:var(--muted)}
-  .spread button .p{font-weight:600;color:var(--ink)}
-  .spread button.sel{border-color:var(--sage);background:#EAF0ED}
+  .spread button{flex:0 0 auto;min-width:96px;font:inherit;background:#fff;border:1px solid #D4CCBC;border-radius:10px;padding:9px 10px;text-align:center;cursor:pointer;color:var(--body)}
+  .spread .d{font-size:12px;color:var(--muted)} .spread .p{font-weight:600;color:var(--ink);font-size:17px}
+  .spread button.sel{border-color:var(--sage);background:var(--sage-soft)}
   .spread button.low .p{color:var(--sage-dark)}
-  .flight{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 12px}
+  /* flight cards */
+  .flight{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 12px;display:grid;grid-template-columns:1fr 190px;gap:22px;align-items:center}
+  @media(max-width:640px){.flight{grid-template-columns:1fr;gap:14px}}
   .flight.deal{border-color:var(--sage);box-shadow:0 0 0 2px #CBD9D2}
-  .tag{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:4px;padding:2px 8px;margin:0 0 8px}
-  .leg{display:flex;justify-content:space-between;gap:10px;font-size:15px;padding:4px 0}
-  .leg .t{font-weight:600;color:var(--ink)}
-  .leg .m{color:var(--muted);font-size:13px}
-  .price{text-align:right}
-  .price .big{font-family:var(--serif);font-size:28px;color:var(--ink);line-height:1.1}
-  .flightfoot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);flex-wrap:wrap}
-  .summary{border-left:3px solid var(--sage);padding:2px 0 2px 14px;margin:0 0 16px;font-size:15px}
+  .tag{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:2px 8px;margin:0 0 8px}
+  .air{font-size:13px;color:var(--muted);margin:0 0 8px}
+  .leg{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:6px 0}
+  .tt b{display:block;font-size:19px;color:var(--ink);font-weight:600;line-height:1.1}
+  .tt span{font-size:12px;color:var(--muted)}
+  .tt.r{text-align:right}
+  .mid{text-align:center;font-size:12px;color:var(--muted)}
+  .mid i{display:block;height:2px;background:#cfc7b5;margin:5px 0;position:relative}
+  .mid i:before,.mid i:after{content:"";position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:#cfc7b5}
+  .mid i:before{left:0} .mid i:after{right:0}
+  .legdate{font-size:12px;color:var(--teal);font-weight:600;margin:6px 0 0}
+  .flight .price{text-align:right}
+  @media(max-width:640px){.flight .price{text-align:left}}
+  .price .big{font-family:var(--serif);font-size:32px;color:var(--ink);line-height:1}
+  .price .btn{margin-top:10px}
+  /* details layout */
+  .cols{display:grid;grid-template-columns:1fr 330px;gap:22px;align-items:start}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+  .side{position:sticky;top:16px}
+  @media(max-width:860px){.side{position:static;order:-1}}
+  .sumline{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .sumline:last-of-type{border-bottom:0}
+  .sumtotal{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding-top:12px;border-top:2px solid var(--line)}
+  .sumtotal b{font-family:var(--serif);font-size:28px;color:var(--ink);font-weight:500}
+  .callout{background:var(--sage-soft);border:1px solid #CBD9D2;border-radius:10px;padding:14px 16px;font-size:14px;margin:0 0 16px}
+  .callout b{color:var(--ink)}
+  .paxhead{display:flex;align-items:center;gap:10px;margin:0 0 10px}
+  .paxhead i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--sage);color:#fff;font-size:13px;font-weight:600;display:grid;place-items:center}
+  .paxhead h3{margin:0;font-size:17px}
   .timeline{list-style:none;margin:0;padding:0}
   .timeline li{position:relative;padding:0 0 14px 28px}
   .timeline li:before{content:"";position:absolute;left:5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--sage)}
   .timeline li:after{content:"";position:absolute;left:9px;top:18px;bottom:-4px;width:2px;background:var(--line)}
   .timeline li:last-child:after{display:none}
-  details{background:#fff;border:1px dashed #BDB5A3;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:14px}
+  .check{width:64px;height:64px;border-radius:50%;background:var(--sage);display:grid;place-items:center;margin:0 0 16px}
+  details{background:#fff;border:1px dashed #BDB5A3;border-radius:12px;padding:12px 16px;margin:0 0 18px;font-size:14px}
   summary{cursor:pointer;font-weight:600;color:var(--teal)}
-  pre{white-space:pre-wrap;word-break:break-word;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;background:#F7F4EE;padding:12px;border-radius:6px;margin:10px 0 0;color:var(--body)}
+  pre{white-space:pre-wrap;word-break:break-word;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;background:#F7F4EE;padding:12px;border-radius:8px;margin:10px 0 0;color:var(--body)}
   .err{color:#9a3b2e;font-size:13px;margin:4px 0 0;display:none}
   .invalid input{border-color:#c0584a}
   .invalid .err{display:block}
@@ -83,7 +125,7 @@
   .hidden{display:none}
   h1:focus{outline:none}
   button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-  @media(prefers-reduced-motion:no-preference){.flight,.card{animation:rise .25s ease-out}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+  @media(prefers-reduced-motion:no-preference){.flight,.card,.hero{animation:rise .25s ease-out}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
 </style>
 </head>
 <body>
@@ -123,15 +165,15 @@
   function hash(str){var h=7;for(var i=0;i<str.length;i++)h=(h*31+str.charCodeAt(i))>>>0;return h}
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function money(n){return "$"+Math.round(n).toLocaleString("en-US")}
-  function isDeal(){return s.from===DEAL.from&&s.to===DEAL.to&&s.depart===DEAL.depart&&s.ret===DEAL.ret&&s.trip==="rt"}
-  function basePrice(dep){
+    function basePrice(dep){
     if(s.from===orig.from&&s.to===orig.to&&dep===orig.depart&&(s.trip==="ow"||s.ret===orig.ret)&&fromLink)return s.dealPrice;
     if(s.from===DEAL.from&&s.to===DEAL.to&&dep===DEAL.depart&&s.ret===DEAL.ret)return DEAL.price;
     var h=hash(s.from+s.to+dep); return 160+(h%330)+(s.trip==="ow"?-70:0);
   }
   function tm(mins){mins=((mins%1440)+1440)%1440;var h=Math.floor(mins/60),m=mins%60,ap=h>=12?"PM":"AM";h=h%12||12;return h+":"+("0"+m).slice(-2)+" "+ap}
   function dur(){var h=hash(s.from+s.to);return s.from===DEAL.from&&s.to===DEAL.to||s.from===DEAL.to&&s.to===DEAL.from?120:90+(h%170)}
-  function legTimes(depMins,d,fromA,toA){var arr=depMins+d+(AIRPORTS[toA][1]-AIRPORTS[fromA][1])*60;return tm(depMins)+" "+fromA+" to "+tm(arr)+" "+toA}
+  function leg(depMins,d,fromA,toA){return {dep:tm(depMins),arr:tm(depMins+d+(AIRPORTS[toA][1]-AIRPORTS[fromA][1])*60),from:fromA,to:toA,dur:d}}
+  function dealActive(){return s.from===orig.from&&s.to===orig.to&&s.depart===orig.depart&&(s.trip==="ow"||s.ret===orig.ret)}
   function itineraries(){
     var base=basePrice(s.depart), d=dur(), n=(d>=240)?1:0;
     var opts=[
@@ -141,29 +183,41 @@
       {air:"Alaska",nums:"AS 612 / AS 387",o:665,r:1235,mult:1.06,stops:n?1:0}
     ];
     return opts.map(function(o,i){
-      var extra=o.stops?70:0, outD=d+extra, backD=d+10+extra;
+      var extra=o.stops?70:0;
       return {air:o.air,nums:o.nums,stops:o.stops,price:Math.round(base*o.mult),
-        out:legTimes(o.o,outD,s.from,s.to),back:legTimes(o.r,backD,s.to,s.from),outDur:outD,backDur:backD,deal:(i===0&&isDeal())};
+        out:leg(o.o,d+extra,s.from,s.to),back:leg(o.r,d+10+extra,s.to,s.from),deal:(i===0&&dealActive())};
     });
   }
-  function durTxt(m){return Math.floor(m/60)+" h "+(m%60?(m%60)+" m":"")}
+  function durTxt(m){return Math.floor(m/60)+" h"+(m%60?" "+(m%60)+" m":"")}
 
   function steps(){document.getElementById("steps").innerHTML=STEPS.map(function(t,i){return '<li'+(i===s.step?' aria-current="step"':'')+' class="'+(i===s.step?"on":i<s.step?"done":"")+'">'+(i+1)+". "+t+"</li>"}).join("")}
   function go(n){s.step=n;render();window.scrollTo(0,0);var h=document.querySelector("#view h1");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}}
 
   function airportOpts(sel){return Object.keys(AIRPORTS).map(function(k){return '<option value="'+k+'"'+(k===sel?" selected":"")+'>'+k+" · "+AIRPORTS[k][0]+"</option>"}).join("")}
 
+  function stopsTxt(it){return it.stops?"1 stop":"Nonstop"}
+  function legHtml(l,date,it){return '<div class="legdate">'+fmt(date)+'</div><div class="leg"><div class="tt"><b>'+l.dep+'</b><span>'+l.from+'</span></div><div class="mid">'+durTxt(l.dur)+'<i></i>'+stopsTxt(it)+'</div><div class="tt r"><b>'+l.arr+'</b><span>'+l.to+'</span></div></div>'}
+
   function viewSearch(){
-    var h="";
-    if(fromLink||isDeal()){
-      h+='<div class="dealbox"><b>Your deal is filled in.</b> '+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+', '+fmt(s.depart)+(s.trip==="rt"?' to '+fmt(s.ret):'')+', '+money(s.dealPrice)+' per person, as found on '+fmtShort(s.found)+', subject to change. Change anything below. No account needed.</div>';
+    var it=itineraries()[0], city=function(c){return esc(AIRPORTS[c][0])}, h="";
+    var isD=dealActive();
+    if(isD){
+      h+='<section class="hero"><div><div class="kicker">'+(fromLink?"Your deal, filled in from your email":"This week's deal (demo)")+'</div>';
+      h+='<h1>'+city(s.to)+'</h1><p class="sub">'+city(s.from)+' to '+city(s.to)+(s.trip==="rt"?', round trip':', one way')+'</p>';
+      h+='<div class="route"><span>'+s.from+'</span><span class="ln"></span><span>'+s.to+'</span></div>';
+      h+='<p class="sub" style="margin:6px 0 0">'+fmt(s.depart)+(s.trip==="rt"?' to '+fmt(s.ret):'')+' · '+it.air+' · '+stopsTxt(it)+' · Main cabin</p></div>';
+      h+='<div class="buy"><div class="big">'+money(s.dealPrice)+'</div><div class="per">per person, taxes and fees included</div>';
+      h+='<div class="trv"><span>Travelers</span><span class="stepper"><button type="button" id="minus" aria-label="Fewer travelers">&minus;</button><span id="tc">'+s.trav+'</span><button type="button" id="plus" aria-label="More travelers">+</button></span></div>';
+      h+='<button type="button" class="btn block" id="booknow">Book Now</button><button type="button" class="btn ghost block small" id="seeall">See other flights or dates</button>';
+      h+='<div class="asof">As found on '+fmtShort(s.found)+', subject to change. A Traverse agent confirms the price.</div></div></section>';
+      h+='<div class="trust"><div><b>A real person books it</b>You talk to a Traverse agent, not a website.</div><div><b>Main cabin fares</b>Never basic economy.</div><div><b>Help if plans change</b>White Glove Service, before and after you fly.</div></div>';
+    }else{
+      h+='<h1>Where would you like to go?</h1><p>Search, pick a flight, and send your request. A Traverse agent emails you to confirm the trip and the price.</p>';
     }
-    h+='<h1>Where would you like to go?</h1><p>Search, pick a flight, and send your request. A Traverse agent emails you to confirm the trip and the price.</p>';
-    h+='<div class="card"><div class="seg"><button type="button" data-trip="rt" aria-pressed="'+(s.trip==="rt")+'" class="'+(s.trip==="rt"?"on":"")+'">Round trip</button><button type="button" data-trip="ow" aria-pressed="'+(s.trip==="ow")+'" class="'+(s.trip==="ow"?"on":"")+'">One way</button></div>';
+    h+='<div class="card"><h3>'+(isD?'Or search another trip':'Search flights')+'</h3><div class="seg"><button type="button" data-trip="rt" aria-pressed="'+(s.trip==="rt")+'" class="'+(s.trip==="rt"?"on":"")+'">Round trip</button><button type="button" data-trip="ow" aria-pressed="'+(s.trip==="ow")+'" class="'+(s.trip==="ow"?"on":"")+'">One way</button></div>';
     h+='<div class="grid"><div class="field"><label for="from">From</label><select id="from">'+airportOpts(s.from)+'</select></div><div class="field"><label for="to">To</label><select id="to">'+airportOpts(s.to)+'</select></div></div>';
     h+='<div class="grid"><div class="field"><label for="dep">Depart</label><input type="date" id="dep" min="'+iso(new Date())+'" value="'+s.depart+'"></div><div class="field'+(s.trip==="ow"?" hidden":"")+'"><label for="ret">Return</label><input type="date" id="ret" min="'+s.depart+'" value="'+s.ret+'"></div></div>';
-    h+='<div class="field"><label>Travelers</label><div class="stepper"><button type="button" id="minus" aria-label="Fewer travelers">&minus;</button><span id="tc">'+s.trav+'</span><button type="button" id="plus" aria-label="More travelers">+</button></div></div>';
-    h+='<div class="note" style="margin:0 0 16px">Every traveler is priced, not just one.</div>';
+    if(!isD)h+='<div class="field"><label>Travelers</label><div class="stepper"><button type="button" id="minus" aria-label="Fewer travelers">&minus;</button><span id="tc">'+s.trav+'</span><button type="button" id="plus" aria-label="More travelers">+</button></div></div>';
     h+='<button type="button" class="btn" id="search">Search flights</button></div>';
     return h;
   }
@@ -175,10 +229,13 @@
     var r=document.getElementById("ret"); if(r)r.onchange=function(e){if(e.target.value)s.ret=e.target.value};
     document.getElementById("minus").onclick=function(){s.trav=Math.max(1,s.trav-1);document.getElementById("tc").textContent=s.trav};
     document.getElementById("plus").onclick=function(){s.trav=Math.min(9,s.trav+1);document.getElementById("tc").textContent=s.trav};
+    var bn=document.getElementById("booknow"); if(bn)bn.onclick=function(){s.pick=itineraries()[0];prepPax();go(2)};
+    var sa=document.getElementById("seeall"); if(sa)sa.onclick=function(){go(1)};
     document.getElementById("search").onclick=function(){
       if(s.from===s.to){alert_("Pick two different airports.");return}
       go(1)};
   }
+  function prepPax(){while(s.pax.length<s.trav)s.pax.push({f:"",l:""});s.pax.length=s.trav}
   function alert_(m){var n=document.getElementById("msg");if(n){n.textContent=m;n.style.display="block"}}
 
   function viewResults(){
@@ -188,19 +245,18 @@
     var low=Math.min.apply(null,prices);
     var h='<h1>'+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+'</h1>';
     h+='<p class="note">'+fmt(s.depart)+(s.trip==="rt"?' to '+fmt(s.ret):', one way')+' · '+s.trav+' traveler'+(s.trav>1?'s':'')+' · <a href="#" id="edit">Change search</a></p>';
-    h+='<div class="card"><h3>My dates are different</h3><p class="note" style="margin-bottom:8px">Tap a day to move your trip'+(len?' (keeps your '+len+'-night length)':'')+'. Prices are per person, round trip.</p><div class="spread">';
-    days.forEach(function(d,i){h+='<button type="button" data-d="'+d+'" aria-pressed="'+(d===s.depart)+'" aria-label="'+fmt(d)+', '+money(prices[i])+' per person" class="'+(d===s.depart?"sel ":"")+(prices[i]===low?"low":"")+'"><div class="d">'+fmt(d)+'</div><div class="p">'+money(prices[i])+'</div>'+(prices[i]===low?'<div class="d">Lowest shown</div>':'<div class="d">&nbsp;</div>')+'</button>'});
+    h+='<div class="card"><h3>My dates are different</h3><p class="note" style="margin-bottom:8px">Tap a day to move your trip'+(len?' (keeps your '+len+'-night length)':'')+'. Prices are per person.</p><div class="spread">';
+    days.forEach(function(d,i){h+='<button type="button" data-d="'+d+'" aria-pressed="'+(d===s.depart)+'" aria-label="'+fmt(d)+', '+money(prices[i])+' per person" class="'+(d===s.depart?"sel ":"")+(prices[i]===low?"low":"")+'"><div class="d">'+fmt(d)+'</div><div class="p">'+money(prices[i])+'</div><div class="d">'+(prices[i]===low?'Lowest shown':'&nbsp;')+'</div></button>'});
     h+='</div><p class="note" style="margin:0">Sample prices for the demo. In the live version these come from Sabre.</p></div>';
     var its=itineraries();
     its.forEach(function(it,i){
-      h+='<div class="flight'+(it.deal?" deal":"")+'">'+(it.deal?'<span class="tag">Your deal</span>':'');
-      h+='<div class="leg"><div><div class="t">'+it.out+'</div><div class="m">'+fmt(s.depart)+' · '+it.air+' · '+(it.stops?'1 stop':'Nonstop')+' · '+durTxt(it.outDur)+'</div></div></div>';
-      if(s.trip==="rt")h+='<div class="leg"><div><div class="t">'+it.back+'</div><div class="m">'+fmt(s.ret)+' · '+it.air+' · '+(it.stops?'1 stop':'Nonstop')+' · '+durTxt(it.backDur)+'</div></div></div>';
-      h+='<div class="flightfoot"><div class="note">Main cabin fare · taxes and fees included<br>'+(it.deal?'As found on '+fmtShort(s.found)+', subject to change':'Sample fare for the demo')+'</div><div class="price"><div class="big">'+money(it.price)+'</div><div class="note">per person</div></div></div>';
-      h+='<div style="margin-top:12px"><button type="button" class="btn small" data-pick="'+i+'">Choose this flight</button></div></div>';
+      h+='<div class="flight'+(it.deal?" deal":"")+'"><div>'+(it.deal?'<span class="tag">Your deal</span>':'')+'<div class="air">'+it.air+' · '+it.nums.split(" / ")[0]+(s.trip==="rt"?' and return':'')+' · Main cabin</div>';
+      h+=legHtml(it.out,s.depart,it);
+      if(s.trip==="rt")h+=legHtml(it.back,s.ret,it);
+      h+='</div><div class="price"><div class="big">'+money(it.price)+'</div><div class="note">per person<br>'+(it.deal?'As found on '+fmtShort(s.found)+', subject to change':'Sample fare')+'</div><button type="button" class="btn small block" data-pick="'+i+'">Choose this flight</button></div></div>';
     });
     window._its=its;
-    h+='<p class="note">Book Now keeps you here. A Traverse agent confirms the price and books it for you.</p>';
+    h+='<p class="note">You stay on this page. A Traverse agent confirms the price and books it for you.</p>';
     return h;
   }
   function bindResults(){
@@ -209,26 +265,31 @@
     document.querySelectorAll(".spread button").forEach(function(b){b.onclick=function(){
       var len=s.trip==="rt"?Math.round((pd(s.ret)-pd(s.depart))/864e5):0;
       s.depart=b.dataset.d; if(s.trip==="rt")s.ret=add(s.depart,len); render()}});
-    document.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){s.pick=window._its[+b.dataset.pick];
-      while(s.pax.length<s.trav)s.pax.push({f:"",l:""}); s.pax.length=s.trav; go(2)}});
+    document.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){s.pick=window._its[+b.dataset.pick];prepPax();go(2)}});
   }
 
-  function chosenSummary(){
-    var it=s.pick;
-    return '<div class="summary"><b>'+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+'</b><br>'+fmt(s.depart)+': '+it.out+'<br>'+(s.trip==="rt"?fmt(s.ret)+': '+it.back+'<br>':'')+it.air+' · '+(it.stops?'1 stop':'Nonstop')+' · '+s.trav+' traveler'+(s.trav>1?'s':'')+'<br>Estimated total '+money(it.price*s.trav)+' ('+money(it.price)+' per person). The agent confirms the final price.</div>';
+  function sideSummary(){
+    var it=s.pick, h='<aside class="card side"><h3>Your trip</h3>';
+    h+='<div class="sumline"><span>'+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+'</span></div>';
+    h+='<div class="sumline"><span>'+fmt(s.depart)+'</span><span>'+it.out.dep+' to '+it.out.arr+'</span></div>';
+    if(s.trip==="rt")h+='<div class="sumline"><span>'+fmt(s.ret)+'</span><span>'+it.back.dep+' to '+it.back.arr+'</span></div>';
+    h+='<div class="sumline"><span>'+it.air+'</span><span>'+stopsTxt(it)+'</span></div>';
+    h+='<div class="sumline"><span>'+money(it.price)+' x '+s.trav+' traveler'+(s.trav>1?'s':'')+'</span><span></span></div>';
+    h+='<div class="sumtotal"><span>Estimated total</span><b>'+money(it.price*s.trav)+'</b></div>';
+    h+='<p class="note" style="margin:8px 0 0">The agent confirms the final price. Nothing is charged now.</p></aside>';
+    return h;
   }
   function viewDetails(){
-    var h='<h1>Who is traveling?</h1><p class="note"><a href="#" id="back">Back to flights</a></p>'+chosenSummary();
-    h+='<div class="card">';
+    var h='<h1>Who is traveling?</h1><p class="note"><a href="#" id="back">Back to flights</a></p><div class="cols"><div class="card">';
     for(var i=0;i<s.trav;i++){
-      h+='<h3>Traveler '+(i+1)+'</h3><div class="grid"><div class="field" data-f="f'+i+'"><label for="f'+i+'">First name</label><input id="f'+i+'" autocomplete="given-name" value="'+esc(s.pax[i].f)+'"><div class="err">Enter a first name.</div></div><div class="field" data-f="l'+i+'"><label for="l'+i+'">Last name</label><input id="l'+i+'" autocomplete="family-name" value="'+esc(s.pax[i].l)+'"><div class="err">Enter a last name.</div></div></div>';
+      h+='<div class="paxhead"><i>'+(i+1)+'</i><h3>Traveler '+(i+1)+'</h3></div><div class="grid"><div class="field" data-f="f'+i+'"><label for="f'+i+'">First name</label><input id="f'+i+'" autocomplete="given-name" value="'+esc(s.pax[i].f)+'"><div class="err">Enter a first name.</div></div><div class="field" data-f="l'+i+'"><label for="l'+i+'">Last name</label><input id="l'+i+'" autocomplete="family-name" value="'+esc(s.pax[i].l)+'"><div class="err">Enter a last name.</div></div></div>';
     }
     h+='<p class="note">Names as they appear on each traveler\'s ID.</p>';
     h+='<div class="field" data-f="email"><label for="email">Email</label><input id="email" type="email" autocomplete="email" value="'+esc(s.email)+'"><div class="err">Enter a valid email address.</div></div>';
     h+='<p class="note" style="margin-top:-6px">Your agent contacts you by email.</p>';
     h+='<div class="field"><label for="notes">Anything else?</label><textarea id="notes" rows="3" placeholder="Seat preferences, bags, a hotel, questions">'+esc(s.notes)+'</textarea></div>';
-    h+='<div class="dealbox" style="margin-bottom:16px"><b>No payment now.</b> You are sending a request. Your Traverse agent emails you to confirm the price and finish the booking.</div>';
-    h+='<button type="button" class="btn" id="send">Send my request</button></div>';
+    h+='<div class="callout"><b>No payment now.</b> You are sending a request. Your Traverse agent emails you to confirm the price and finish the booking.</div>';
+    h+='<button type="button" class="btn block" id="send">Send my request</button></div>'+sideSummary()+'</div>';
     return h;
   }
   function bindDetails(){
@@ -239,7 +300,7 @@
       for(var i=0;i<s.trav;i++){s.pax[i].f=chk("f"+i,function(v){return v.length>0});s.pax[i].l=chk("l"+i,function(v){return v.length>0})}
       s.email=chk("email",function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)});
       s.notes=document.getElementById("notes").value.trim();
-      if(!ok)return;
+      if(!ok){var bad=document.querySelector(".invalid input");if(bad)bad.focus();return}
       s.ref="DEMO-"+(1000+hash(s.email+s.depart+Date.now())%9000);
       go(3)};
   }
@@ -251,9 +312,9 @@
     return "Book Now request: "+route+", "+(changed?"NEW DATES "+dates+" (deal was "+fmtShort(DEAL.depart)+" to "+fmtShort(DEAL.ret)+")":dates)+" ("+lead+", "+s.email+")";
   }
   function viewDone(){
-    var h='<h1>Request sent. Thank you.</h1><div class="card"><p><b>Reference '+s.ref+'</b></p>'+chosenSummary();
-    h+='<p>A Traverse agent will email you at <b>'+esc(s.email)+'</b> to confirm your trip and the price. You talk to a person, not a website.</p>';
-    h+='<h3>What happens next</h3><ul class="timeline"><li><b>Your request reaches a Traverse agent.</b><br><span class="note">Every request is handled by a person.</span></li><li><b>The agent confirms the flights and the final price.</b><br><span class="note">If your dates differ from the deal, the price may change.</span></li><li><b>The agent books and ticketed travel is emailed to you.</b><br><span class="note">White Glove Service, including help if plans change.</span></li></ul></div>';
+    var h='<div class="check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Request sent. Thank you.</h1>';
+    h+='<p>A Traverse agent will email you at <b>'+esc(s.email)+'</b> to confirm your trip and the price. Reference <b>'+s.ref+'</b>.</p>';
+    h+='<div class="cols"><div class="card"><h3>What happens next</h3><ul class="timeline"><li><b>Your request reaches a Traverse agent.</b><br><span class="note">Every request is handled by a person.</span></li><li><b>The agent confirms the flights and the final price.</b><br><span class="note">If your dates differ from the deal, the price may change.</span></li><li><b>The agent books it and emails your itinerary.</b><br><span class="note">White Glove Service, including help if plans change.</span></li></ul></div>'+sideSummary().replace('class="card side"','class="card"')+'</div>';
     h+='<details><summary>Demo only: what the Traverse agent receives</summary><pre>To: info@flytraverse.com\nSubject: '+esc(leadSubject())+'\nReply-To: '+esc(s.email)+'\n\nTravelers ('+s.trav+'): '+esc(s.pax.map(function(p){return p.f+" "+p.l}).join(", "))+'\nRoute: '+s.from+' to '+s.to+'\nDepart: '+s.depart+(s.trip==="rt"?'\nReturn: '+s.ret:'')+'\nChosen: '+esc(s.pick.air+" "+s.pick.nums)+', '+money(s.pick.price)+' per person (sample)\nNotes: '+esc(s.notes||"none")+'\nCame from deal link: '+(fromLink?"yes":"no")+'</pre><p class="note" style="margin:10px 0 0">In the demo nothing is sent.</p></details>';
     h+='<button type="button" class="btn ghost" id="again">Start over</button>';
     return h;
