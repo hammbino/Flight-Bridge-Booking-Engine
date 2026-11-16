@@ -34,6 +34,7 @@ tags: [demo, ui, booking-engine]
 
 - The demo shows Phase 2 style browsing (search, pick a flight) that ends in a Phase 1 style request. That hybrid is not in any decision. It is a picture of where the two phases meet, not a plan.
 - The "Flight Bridge" badge is the newsletter footer logo. The brand guide badge in `ui-notes.md` was not compared (CONF-BE-010).
+- Each traveler's name as on their ID and date of birth are collected. This was a direct instruction from Jeffrey on 2026-11-15. It is not yet in `requirements.md`, and where DOB is stored and who may see it is not decided.
 - Hosting is not decided. It needs GitHub Pages on this repo, or another host.
 
 ## Preview locally

@@ -235,7 +235,7 @@
       if(s.from===s.to){alert_("Pick two different airports.");return}
       go(1)};
   }
-  function prepPax(){while(s.pax.length<s.trav)s.pax.push({f:"",l:""});s.pax.length=s.trav}
+  function prepPax(){while(s.pax.length<s.trav)s.pax.push({f:"",l:"",d:""});s.pax.length=s.trav}
   function alert_(m){var n=document.getElementById("msg");if(n){n.textContent=m;n.style.display="block"}}
 
   function viewResults(){
@@ -282,9 +282,9 @@
   function viewDetails(){
     var h='<h1>Who is traveling?</h1><p class="note"><a href="#" id="back">Back to flights</a></p><div class="cols"><div class="card">';
     for(var i=0;i<s.trav;i++){
-      h+='<div class="paxhead"><i>'+(i+1)+'</i><h3>Traveler '+(i+1)+'</h3></div><div class="grid"><div class="field" data-f="f'+i+'"><label for="f'+i+'">First name</label><input id="f'+i+'" autocomplete="given-name" value="'+esc(s.pax[i].f)+'"><div class="err">Enter a first name.</div></div><div class="field" data-f="l'+i+'"><label for="l'+i+'">Last name</label><input id="l'+i+'" autocomplete="family-name" value="'+esc(s.pax[i].l)+'"><div class="err">Enter a last name.</div></div></div>';
+      h+='<div class="paxhead"><i>'+(i+1)+'</i><h3>Traveler '+(i+1)+'</h3></div><div class="grid"><div class="field" data-f="f'+i+'"><label for="f'+i+'">First name (as on ID)</label><input id="f'+i+'" autocomplete="given-name" value="'+esc(s.pax[i].f)+'"><div class="err">Enter a first name.</div></div><div class="field" data-f="l'+i+'"><label for="l'+i+'">Last name (as on ID)</label><input id="l'+i+'" autocomplete="family-name" value="'+esc(s.pax[i].l)+'"><div class="err">Enter a last name.</div></div></div><div class="field" data-f="d'+i+'"><label for="d'+i+'">Date of birth</label><input type="date" id="d'+i+'" min="1900-01-01" max="'+iso(new Date())+'" autocomplete="bday" value="'+esc(s.pax[i].d)+'"><div class="err">Enter a valid date of birth.</div></div>';
     }
-    h+='<p class="note">Names as they appear on each traveler\'s ID.</p>';
+    h+='<p class="note">Names and date of birth must match each traveler\'s government ID exactly, so the ticket can be issued.</p>';
     h+='<div class="field" data-f="email"><label for="email">Email</label><input id="email" type="email" autocomplete="email" value="'+esc(s.email)+'"><div class="err">Enter a valid email address.</div></div>';
     h+='<p class="note" style="margin-top:-6px">Your agent contacts you by email.</p>';
     h+='<div class="field"><label for="notes">Anything else?</label><textarea id="notes" rows="3" placeholder="Seat preferences, bags, a hotel, questions">'+esc(s.notes)+'</textarea></div>';
@@ -297,7 +297,7 @@
     document.getElementById("send").onclick=function(){
       var ok=true;
       function chk(id,test){var el=document.getElementById(id),f=el.parentNode;var good=test(el.value.trim());f.classList.toggle("invalid",!good);if(!good)ok=false;return el.value.trim()}
-      for(var i=0;i<s.trav;i++){s.pax[i].f=chk("f"+i,function(v){return v.length>0});s.pax[i].l=chk("l"+i,function(v){return v.length>0})}
+      for(var i=0;i<s.trav;i++){s.pax[i].f=chk("f"+i,function(v){return v.length>0});s.pax[i].l=chk("l"+i,function(v){return v.length>0});s.pax[i].d=chk("d"+i,function(v){return /^\d{4}-\d{2}-\d{2}$/.test(v)&&v>="1900-01-01"&&v<=iso(new Date())})}
       s.email=chk("email",function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)});
       s.notes=document.getElementById("notes").value.trim();
       if(!ok){var bad=document.querySelector(".invalid input");if(bad)bad.focus();return}
@@ -315,7 +315,7 @@
     var h='<div class="check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Request sent. Thank you.</h1>';
     h+='<p>A Traverse agent will email you at <b>'+esc(s.email)+'</b> to confirm your trip and the price. Reference <b>'+s.ref+'</b>.</p>';
     h+='<div class="cols"><div class="card"><h3>What happens next</h3><ul class="timeline"><li><b>Your request reaches a Traverse agent.</b><br><span class="note">Every request is handled by a person.</span></li><li><b>The agent confirms the flights and the final price.</b><br><span class="note">If your dates differ from the deal, the price may change.</span></li><li><b>The agent books it and emails your itinerary.</b><br><span class="note">White Glove Service, including help if plans change.</span></li></ul></div>'+sideSummary().replace('class="card side"','class="card"')+'</div>';
-    h+='<details><summary>Demo only: what the Traverse agent receives</summary><pre>To: info@flytraverse.com\nSubject: '+esc(leadSubject())+'\nReply-To: '+esc(s.email)+'\n\nTravelers ('+s.trav+'): '+esc(s.pax.map(function(p){return p.f+" "+p.l}).join(", "))+'\nRoute: '+s.from+' to '+s.to+'\nDepart: '+s.depart+(s.trip==="rt"?'\nReturn: '+s.ret:'')+'\nChosen: '+esc(s.pick.air+" "+s.pick.nums)+', '+money(s.pick.price)+' per person (sample)\nNotes: '+esc(s.notes||"none")+'\nCame from deal link: '+(fromLink?"yes":"no")+'</pre><p class="note" style="margin:10px 0 0">In the demo nothing is sent.</p></details>';
+    h+='<details><summary>Demo only: what the Traverse agent receives</summary><pre>To: info@flytraverse.com\nSubject: '+esc(leadSubject())+'\nReply-To: '+esc(s.email)+'\n\nTravelers ('+s.trav+'):\n  '+esc(s.pax.map(function(p){return p.f+" "+p.l+" (DOB "+p.d+")"}).join("\n  "))+'\nRoute: '+s.from+' to '+s.to+'\nDepart: '+s.depart+(s.trip==="rt"?'\nReturn: '+s.ret:'')+'\nChosen: '+esc(s.pick.air+" "+s.pick.nums)+', '+money(s.pick.price)+' per person (sample)\nNotes: '+esc(s.notes||"none")+'\nCame from deal link: '+(fromLink?"yes":"no")+'</pre><p class="note" style="margin:10px 0 0">In the demo nothing is sent.</p></details>';
     h+='<button type="button" class="btn ghost" id="again">Start over</button>';
     return h;
   }
