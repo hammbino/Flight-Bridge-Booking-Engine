@@ -6,7 +6,7 @@ This repo was split out of [Flight-Bridge](https://github.com/hammbino/Flight-Br
 
 ## Status
 
-Documentation only. No code yet. See `docs/booking-engine/project-state.md`.
+Documentation, plus a clickable demo page (`demo/`, sample fares, not connected to Sabre). No booking code yet. See `docs/booking-engine/project-state.md`.
 
 ## Where things are
 
@@ -15,6 +15,7 @@ Documentation only. No code yet. See `docs/booking-engine/project-state.md`.
 | `CLAUDE.md` | Repo standards and the agent "start here" map |
 | `docs/booking-engine/` | Knowledge base: requirements, decisions, roadmap, questions, backlog |
 | `docs/booking-engine/migration-notes.md` | What changed in the split, including corrections to review |
+| `demo/index.html` | Clickable demo of the booking flow. Notes in `docs/booking-engine/demo.md` |
 | `docs/sources/` | Booking-only digests of every source conversation, with timestamps |
 | `docs/ai/` | Short working-state files for the `/start`, `/build`, `/checkpoint`, `/finish` commands |
 | `Transcripts/` | Drop new raw transcripts here, then run `/process-transcripts` |

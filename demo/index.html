@@ -81,6 +81,9 @@
   .foot img{width:70px;height:auto;display:inline-block;margin:0 0 10px}
   .foot p{font-size:12px;color:var(--muted);margin:0 0 6px}
   .hidden{display:none}
+  h1:focus{outline:none}
+  button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  @media(prefers-reduced-motion:no-preference){.flight,.card{animation:rise .25s ease-out}@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
 </style>
 </head>
 <body>
@@ -88,8 +91,8 @@
 <div class="demo">Demo with sample fares. Not connected to Sabre, and nothing here books or charges anything.</div>
 
 <div class="wrap">
-  <ol class="steps" id="steps"></ol>
-  <div id="view"></div>
+  <ol class="steps" id="steps" aria-label="Booking steps"></ol>
+  <main id="view"></main>
 </div>
 
 <div class="foot">
@@ -145,8 +148,8 @@
   }
   function durTxt(m){return Math.floor(m/60)+" h "+(m%60?(m%60)+" m":"")}
 
-  function steps(){document.getElementById("steps").innerHTML=STEPS.map(function(t,i){return '<li class="'+(i===s.step?"on":i<s.step?"done":"")+'">'+(i+1)+". "+t+"</li>"}).join("")}
-  function go(n){s.step=n;render();window.scrollTo(0,0)}
+  function steps(){document.getElementById("steps").innerHTML=STEPS.map(function(t,i){return '<li'+(i===s.step?' aria-current="step"':'')+' class="'+(i===s.step?"on":i<s.step?"done":"")+'">'+(i+1)+". "+t+"</li>"}).join("")}
+  function go(n){s.step=n;render();window.scrollTo(0,0);var h=document.querySelector("#view h1");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}}
 
   function airportOpts(sel){return Object.keys(AIRPORTS).map(function(k){return '<option value="'+k+'"'+(k===sel?" selected":"")+'>'+k+" · "+AIRPORTS[k][0]+"</option>"}).join("")}
 
@@ -156,12 +159,12 @@
       h+='<div class="dealbox"><b>Your deal is filled in.</b> '+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+', '+fmt(s.depart)+(s.trip==="rt"?' to '+fmt(s.ret):'')+', '+money(s.dealPrice)+' per person, as found on '+fmtShort(s.found)+', subject to change. Change anything below. No account needed.</div>';
     }
     h+='<h1>Where would you like to go?</h1><p>Search, pick a flight, and send your request. A Traverse agent emails you to confirm the trip and the price.</p>';
-    h+='<div class="card"><div class="seg"><button data-trip="rt" class="'+(s.trip==="rt"?"on":"")+'">Round trip</button><button data-trip="ow" class="'+(s.trip==="ow"?"on":"")+'">One way</button></div>';
+    h+='<div class="card"><div class="seg"><button type="button" data-trip="rt" aria-pressed="'+(s.trip==="rt")+'" class="'+(s.trip==="rt"?"on":"")+'">Round trip</button><button type="button" data-trip="ow" aria-pressed="'+(s.trip==="ow")+'" class="'+(s.trip==="ow"?"on":"")+'">One way</button></div>';
     h+='<div class="grid"><div class="field"><label for="from">From</label><select id="from">'+airportOpts(s.from)+'</select></div><div class="field"><label for="to">To</label><select id="to">'+airportOpts(s.to)+'</select></div></div>';
-    h+='<div class="grid"><div class="field"><label for="dep">Depart</label><input type="date" id="dep" value="'+s.depart+'"></div><div class="field'+(s.trip==="ow"?" hidden":"")+'"><label for="ret">Return</label><input type="date" id="ret" value="'+s.ret+'"></div></div>';
+    h+='<div class="grid"><div class="field"><label for="dep">Depart</label><input type="date" id="dep" min="'+iso(new Date())+'" value="'+s.depart+'"></div><div class="field'+(s.trip==="ow"?" hidden":"")+'"><label for="ret">Return</label><input type="date" id="ret" min="'+s.depart+'" value="'+s.ret+'"></div></div>';
     h+='<div class="field"><label>Travelers</label><div class="stepper"><button type="button" id="minus" aria-label="Fewer travelers">&minus;</button><span id="tc">'+s.trav+'</span><button type="button" id="plus" aria-label="More travelers">+</button></div></div>';
     h+='<div class="note" style="margin:0 0 16px">Every traveler is priced, not just one.</div>';
-    h+='<button class="btn" id="search">Search flights</button></div>';
+    h+='<button type="button" class="btn" id="search">Search flights</button></div>';
     return h;
   }
   function bindSearch(){
@@ -186,7 +189,7 @@
     var h='<h1>'+esc(AIRPORTS[s.from][0])+' to '+esc(AIRPORTS[s.to][0])+'</h1>';
     h+='<p class="note">'+fmt(s.depart)+(s.trip==="rt"?' to '+fmt(s.ret):', one way')+' · '+s.trav+' traveler'+(s.trav>1?'s':'')+' · <a href="#" id="edit">Change search</a></p>';
     h+='<div class="card"><h3>My dates are different</h3><p class="note" style="margin-bottom:8px">Tap a day to move your trip'+(len?' (keeps your '+len+'-night length)':'')+'. Prices are per person, round trip.</p><div class="spread">';
-    days.forEach(function(d,i){h+='<button data-d="'+d+'" class="'+(d===s.depart?"sel ":"")+(prices[i]===low?"low":"")+'"><div class="d">'+fmt(d)+'</div><div class="p">'+money(prices[i])+'</div>'+(prices[i]===low?'<div class="d">Lowest shown</div>':'<div class="d">&nbsp;</div>')+'</button>'});
+    days.forEach(function(d,i){h+='<button type="button" data-d="'+d+'" aria-pressed="'+(d===s.depart)+'" aria-label="'+fmt(d)+', '+money(prices[i])+' per person" class="'+(d===s.depart?"sel ":"")+(prices[i]===low?"low":"")+'"><div class="d">'+fmt(d)+'</div><div class="p">'+money(prices[i])+'</div>'+(prices[i]===low?'<div class="d">Lowest shown</div>':'<div class="d">&nbsp;</div>')+'</button>'});
     h+='</div><p class="note" style="margin:0">Sample prices for the demo. In the live version these come from Sabre.</p></div>';
     var its=itineraries();
     its.forEach(function(it,i){
@@ -194,7 +197,7 @@
       h+='<div class="leg"><div><div class="t">'+it.out+'</div><div class="m">'+fmt(s.depart)+' · '+it.air+' · '+(it.stops?'1 stop':'Nonstop')+' · '+durTxt(it.outDur)+'</div></div></div>';
       if(s.trip==="rt")h+='<div class="leg"><div><div class="t">'+it.back+'</div><div class="m">'+fmt(s.ret)+' · '+it.air+' · '+(it.stops?'1 stop':'Nonstop')+' · '+durTxt(it.backDur)+'</div></div></div>';
       h+='<div class="flightfoot"><div class="note">Main cabin fare · taxes and fees included<br>'+(it.deal?'As found on '+fmtShort(s.found)+', subject to change':'Sample fare for the demo')+'</div><div class="price"><div class="big">'+money(it.price)+'</div><div class="note">per person</div></div></div>';
-      h+='<div style="margin-top:12px"><button class="btn small" data-pick="'+i+'">Choose this flight</button></div></div>';
+      h+='<div style="margin-top:12px"><button type="button" class="btn small" data-pick="'+i+'">Choose this flight</button></div></div>';
     });
     window._its=its;
     h+='<p class="note">Book Now keeps you here. A Traverse agent confirms the price and books it for you.</p>';
@@ -225,7 +228,7 @@
     h+='<p class="note" style="margin-top:-6px">Your agent contacts you by email.</p>';
     h+='<div class="field"><label for="notes">Anything else?</label><textarea id="notes" rows="3" placeholder="Seat preferences, bags, a hotel, questions">'+esc(s.notes)+'</textarea></div>';
     h+='<div class="dealbox" style="margin-bottom:16px"><b>No payment now.</b> You are sending a request. Your Traverse agent emails you to confirm the price and finish the booking.</div>';
-    h+='<button class="btn" id="send">Send my request</button></div>';
+    h+='<button type="button" class="btn" id="send">Send my request</button></div>';
     return h;
   }
   function bindDetails(){
@@ -252,7 +255,7 @@
     h+='<p>A Traverse agent will email you at <b>'+esc(s.email)+'</b> to confirm your trip and the price. You talk to a person, not a website.</p>';
     h+='<h3>What happens next</h3><ul class="timeline"><li><b>Your request reaches a Traverse agent.</b><br><span class="note">Every request is handled by a person.</span></li><li><b>The agent confirms the flights and the final price.</b><br><span class="note">If your dates differ from the deal, the price may change.</span></li><li><b>The agent books and ticketed travel is emailed to you.</b><br><span class="note">White Glove Service, including help if plans change.</span></li></ul></div>';
     h+='<details><summary>Demo only: what the Traverse agent receives</summary><pre>To: info@flytraverse.com\nSubject: '+esc(leadSubject())+'\nReply-To: '+esc(s.email)+'\n\nTravelers ('+s.trav+'): '+esc(s.pax.map(function(p){return p.f+" "+p.l}).join(", "))+'\nRoute: '+s.from+' to '+s.to+'\nDepart: '+s.depart+(s.trip==="rt"?'\nReturn: '+s.ret:'')+'\nChosen: '+esc(s.pick.air+" "+s.pick.nums)+', '+money(s.pick.price)+' per person (sample)\nNotes: '+esc(s.notes||"none")+'\nCame from deal link: '+(fromLink?"yes":"no")+'</pre><p class="note" style="margin:10px 0 0">In the demo nothing is sent.</p></details>';
-    h+='<button class="btn ghost" id="again">Start over</button>';
+    h+='<button type="button" class="btn ghost" id="again">Start over</button>';
     return h;
   }
 
@@ -260,7 +263,7 @@
     steps();
     var v=document.getElementById("view");
     v.innerHTML=[viewSearch,viewResults,viewDetails,viewDone][s.step]();
-    if(s.step===0){v.insertAdjacentHTML("beforeend",'<div id="msg" class="note" style="display:none;color:#9a3b2e"></div>');bindSearch()}
+    if(s.step===0){v.insertAdjacentHTML("beforeend",'<div id="msg" role="alert" class="note" style="display:none;color:#9a3b2e"></div>');bindSearch()}
     else if(s.step===1)bindResults();
     else if(s.step===2)bindDetails();
     else document.getElementById("again").onclick=function(){s.pick=null;s.pax=[];s.email="";s.notes="";go(0)};
